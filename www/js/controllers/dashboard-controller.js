@@ -8,9 +8,9 @@ angular.module('starter')
   //
   //$scope.$on('$ionicView.enter', function(e) {
   //});
-  console.log(OrderService);
-  $scope.upcomingOrders = OrderService.getAllOrders().then(function(orders){
-  	console.log('orders',orders);
+   OrderService.getAllOrders().then(function(orders){
+  	console.log('orders',orders.data);
+  	$scope.upcomingOrders = orders.data;
   });
 
 });

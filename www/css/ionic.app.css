@@ -7747,3 +7747,12 @@ a.button {
   background-position: 50%;
   height: 100%;
   background-size: contain; }
+
+.order-list-wrapper .order-list {
+  height: 500px;
+  width: 350px;
+  border: 1px solid black; }
+  .order-list-wrapper .order-list .block {
+    height: 250px;
+    width: 250px;
+    border: 1px solid red; }

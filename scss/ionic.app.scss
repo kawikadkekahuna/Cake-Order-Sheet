@@ -84,3 +84,16 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 	}
 
 }
+.order-list-wrapper{
+	.order-list{
+		height:500px;
+		width:350px;
+		border:1px solid black;
+		.block{
+			height:250px;
+			width:250px;
+			border:1px solid red;
+		}
+
+	}
+}
