@@ -8,4 +8,5 @@ angular.module('starter')
   //
   //$scope.$on('$ionicView.enter', function(e) {
   //});
+  $scope.upcomingOrders = ['One','Two','Three'];
 });
