@@ -15,9 +15,15 @@ module.exports = function(sequelize, DataTypes) {
     cake_flavor: DataTypes.STRING,
     first_name: DataTypes.STRING,
     last_name: DataTypes.STRING,
-    email: DataTypes.STRING,
     phone: DataTypes.STRING,
     pickup_date: DataTypes.STRING,
+    pickup_time: DataTypes.STRING,
+    paid_status: DataTypes.STRING,
+    order_processed: DataTypes.STRING,
+    message:DataTypes.STRING,
+    design:DataTypes.STRING,
+    message_color:DataTypes.STRING,
+    other_message:DataTypes.STRING
 
   }, {
     underscored: true,

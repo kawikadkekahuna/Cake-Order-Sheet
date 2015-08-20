@@ -39,50 +39,15 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 		display:inline-block;	
 		.information-icon{
 			position:absolute;
-			right:0;
 			text-align: left;
+			right:0;
 			background-image:url('/img/information.svg');
-			height:30px;
-			width:30px;
 			background-size:cover;
 		}
 
 	}
 	
 	
-}
-
-.navigation-bar{
-
-	.icon.nav-completed{
-		background-image: url('/img/letter-x3.svg');
-		background-repeat: no-repeat;
-		background-position: 50%;
-		height: 100%;
-		background-size:contain;
-	}
-	.icon.nav-orders{
-		background-image: url('/img/baker4.svg');
-		background-repeat: no-repeat;
-		background-position: 50%;
-		height: 100%;
-		background-size:contain;
-	}
-	.icon.nav-calendar{
-		background-image: url('/img/event5.svg');
-		background-repeat: no-repeat;
-		background-position: 50%;
-		height: 100%;
-		background-size:contain;
-	}
-	.icon.nav-dash{
-		background-image: url('/img/home87.svg');
-		background-repeat: no-repeat;
-		background-position: 50%;
-		height: 100%;
-		background-size:contain;
-	}
-
 }
 .order-list-wrapper{
 	.order-list{
