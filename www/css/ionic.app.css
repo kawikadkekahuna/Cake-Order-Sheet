@@ -7722,8 +7722,8 @@ a.button {
       background-size: cover; }
 
 .order-list-wrapper .order-list {
-  height: 500px;
-  width: 350px;
+  height: 100%;
+  width: 50%;
   border: 1px solid black; }
   .order-list-wrapper .order-list .block {
     height: 250px;

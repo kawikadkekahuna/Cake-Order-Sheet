@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('DashController', function($scope, OrderService) {
+.controller('SingleOrderController', function($scope,$state,$localStorage,$stateParams) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -8,6 +8,7 @@ angular.module('starter')
   //
   //$scope.$on('$ionicView.enter', function(e) {
   //});
-
+  //
+ console.log('order_number',$stateParams.order_number);
 
 });

@@ -44,15 +44,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 			background-image:url('/img/information.svg');
 			background-size:cover;
 		}
-
 	}
-	
-	
 }
 .order-list-wrapper{
 	.order-list{
-		height:500px;
-		width:350px;
+		height:100%;
+		width:50%;
 		border:1px solid black;
 		.block{
 			height:250px;

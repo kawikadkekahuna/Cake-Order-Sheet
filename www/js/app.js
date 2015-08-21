@@ -1,4 +1,4 @@
-SERVER = 'http://localhost:3000';
+SERVER = 'http://192.168.1.117:3000';
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -6,7 +6,7 @@ SERVER = 'http://localhost:3000';
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic'])
+angular.module('starter', ['ionic', 'ngStorage'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -24,8 +24,8 @@ angular.module('starter', ['ionic'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
- $ionicConfigProvider.tabs.position('bottom');
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+  $ionicConfigProvider.tabs.position('bottom');
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
@@ -33,14 +33,13 @@ angular.module('starter', ['ionic'])
   $stateProvider
 
   // setup an abstract state for the navs directive
+
+
     .state('nav', {
     url: '/nav',
     abstract: true,
     templateUrl: 'templates/navigation-bar.html'
   })
-
-
-  // Each nav has its own nav history stack:
 
   .state('nav.dash', {
     url: '/dash',
@@ -51,6 +50,7 @@ angular.module('starter', ['ionic'])
       }
     }
   })
+
 
   .state('nav.completed', {
     url: '/completed',
@@ -63,24 +63,37 @@ angular.module('starter', ['ionic'])
   })
 
   .state('nav.orders', {
-      url: '/orders',
-      views: {
-        'nav-orders': {
-          templateUrl: 'templates/nav-orders.html',
-          controller: 'OrdersController'
-        }
+    url: '/orders',
+    views: {
+      'nav-orders': {
+        templateUrl: 'templates/nav-orders.html',
+        controller: 'OrdersController'
       }
-    })
+    }
+  })
 
-    .state('nav.calendar', {
-      url: '/calendar',
-      views: {
-        'nav-calendar': {
-          templateUrl: 'templates/nav-calendar.html',
-          controller: 'CalendarController'
-        }
+  .state('nav.single', {
+    url: '/single',
+    params: {
+      order_number: null
+    },
+    views: {
+      'nav-single': {
+        templateUrl: 'templates/single-order.html',
+        controller: 'SingleOrderController'
       }
-    });
+    }
+  })
+
+  .state('nav.calendar', {
+    url: '/calendar',
+    views: {
+      'nav-calendar': {
+        templateUrl: 'templates/nav-calendar.html',
+        controller: 'CalendarController'
+      }
+    }
+  });
 
 
   $urlRouterProvider.otherwise('/nav/dash');
