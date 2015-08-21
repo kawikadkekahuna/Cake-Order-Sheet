@@ -9,6 +9,10 @@ angular.module('starter')
   //$scope.$on('$ionicView.enter', function(e) {
   //});
   //
- console.log('order_number',$stateParams.order_number);
+ var orderData = $localStorage.allOrders.filter(function(element,index,array){
+ 	return element.id === $stateParams.order_number
+ }); 
+
+
 
 });
