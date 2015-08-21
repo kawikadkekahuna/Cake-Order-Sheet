@@ -9,12 +9,13 @@ angular.module('starter')
 
 	$scope.$on('$ionicView.enter', function(e) {
 		$scope.orderData = $localStorage.allOrders.filter(function(element, index, array) {
-			return element.id === $stateParams.order_number
+			return element.id === $stateParams.order_number;
 		})[0];
-
-		console.log('$scope.orderData',$scope.orderData);
 	});
 
+	$scope.return = function() {
+		$state.go($stateParams.previous_view);
+	}
 
 
 });

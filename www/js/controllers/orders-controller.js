@@ -1,6 +1,8 @@
 angular.module('starter')
 
 .controller('OrdersController', function($scope, OrderService, $state, $localStorage) {
+	var CURRENT_STATE = 'nav.orders';
+
 	// With the new view caching in Ionic, Controllers are only called
 	// when they are recreated or on app start, instead of every page change.
 	// To listen for when this page is active (for example, to refresh data),
@@ -19,8 +21,9 @@ angular.module('starter')
 	$scope.upcomingOrders = $localStorage.allOrders;
 
 	$scope.showOrder = function(order_number) {
-		$state.go('nav.single',{
-			order_number: order_number
+		$state.go('nav-orders.single',{
+			order_number: order_number,
+			previous_view: CURRENT_STATE
 		});
 	}
 

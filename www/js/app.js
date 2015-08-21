@@ -35,7 +35,7 @@ angular.module('starter', ['ionic', 'ngStorage'])
   // setup an abstract state for the navs directive
 
 
-    .state('nav', {
+  .state('nav', {
     url: '/nav',
     abstract: true,
     templateUrl: 'templates/navigation-bar.html'
@@ -75,7 +75,8 @@ angular.module('starter', ['ionic', 'ngStorage'])
   .state('nav.single', {
     url: '/single',
     params: {
-      order_number: null
+      order_number: null,
+      previous_view: null
     },
     views: {
       'nav-single': {
