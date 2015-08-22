@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('OrderFormController', function($scope,$stateParams) {
+.controller('OrderFormController', function($scope,$stateParams,FlavorService) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -14,9 +14,14 @@ angular.module('starter')
     phone_number:$stateParams.phone_number
   };
 
-  $scope.init = function(){
-
+  $scope.init = function() {
+    FlavorService.getAllFlavors().then(function(res){
+      $scope.flavors = res;
+      console.log('res',res);
+    })
   }
+
+
 
 });
 

@@ -18,7 +18,7 @@ angular.module('starter', ['ionic', 'ngStorage']).directive('fancySelect',
                 restrict : 'E',
 
                 /* Our template */
-                templateUrl: 'templates/single-order.html',
+                templateUrl: 'templates/nav-orders.html',
 
                 /* Attributes to set */
                 scope: {
@@ -70,7 +70,7 @@ angular.module('starter', ['ionic', 'ngStorage']).directive('fancySelect',
                      * 
                      */
                     $ionicModal.fromTemplateUrl(
-                        'select-flavors.html',
+                        'templates/select-flavors.html',
                           {'scope': scope}
                     ).then(function(modal) {
                         scope.modal = modal;
