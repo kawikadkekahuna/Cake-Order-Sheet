@@ -62,6 +62,7 @@ angular.module('starter', ['ionic', 'ngStorage'])
     }
   })
 
+
   .state('nav.orders', {
     url: '/orders',
     views: {
@@ -79,12 +80,13 @@ angular.module('starter', ['ionic', 'ngStorage'])
       previous_view: null
     },
     views: {
-      'nav-single': {
+      'nav-orders': {
         templateUrl: 'templates/single-order.html',
         controller: 'SingleOrderController'
       }
     }
   })
+  
 
   .state('nav.calendar', {
     url: '/calendar',
