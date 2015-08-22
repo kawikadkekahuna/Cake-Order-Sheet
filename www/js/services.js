@@ -2,7 +2,7 @@
 
 angular.module('starter')
   .service('OrderService', ['$http', OrderService])
-  .service('FlavorService',['$http',FlavorService])
+  .service('FlavorService',['$http', FlavorService])
 
 
 function OrderService($http) {

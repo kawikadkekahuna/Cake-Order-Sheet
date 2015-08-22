@@ -7,8 +7,7 @@ var db = require('../models').Flavor;
 router.get('/', function(req, res) {
 
 	db.findAll().then(function(flavors) {
-		console.log(orders);
-		res.json(orders);
+		res.json(flavors);
 	});
 
 });

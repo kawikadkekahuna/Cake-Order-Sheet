@@ -1,7 +1,8 @@
 // SERVER = 'http://192.168.1.117:3000';
-
+// SERVER ='http://localhost:3000';
 /*Mobile HotSpot IP*/
 SERVER = 'http://192.168.43.172:3000';
+
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -18,7 +19,7 @@ angular.module('starter', ['ionic', 'ngStorage']).directive('fancySelect',
                 restrict : 'E',
 
                 /* Our template */
-                templateUrl: 'templates/nav-order-form.html',
+                templateUrl: 'templates/flavor-select.html',
 
                 /* Attributes to set */
                 scope: {
@@ -123,6 +124,7 @@ angular.module('starter', ['ionic', 'ngStorage']).directive('fancySelect',
                     /* Show list */
                     scope.showItems = function (event) {
                         event.preventDefault();
+                        console.log('click');
                         scope.modal.show();
                     }
 
@@ -186,7 +188,7 @@ angular.module('starter', ['ionic', 'ngStorage']).directive('fancySelect',
   // setup an abstract state for the navs directive
 
 
-    .state('nav', {
+  .state('nav', {
     url: '/nav',
     abstract: true,
     templateUrl: 'templates/navigation-bar.html',

@@ -1,5 +1,12 @@
-<ion-view view-title="Flavors">
-  <ion-content class="padding" ng-repeat="flavor in Flavors">
-	<div>{{flavor.name}}</div>
+<ion-view class="modal" view-title="Flavors">
+  <ion-content class="padding">
+    <div class="list">
+      <ion-toggle ng-repeat="item in items" ng-if="multiSelect" ng-checked="item.checked" ng-model="item.checked" class="item item-text-wrap">
+        <div class="fancy-select-icon" ng-if="item.icon != null">
+          <img src="{{item.icon}}"/>
+        </div>
+        {{item.text}}
+      </ion-toggle>
+    </div>
   </ion-content>
 </ion-view>
