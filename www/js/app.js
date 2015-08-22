@@ -70,7 +70,7 @@ angular.module('starter', ['ionic', 'ngStorage']).directive('fancySelect',
                      * 
                      */
                     $ionicModal.fromTemplateUrl(
-                        'fancy-select-items.html',
+                        'select-flavors.html',
                           {'scope': scope}
                     ).then(function(modal) {
                         scope.modal = modal;
@@ -246,6 +246,16 @@ angular.module('starter', ['ionic', 'ngStorage']).directive('fancySelect',
       'nav-orders': {
         templateUrl: 'templates/nav-contact-form.html',
         controller: 'ContactFormController'
+      }
+    }
+  })
+
+  .state('nav.select-flavors', {
+    url: '/select-flavors',
+    views: {
+      'nav-orders': {
+        templateUrl: 'templates/select-flavors.html',
+        controller: 'SelectFlavorsController'
       }
     }
   })

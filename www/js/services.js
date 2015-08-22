@@ -2,7 +2,7 @@
 
 angular.module('starter')
   .service('OrderService', ['$http', OrderService])
-
+  .service('FlavorService',['$http',FlavorService])
 
 
 function OrderService($http) {
@@ -26,6 +26,14 @@ function OrderService($http) {
       id: id
     });
 
+  }
+
+}
+
+function FlavorService($http){
+
+  this.getAllFlavors = function(){
+    return $http.get(SERVER + '/api/flavor_routes/')
   }
 
 }
