@@ -25,7 +25,21 @@ router.post('/complete',function(req,res){
 		});
 	});
 
-})
+});
+
+router.post('/incomplete',function(req,res){
+
+	db.findOne({
+		where:{
+			id: req.body.id
+		}
+	}).then(function(order){
+		order.updateAttributes({'completed':false}).then(function(orderData){
+			res.json(orderData)
+		});
+	});
+
+});
 
 
 module.exports = router;

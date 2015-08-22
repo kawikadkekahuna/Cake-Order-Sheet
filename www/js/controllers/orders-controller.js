@@ -26,7 +26,6 @@ angular.module('starter')
 		OrderService.getAllOrders().then(function(orders) {
 			delete($localStorage.allOrders);
 			$localStorage.allOrders = orders.data;
-			console.log('$localStorage.allOrders',$localStorage.allOrders);
 		});
 	}
 
@@ -35,11 +34,7 @@ angular.module('starter')
 			var order = $localStorage.allOrders.filter(function(element){
 				return element.id == id
 			})[0];
-			console.log('order',order.id);
-			console.log('order',order.completed);
 			order.completed = true;
-			console.log('order',order.completed);
-			// $scope.updateOrders();
 		});
 	}
 

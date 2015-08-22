@@ -9,7 +9,6 @@ angular.module('starter')
 	//$scope.$on('$ionicView.enter', function(e) {
 	//});
 	$scope.init = function() {
-
 		OrderService.getAllOrders().then(function(orders) {
 			delete($localStorage.allOrders);
 			$localStorage.allOrders = orders.data;
