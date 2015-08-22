@@ -1,4 +1,7 @@
-SERVER = 'http://192.168.1.117:3000';
+// SERVER = 'http://192.168.1.117:3000';
+
+/*Mobile HotSpot IP*/
+SERVER = 'http://192.168.43.172:3000';
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -38,7 +41,8 @@ angular.module('starter', ['ionic', 'ngStorage'])
   .state('nav', {
     url: '/nav',
     abstract: true,
-    templateUrl: 'templates/navigation-bar.html'
+    templateUrl: 'templates/navigation-bar.html',
+    controller:'MainController'
   })
 
   .state('nav.dash', {
@@ -69,6 +73,26 @@ angular.module('starter', ['ionic', 'ngStorage'])
       'nav-orders': {
         templateUrl: 'templates/nav-orders.html',
         controller: 'OrdersController'
+      }
+    }
+  })
+
+  .state('nav.order-form', {
+    url: '/order-form',
+    views: {
+      'nav-orders': {
+        templateUrl: 'templates/nav-order-form.html',
+        controller: 'OrderFormController'
+      }
+    }
+  })
+
+  .state('nav.contact-form', {
+    url: '/contact-form',
+    views: {
+      'nav-orders': {
+        templateUrl: 'templates/nav-contact-form.html',
+        controller: 'ContactFormController'
       }
     }
   })

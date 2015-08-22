@@ -7703,23 +7703,12 @@ a.button {
 .header-wrapper {
   width: 100%;
   font-size: 25px;
-  text-align: center; }
-  .header-wrapper .br-logo {
-    width: 100%;
-    height: 100%;
-    display: inline-block;
-    float: left;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 800; }
-  .header-wrapper .icon-container {
-    height: 100%;
-    display: inline-block; }
-    .header-wrapper .icon-container .information-icon {
-      position: absolute;
-      text-align: left;
-      right: 0;
-      background-image: url('/img/information.svg');
-      background-size: cover; }
+  display: inherit; }
+  .header-wrapper .logo-text {
+    text-align: center;
+    width: 95%; }
+  .header-wrapper .add-order {
+    width: 5%; }
 
 .order-list-wrapper .order-list {
   height: 100%;
@@ -7732,3 +7721,8 @@ a.button {
 
 .order-data {
   border: 1px solid black; }
+
+.order-contact-information {
+  width: 100%; }
+  .order-contact-information .list .button-container {
+    text-align: right; }
