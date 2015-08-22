@@ -1,0 +1,15 @@
+INSERT INTO flavors VALUES (DEFAULT,'Oreo Cookies & Cream');
+INSERT INTO flavors VALUES (DEFAULT,'Chocolate Chip Cookie Dough');
+INSERT INTO flavors VALUES (DEFAULT,'Made With Snickers');
+INSERT INTO flavors VALUES (DEFAULT,'Pistachio Almond');
+INSERT INTO flavors VALUES (DEFAULT,'Rocky Road');
+INSERT INTO flavors VALUES (DEFAULT,'Chocolate');
+INSERT INTO flavors VALUES (DEFAULT,'Jamoca');
+INSERT INTO flavors VALUES (DEFAULT,'Mint Chocolate Chip');
+INSERT INTO flavors VALUES (DEFAULT,'Pralines n Cream');
+INSERT INTO flavors VALUES (DEFAULT,'Vanilla');
+INSERT INTO flavors VALUES (DEFAULT,'Chocolate Chip');
+INSERT INTO flavors VALUES (DEFAULT,'Jamoca Almond Fudge');
+INSERT INTO flavors VALUES (DEFAULT,'Peanut Butter & Chocolate');
+INSERT INTO flavors VALUES (DEFAULT,'Reeses Peanut Butter Cup');
+INSERT INTO flavors VALUES (DEFAULT,'Very Bery Strawberry');
