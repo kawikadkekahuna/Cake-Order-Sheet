@@ -1,16 +1,12 @@
-<ion-view view-title="OrderCakeForm">
-  <ion-content class="padding">
-	<div class="contact-box row">
-		<div class="first-name">First:{{contactData.first_name}}</div>
-		<div class="last-name">Last:{{contactData.last_name}}</div>
-		<div class="phone-number">Phone:{{contactData.phone_number}}</div>
-	</div>
-    <fancy-select
-              header-text="Multiple"
-              allow-empty="false"
-              value="val.single"
-              text="countries_text_single"
-              items="countries">
-	</fancy-select>
+<ion-view>
+  <ion-content>
+    <ion-item class="item-text-wrap" ng-click="showItems($event)">
+      Hello
+      <span class="item-note">
+        Note
+        <img class="{{noteImgClass}}" ng-if="noteImg != ''" src="{{noteImg}}" />
+      </span>
+    </ion-item>  
   </ion-content>
 </ion-view>
+

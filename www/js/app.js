@@ -18,7 +18,7 @@ angular.module('starter', ['ionic', 'ngStorage']).directive('fancySelect',
                 restrict : 'E',
 
                 /* Our template */
-                templateUrl: 'templates/nav-orders.html',
+                templateUrl: 'templates/nav-order-form.html',
 
                 /* Attributes to set */
                 scope: {
