@@ -37,6 +37,11 @@
           <span class="input-label">Pickup_date</span>
           <input type="date">
         </label>
+        <ionic-timepicker input-obj="timePickerObject">
+          <button class="button button-block button-positive overflowShow">
+            <standard-time-meridian etime='timePickerObject.inputEpochTime'></standard-time-meridian>
+          </button>
+        </ionic-timepicker>
     </div>
   </ion-content>
 </ion-view>
