@@ -4,18 +4,18 @@
 		<div class="list">
 		  <label class="item item-input item-floating-label">
 		    <div class="input-label first-name">First Name</div>
-		    <input type="text" placeholder="First Name">
+		    <input type="text" name="first" placeholder="First Name" ng-model="contact.first_name">
 		  </label>
 		  <label class="item item-input item-floating-label">
 		    <div class="input-label last-name">Last Name</div>
-		    <input type="text" placeholder="Last Name">
+		    <input type="text" name="last" placeholder="Last Name" ng-model="contact.last_name">
 		  </label>
 		  <label class="item item-input item-floating-label">
-		    <div class="input-label phone-number" ng-model="phone">Phone</div>
-		    <input type="tel" placeholder="Phone">
+		    <div class="input-label phone-number" >Phone</div>
+		    <input type="tel" name="phone" ng-model="contact.phone_number" placeholder="Phone">
 		  </label>
 		  <div class="button-container">
-		  	<button class="button button-positive">Next</button>
+		  	<button class="button button-positive" ng-click=next(contact)>Next</button>
 		  </div>
 		</div>
 	</div>

@@ -63,3 +63,44 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 		}
 	}
 }
+
+.contact-box{
+	display:inline-block;
+	text-align: center;
+	.first-name{
+		display:inline-block;
+		margin-right:5%;
+	}
+
+	.last-name{
+		display:inline-block;
+		margin-right:5%;
+	}
+
+	.phone-number{
+		display:inline-block;
+		margin-right:5%;
+
+	}
+}
+
+.order-form{
+	width:100%;
+	.size-dropdown{
+		width:33%;
+		border:1px solid black;
+		margin-right:5%;
+	}
+	.ice-cream-flavor-dropdown{
+		width:33%;
+		border:1px solid black;
+		margin-right:5%;
+	
+	}
+	.cake-type{
+		border:1px solid black;
+		width:33%;
+		margin-right:5%;
+	
+	}
+}

@@ -7726,3 +7726,31 @@ a.button {
   width: 100%; }
   .order-contact-information .list .button-container {
     text-align: right; }
+
+.contact-box {
+  display: inline-block;
+  text-align: center; }
+  .contact-box .first-name {
+    display: inline-block;
+    margin-right: 5%; }
+  .contact-box .last-name {
+    display: inline-block;
+    margin-right: 5%; }
+  .contact-box .phone-number {
+    display: inline-block;
+    margin-right: 5%; }
+
+.order-form {
+  width: 100%; }
+  .order-form .size-dropdown {
+    width: 33%;
+    border: 1px solid black;
+    margin-right: 5%; }
+  .order-form .ice-cream-flavor-dropdown {
+    width: 33%;
+    border: 1px solid black;
+    margin-right: 5%; }
+  .order-form .cake-type {
+    border: 1px solid black;
+    width: 33%;
+    margin-right: 5%; }

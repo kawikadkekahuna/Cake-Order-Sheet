@@ -1,23 +1,17 @@
 <ion-view view-title="OrderCakeForm" ng-init="init()">
   <ion-content class="padding">
-	<div class="order-cake-information">
-		<div class="list">
-		  <label class="item item-input item-floating-label">
-		    <div class="input-label first-name">First Name</div>
-		    <input type="text" placeholder="First Name">
-		  </label>
-		  <label class="item item-input item-floating-label">
-		    <div class="input-label last-name">Last Name</div>
-		    <input type="text" placeholder="Last Name">
-		  </label>
-		  <label class="item item-input item-floating-label">
-		    <div class="input-label phone-number" ng-model="phone">Phone</div>
-		    <input type="tel" placeholder="Phone">
-		  </label>
-		  <div class="button-container">
-		  	<button class="button button-positive">Next</button>
-		  </div>
+	<div class="contact-box row">
+		<div class="first-name">First:{{contactData.first_name}}</div>
+		<div class="last-name">Last:{{contactData.last_name}}</div>
+		<div class="phone-number">Phone:{{contactData.phone_number}}</div>
+	</div>
+	<div class="order-form row">
+		<div class="size-dropdown">
+        <fancy-select header-text="Single" allow-empty='false' value="val.single" text="countries_text_single" items="countries">
+        </fancy-select>
 		</div>
+		<div class="ice-cream-flavor-dropdown">Ice-Cream Flavor</div>
+		<div class="cake-type">Cake type</div>	
 	</div>
   </ion-content>
 </ion-view>
