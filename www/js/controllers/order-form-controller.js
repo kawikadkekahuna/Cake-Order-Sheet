@@ -8,11 +8,13 @@ angular.module('starter')
   //
   //$scope.$on('$ionicView.enter', function(e) {
   //});
-  console.log('$localStorage.allFlavors',$localStorage.allFlavors);
-  $scope.flavors = $localStorage.allFlavors;
-  $scope.flavorText = 'Flavors' 
-  $scope.val =  {single: null, multiple: null};
+  // $scope.cakeSelections = [{}.{}];
+  $scope.cakeText = 'Cake' 
+  $scope.cakeFlavors = [{id:1, text:'White', checked:false, icon:false},{id:2, text:'Chocolate', checked:false, icon:false},{id:3, text:'Fudge Crunch', checked:false, icon:false}]
 
+  $scope.flavors = $localStorage.allFlavors;
+  $scope.flavorText = 'Flavors'
+  $scope.val =  {single: null, multiple: null};
   $scope.contactData = {
     first_name: $stateParams.first_name,
     last_name: $stateParams.last_name,

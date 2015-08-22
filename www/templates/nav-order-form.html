@@ -1,13 +1,43 @@
 <ion-view>
   <ion-content>
-    <fancy-select
-                  header-text="Multiple"
-                  allow-empty='false'
-                  text="flavorText"
-                  items="flavors"
-                  multi-select="true"            
-                  >
-    </fancy-select>
+  <div class="order-form-container">
+        <div>icecream flavors
+            <fancy-select
+            header-text="Flavors"
+            allow-empty="false"
+            text="flavorText"
+            items="flavors"
+            multi-select="true"            
+            >
+            </fancy-select>
+        </div>
+        <div>cake flavors
+            <fancy-select
+            header-text="Cake"
+            allow-empty="false"
+            text="cakeText"
+            items="cakeFlavors"
+            multi-select="false"            
+            >
+            </fancy-select>
+        </div>
+        <label class="item item-input">
+          <span class="input-label">First Name</span>
+          <input type="text">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Last Name</span>
+          <input type="text">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Qty</span>
+          <input type="number">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Pickup_date</span>
+          <input type="date">
+        </label>
+    </div>
   </ion-content>
 </ion-view>
 
