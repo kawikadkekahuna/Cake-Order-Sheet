@@ -13,5 +13,19 @@ router.get('/', function(req,res) {
 
 });
 
+router.post('/complete',function(req,res){
+
+	db.findOne({
+		where:{
+			id: req.body.id
+		}
+	}).then(function(order){
+		order.updateAttributes({'completed':true}).then(function(orderData){
+			res.json(orderData)
+		});
+	});
+
+})
+
 
 module.exports = router;

@@ -13,17 +13,33 @@ angular.module('starter')
 	//
 	//
 	
-	OrderService.getAllOrders().then(function(orders) {
-		delete($localStorage.allOrders);
-		$localStorage.allOrders = orders.data;
-	});
-
-	$scope.upcomingOrders = $localStorage.allOrders;
+	$scope.upcomingOrders = $localStorage.allOrders;	
 
 	$scope.showOrder = function(order_number) {
-		$state.go('nav.single',{
+		$state.go('nav.single', {
 			order_number: order_number,
 			previous_view: CURRENT_STATE
+		});
+	}
+
+	$scope.updateOrders = function() {
+		OrderService.getAllOrders().then(function(orders) {
+			delete($localStorage.allOrders);
+			$localStorage.allOrders = orders.data;
+			console.log('$localStorage.allOrders',$localStorage.allOrders);
+		});
+	}
+
+	$scope.completeOrder = function(id) {
+		OrderService.completeOrder(id).then(function(order) {
+			var order = $localStorage.allOrders.filter(function(element){
+				return element.id == id
+			})[0];
+			console.log('order',order.id);
+			console.log('order',order.completed);
+			order.completed = true;
+			console.log('order',order.completed);
+			// $scope.updateOrders();
 		});
 	}
 

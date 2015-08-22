@@ -23,7 +23,8 @@ module.exports = function(sequelize, DataTypes) {
     message:DataTypes.STRING,
     design:DataTypes.STRING,
     message_color:DataTypes.STRING,
-    other_message:DataTypes.STRING
+    other_message:DataTypes.STRING,
+    completed:DataTypes.BOOLEAN
 
   }, {
     underscored: true,
