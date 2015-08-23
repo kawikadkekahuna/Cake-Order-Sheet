@@ -152,7 +152,6 @@ angular.module('starter')
             scope.text = flavor.text;
             scope.value = flavor.id;
             $localStorage.createOrder.cakeFlavor = flavor.text;
-            console.log('$localStorage.createOrder.cakeFlavor', $localStorage.createOrder.cakeFlavor);
             scope.hideItems();
           }
 
@@ -212,17 +211,6 @@ angular.module('starter')
   })
 
 .controller('OrderFormController', function($scope, $stateParams, FlavorService, $localStorage, CakeService) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-  // $scope.cakeSelections = [{}.{}];
-
-
-
   $scope.timePickerObject = {
     inputEpochTime: ((new Date()).getHours() * 60 * 60), //Optional
     step: 15, //Optional
@@ -245,26 +233,22 @@ angular.module('starter')
   }
 
   $scope.formFieldData = {
-    cakeText: 'Cake Order',
+    cakeFlavorText: 'Cake Flavors',
     cakeFlavors: $localStorage.cakeFlavors,
     cakeSizeText: 'Cake Size',
     cakeSizes: $localStorage.cakeSizes,
-    flavors: $localStorage.iceCreamFlavors,
     flavorText: 'Icecream Flavors',
+    flavors: $localStorage.iceCreamFlavors,
     first_name: $stateParams.first_name,
     last_name: $stateParams.last_name,
     phone_number: $stateParams.phone_number
   };
 
-
-  $scope.testFlavors = $localStorage.cakeFlavors;
-
   $scope.createOrder = function(orderData) {
-    orderData.icecream_flavor = $localStorage.createOrder.iceCreamFlavors;
+    orderData.icecream_flavor = $localStorage.createOrder.iceCreamFlavors ;
     orderData.cake_flavor = $localStorage.createOrder.cakeFlavor;
     orderData.pickup_time = $localStorage.createOrder.pickupTime;
     orderData.cake_size = $localStorage.createOrder.cakeSize;
-    console.log('orderData',orderData);
   }
 
 
