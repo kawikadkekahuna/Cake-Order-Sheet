@@ -1,5 +1,5 @@
-SERVER = 'http://192.168.1.117:3000';
-// SERVER ='http://localhost:3000';
+// SERVER = 'http://192.168.1.117:3000';
+SERVER ='http://localhost:3000';
 /*Mobile HotSpot IP*/
 // SERVER = 'http://192.168.43.172:3000';
 

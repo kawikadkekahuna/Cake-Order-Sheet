@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('DashController', function($scope, OrderService,FlavorService, $localStorage) {
+.controller('DashController', function($scope, OrderService,FlavorService,CakeService, $localStorage) {
 	// With the new view caching in Ionic, Controllers are only called
 	// when they are recreated or on app start, instead of every page change.
 	// To listen for when this page is active (for example, to refresh data),
@@ -9,18 +9,21 @@ angular.module('starter')
 	//$scope.$on('$ionicView.enter', function(e) {
 	//});
 	$scope.init = function() {
+		delete($localStorage);
 		OrderService.getAllOrders().then(function(orders) {
-			delete($localStorage.allOrders);
 			$localStorage.allOrders = orders.data;
-			alert('orders set');
 		});
 
-		FlavorService.getAllFlavors().then(function(flavors){
-			delete($localStorage.allFlavors);
-			$localStorage.allFlavors = flavors.data;
-			alert('flavors set');
-			alert($localStorage.allFlavors);
+		FlavorService.getAllFlavors().then(function(iceCreamFlavors){
+			$localStorage.iceCreamFlavors = iceCreamFlavors.data;
+		});
+		CakeService.getAllFlavors().then(function(cakeFlavors){
+			$localStorage.cakeFlavors = cakeFlavors.data;
+		});
+		CakeService.getAllSizes().then(function(cakeSizes){
+			$localStorage.cakeSizes = cakeSizes.data;
 		})
+
 		$localStorage.createOrder = {};
 	}
 

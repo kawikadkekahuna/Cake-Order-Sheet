@@ -20,7 +20,6 @@ app.use(function(req, res, next) {
 var routes = require('./routes');
 
 app.use('/api', routes);
-console.log('db',db);
 
 
 var server = app.listen(3000, function() {

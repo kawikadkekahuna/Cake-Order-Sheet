@@ -1,0 +1,15 @@
+INSERT INTO cake_size VALUES (DEFAULT,'1/6 Sheet',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'1/3 Sheet',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'1/2 Sheet',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'2/3 Sheet',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'Full Sheet',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'Full + 1/3 Sheet',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'Full + 1/2 Sheet',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'Full + 2/3 Sheet',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'Double-Full Sheet',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'6" Round',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'9" Round',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'Dome',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'Cupcake-Cake',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'Roll',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'Decoration Pack',false,false);

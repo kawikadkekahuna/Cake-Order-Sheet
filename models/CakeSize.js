@@ -1,7 +1,8 @@
 module.exports = function(sequelize, DataTypes) {
 
-  var Flavor = sequelize.define("Flavor", {
+  var CakeSize = sequelize.define("CakeSize", {
     id: {
+
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
@@ -10,18 +11,15 @@ module.exports = function(sequelize, DataTypes) {
     checked: DataTypes.BOOLEAN,
     icon: DataTypes.BOOLEAN
   }, {
-    
-    underscored: true,
     timestamps:false,
-    tableName: "flavors",
+    underscored: true,
+    tableName: "cake_size",
     classMethods: {
-/*
-      associate: function(models) {
-        Used for creating inner joins
-       
-      }*/
+
+      // associate: function(models) {
+      // }
     }
   });
 
-  return Flavor;
+  return CakeSize;
 }; 

@@ -5,8 +5,8 @@
             <fancy-select
             header-text="Flavors"
             allow-empty="false"
-            text="flavorText"
-            items="flavors"
+            text="formFieldData.flavorText"
+            items="formFieldData.flavors"
             multi-select="true"
             >
             </fancy-select>
@@ -15,10 +15,9 @@
             <fancy-select
             header-text="Cake"
             allow-empty="false"
-            text="cakeText"
-            items="cakeFlavors"
+            text="formFieldData.cakeText"
+            items="formFieldData.cakeFlavors"
             multi-select="false"
-            ng-model="order.cake_flavor"            
             >
             </fancy-select>
         </div>
@@ -36,6 +35,14 @@
             <standard-time-meridian etime='timePickerObject.inputEpochTime'></standard-time-meridian>
           </button>
         </ionic-timepicker>
+        <label class="item item-input">
+          <div class="input-label">Cake-Writing Message</div>
+          <input type="text" ng-model="order.cake_message">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Other Message</span>
+          <input type="text" ng-model="order.other_message">
+        </label>
         <button class="button submit" ng-click="createOrder(order)">Place Order!</button>
     </div>
   </ion-content>

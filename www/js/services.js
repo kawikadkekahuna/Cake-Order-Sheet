@@ -3,6 +3,7 @@
 angular.module('starter')
   .service('OrderService', ['$http', OrderService])
   .service('FlavorService',['$http', FlavorService])
+  .service('CakeService',['$http', CakeService])
 
 
 function OrderService($http) {
@@ -33,7 +34,22 @@ function OrderService($http) {
 function FlavorService($http){
 
   this.getAllFlavors = function(){
-    return $http.get(SERVER + '/api/flavor_routes/')
+    return $http.get(SERVER + '/api/icecream_routes/get_flavors')
   }
 
 }
+
+
+function CakeService($http){
+
+  this.getAllFlavors = function(){
+    return $http.get(SERVER+'/api/cake_routes/get_flavors');
+  }
+
+  this.getAllSizes = function(){
+    return $http.get(SERVER+'/api/cake_routes/get_sizes');
+
+  }
+
+}
+
