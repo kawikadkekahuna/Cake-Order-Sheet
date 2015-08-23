@@ -90,8 +90,8 @@ angular.module('starter')
               // Remove trailing comma
               scope.value = scope.value.substr(0, scope.value.length - 1);
               scope.text = scope.text.substr(0, scope.text.length - 2);
-
-              $localStorage.createOrder.iceCreamFlavor = scope.text;
+              $localStorage.createOrder.iceCreamFlavors = scope.text;
+              console.log('$localStorage.createOrder.iceCreamFlavors',$localStorage.createOrder.iceCreamFlavors);
             }
 
             // Select first value if not nullable
@@ -119,7 +119,6 @@ angular.module('starter')
           /* Show list */
           scope.showItems = function(event) {
             event.preventDefault();
-            console.log('click');
             scope.modal.show();
           }
 
@@ -141,7 +140,6 @@ angular.module('starter')
 
             // Set selected value
             scope.value = item.id;
-            $localStorage.createOrder.cakeFlavor = item.text;
             // Hide items
             scope.hideItems();
 
@@ -149,6 +147,20 @@ angular.module('starter')
             if (typeof scope.callback == 'function') {
               scope.callback(scope.value);
             }
+          }
+          scope.setCakeFlavor = function(flavor) {
+            scope.text = flavor.text;
+            scope.value = flavor.id;
+            $localStorage.createOrder.cakeFlavor = flavor.text;
+            console.log('$localStorage.createOrder.cakeFlavor', $localStorage.createOrder.cakeFlavor);
+            scope.hideItems();
+          }
+
+          scope.setCakeSize = function(size) {
+            scope.text = size.text;
+            scope.value = size.id;
+            $localStorage.createOrder.cakeSize = size.text;
+            scope.hideItems();
           }
         }
       };
@@ -185,7 +197,7 @@ angular.module('starter')
               var hoursRes = hours > 12 ? (hours - 12) : hours;
 
               var currentMeridian = meridian[parseInt(hours / 12)];
-              $localStorage.pickupTime = (prependZero(hoursRes) + ":" + prependZero(minutes) + " " + currentMeridian);
+              $localStorage.createOrder.pickupTime = (prependZero(hoursRes) + ":" + prependZero(minutes) + " " + currentMeridian);
               return (prependZero(hoursRes) + ":" + prependZero(minutes) + " " + currentMeridian);
             }
           }
@@ -235,6 +247,7 @@ angular.module('starter')
   $scope.formFieldData = {
     cakeText: 'Cake Order',
     cakeFlavors: $localStorage.cakeFlavors,
+    cakeSizeText: 'Cake Size',
     cakeSizes: $localStorage.cakeSizes,
     flavors: $localStorage.iceCreamFlavors,
     flavorText: 'Icecream Flavors',
@@ -243,14 +256,15 @@ angular.module('starter')
     phone_number: $stateParams.phone_number
   };
 
+
   $scope.testFlavors = $localStorage.cakeFlavors;
-  console.log('$scope.testFlavors',$scope.testFlavors);
-  
+
   $scope.createOrder = function(orderData) {
-    orderData.icecream_flavor = $localStorage.createOrder.iceCreamFlavor;
+    orderData.icecream_flavor = $localStorage.createOrder.iceCreamFlavors;
     orderData.cake_flavor = $localStorage.createOrder.cakeFlavor;
-    orderData.pickup_time = $localStorage.pickupTime;
-    console.log('orderData', orderData);
+    orderData.pickup_time = $localStorage.createOrder.pickupTime;
+    orderData.cake_size = $localStorage.createOrder.cakeSize;
+    console.log('orderData',orderData);
   }
 
 
