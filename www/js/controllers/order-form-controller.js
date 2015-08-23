@@ -210,7 +210,7 @@ angular.module('starter')
     };
   })
 
-.controller('OrderFormController', function($scope, $stateParams, FlavorService, $localStorage, CakeService) {
+.controller('OrderFormController', function($scope, $state, OrderService, $stateParams, FlavorService, $localStorage, CakeService) {
   $scope.timePickerObject = {
     inputEpochTime: ((new Date()).getHours() * 60 * 60), //Optional
     step: 15, //Optional
@@ -239,9 +239,6 @@ angular.module('starter')
     cakeSizes: $localStorage.cakeSizes,
     flavorText: 'Icecream Flavors',
     flavors: $localStorage.iceCreamFlavors,
-    first_name: $stateParams.first_name,
-    last_name: $stateParams.last_name,
-    phone_number: $stateParams.phone_number
   };
 
   $scope.createOrder = function(orderData) {
@@ -249,6 +246,13 @@ angular.module('starter')
     orderData.cake_flavor = $localStorage.createOrder.cakeFlavor;
     orderData.pickup_time = $localStorage.createOrder.pickupTime;
     orderData.cake_size = $localStorage.createOrder.cakeSize;
+    orderData.first_name = $stateParams.first_name;
+    orderData.last_name = $stateParams.last_name;
+    orderData.phone_number = $stateParams.phone_number;
+    console.log('orderData',orderData);
+    OrderService.placeOrder(orderData).then(function(res){
+      $state.go('nav.orders');
+    })
   }
 
 

@@ -29,6 +29,11 @@ function OrderService($http) {
 
   }
 
+  this.placeOrder = function(request){
+    return $http.post(SERVER + '/api/order_routes/place_order',{
+      orderData : request
+    });
+  }
 }
 
 function FlavorService($http){
