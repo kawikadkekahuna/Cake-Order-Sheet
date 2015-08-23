@@ -2,7 +2,8 @@ angular.module('starter')
 .directive('fancySelect', 
     [
         '$ionicModal',
-        function($ionicModal) {
+        '$localStorage',
+        function($ionicModal,$localStorage) {
             return {
                 /* Only use as <fancy-select> tag */
                 restrict : 'E',
@@ -86,6 +87,8 @@ angular.module('starter')
                             // Remove trailing comma
                             scope.value = scope.value.substr(0,scope.value.length - 1);
                             scope.text = scope.text.substr(0,scope.text.length - 2);
+
+                            $localStorage.createOrder.iceCreamFlavor = scope.text;
                         }
 
                         // Select first value if not nullable
@@ -135,7 +138,7 @@ angular.module('starter')
 
                         // Set selected value
                         scope.value = item.id;
-
+                        $localStorage.createOrder.cakeFlavor = item.text;
                         // Hide items
                         scope.hideItems();
                         
@@ -149,7 +152,7 @@ angular.module('starter')
         }
     ]
 )
-.directive('standardTimeMeridian', function() {
+.directive('standardTimeMeridian', function($localStorage) {
   return {
     restrict: 'AE',
     replace: true,
@@ -180,7 +183,7 @@ angular.module('starter')
             var hoursRes = hours > 12 ? (hours - 12) : hours;
 
             var currentMeridian = meridian[parseInt(hours / 12)];
-
+            $localStorage.pickupTime = (prependZero(hoursRes) + ":" + prependZero(minutes) + " " + currentMeridian);
             return (prependZero(hoursRes) + ":" + prependZero(minutes) + " " + currentMeridian);
           }
         }
@@ -248,7 +251,6 @@ function timePickerCallback(val) {
     checked: false,
     icon: false
   }]
-
   $scope.flavors = $localStorage.allFlavors;
   $scope.flavorText = 'Flavors'
   $scope.val = {
@@ -261,6 +263,11 @@ function timePickerCallback(val) {
     phone_number: $stateParams.phone_number
   };
 
+  $scope.createOrder = function(orderData,time){
+    orderData.icecream_flavor = $localStorage.createOrder.iceCreamFlavor;
+    orderData.cake_flavor = $localStorage.createOrder.cakeFlavor;
+    orderData.pickup_time = $localStorage.pickupTime;
+  }
 
 
 });

@@ -21,6 +21,7 @@ angular.module('starter')
 			alert('flavors set');
 			alert($localStorage.allFlavors);
 		})
+		$localStorage.createOrder = {};
 	}
 
 

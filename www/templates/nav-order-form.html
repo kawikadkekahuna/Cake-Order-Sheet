@@ -7,7 +7,7 @@
             allow-empty="false"
             text="flavorText"
             items="flavors"
-            multi-select="true"            
+            multi-select="true"
             >
             </fancy-select>
         </div>
@@ -17,31 +17,26 @@
             allow-empty="false"
             text="cakeText"
             items="cakeFlavors"
-            multi-select="false"            
+            multi-select="false"
+            ng-model="order.cake_flavor"            
             >
             </fancy-select>
         </div>
-        <label class="item item-input">
-          <span class="input-label">First Name</span>
-          <input type="text">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Last Name</span>
-          <input type="text">
-        </label>
+        <div ng-model="order.cake_order">cakeorder</div>
         <label class="item item-input">
           <span class="input-label">Qty</span>
-          <input type="number">
+          <input type="number" ng-model="order.quantity"> 
         </label>
         <label class="item item-input">
           <span class="input-label">Pickup_date</span>
-          <input type="date">
+          <input type="date" ng-model="order.pickup_date">
         </label>
         <ionic-timepicker input-obj="timePickerObject">
           <button class="button button-block button-positive overflowShow">
             <standard-time-meridian etime='timePickerObject.inputEpochTime'></standard-time-meridian>
           </button>
         </ionic-timepicker>
+        <button class="button submit" ng-click="createOrder(order)">Place Order!</button>
     </div>
   </ion-content>
 </ion-view>
