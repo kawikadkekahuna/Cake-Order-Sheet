@@ -12,11 +12,14 @@ angular.module('starter')
 		OrderService.getAllOrders().then(function(orders) {
 			delete($localStorage.allOrders);
 			$localStorage.allOrders = orders.data;
+			alert('orders set');
 		});
 
 		FlavorService.getAllFlavors().then(function(flavors){
 			delete($localStorage.allFlavors);
 			$localStorage.allFlavors = flavors.data;
+			alert('flavors set');
+			alert($localStorage.allFlavors);
 		})
 	}
 
