@@ -19,7 +19,9 @@ angular.module('starter')
 
 	$scope.editOrder = function(){
 		console.log('click');
-		$state.go('nav.edit-order');
+		$state.go('nav.edit-order',{
+			orderData:$scope.orderData
+		});
 	}
 
 });

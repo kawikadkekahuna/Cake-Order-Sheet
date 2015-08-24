@@ -170,7 +170,7 @@ angular.module('starter')
     }
   ])
 
-.controller('EditOrderController', function($scope,$localStorage) {
+.controller('EditOrderController', function($scope,$localStorage,$stateParams) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -187,5 +187,8 @@ angular.module('starter')
     flavorText: 'Icecream Flavors',
     flavors: $localStorage.iceCreamFlavors,
   };
+
+  $scope.order = $stateParams.orderData;
+  console.log('$scope.order',$scope.order);
   
 });

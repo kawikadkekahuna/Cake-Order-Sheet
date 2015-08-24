@@ -230,6 +230,33 @@ angular.module('starter')
     }
   };
 
+  $scope.datepickerObject = {
+    titleLabel: 'Title', //Optional
+    todayLabel: 'Today', //Optional
+    closeLabel: 'Close', //Optional
+    setLabel: 'Set', //Optional
+    errorMsgLabel: 'Please select time.', //Optional
+    setButtonType: 'button-assertive', //Optional
+    inputDate: new Date(), //Optional
+    mondayFirst: true, //Optional
+    templateType: 'modal', //Optional
+    modalHeaderColor: 'bar-positive', //Optional
+    modalFooterColor: 'bar-positive', //Optional
+    from: new Date(2012, 8, 2), //Optional
+    to: new Date(2018, 8, 25), //Optional
+    callback: function(val) { //Mandatory
+      datePickerCallback(val);
+    }
+  };
+
+  var datePickerCallback = function(val) {
+    if (typeof(val) === 'undefined') {
+      console.log('No date selected');
+    } else {
+      console.log('Selected date is : ', val)
+    }
+  };
+
   function timePickerCallback(val) {
     if (typeof(val) === 'undefined') {
       return;
@@ -261,7 +288,6 @@ angular.module('starter')
     orderData.first_name = $stateParams.first_name;
     orderData.last_name = $stateParams.last_name;
     orderData.phone_number = $stateParams.phone_number;
-    orderData.pickup_date = TimeService.parseUTC(orderData.pickup_date);
     OrderService.placeOrder(orderData).then(function(res) {
       OrderService.getAllOrders().then(function(orders) {
         $localStorage.allOrders = orders.data;

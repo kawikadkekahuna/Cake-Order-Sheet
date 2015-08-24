@@ -10,7 +10,7 @@ SERVER = 'http://192.168.1.117:3000';
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker'])
+angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker','ionic-datepicker'])
 
 .run(function($ionicPlatform, $ionicHistory, $localStorage, FlavorService, OrderService, CakeService) {
   $ionicPlatform.registerBackButtonAction(function(event) {
@@ -112,6 +112,9 @@ angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker'])
 
   .state('nav.edit-order', {
     url: '/edit-order',
+    params:{
+      orderData:null
+    },
     views: {
       'nav-orders': {
         templateUrl: 'templates/nav-edit-order.html',
