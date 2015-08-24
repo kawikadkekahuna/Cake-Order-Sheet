@@ -12,10 +12,30 @@ SERVER = 'http://192.168.1.117:3000';
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $ionicHistory,$localStorage,FlavorService,OrderService,CakeService) {
+  $ionicPlatform.registerBackButtonAction(function(event) {
+    event.stopPropagation();
+    alert('propagation stopped');
+    $ionicHistory.goBack();
+  }, 100);
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
+    OrderService.getAllOrders().then(function(orders) {
+      $localStorage.allOrders = orders.data;
+    });
+
+    FlavorService.getAllFlavors().then(function(iceCreamFlavors) {
+      $localStorage.iceCreamFlavors = iceCreamFlavors.data;
+    });
+    CakeService.getAllFlavors().then(function(cakeFlavors) {
+      $localStorage.cakeFlavors = cakeFlavors.data;
+    });
+    CakeService.getAllSizes().then(function(cakeSizes) {
+      $localStorage.cakeSizes = cakeSizes.data;
+    })
+
+    $localStorage.createOrder = {};
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
@@ -28,7 +48,11 @@ angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider,$provide) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, $provide) {
+  //improves android functionality
+  if (ionic.Platform.isAndroid()) {
+    $ionicConfigProvider.scrolling.jsScrolling(false);
+  }
   $provide.decorator('$state', function($delegate, $stateParams) {
     $delegate.forceReload = function() {
       return $delegate.go($delegate.current, $stateParams, {
@@ -88,7 +112,7 @@ angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker'])
 
   .state('nav.order-form', {
     url: '/order-form',
-    cache:false,
+    cache: false,
     params: {
       first_name: null,
       last_name: null,
@@ -104,7 +128,7 @@ angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker'])
 
   .state('nav.contact-form', {
     url: '/contact-form',
-    cache:false,
+    cache: false,
     views: {
       'nav-orders': {
         templateUrl: 'templates/nav-contact-form.html',
@@ -115,7 +139,7 @@ angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker'])
 
   .state('nav.select-flavors', {
     url: '/select-flavors',
-    cache:false,
+    cache: false,
     views: {
       'nav-orders': {
         templateUrl: 'templates/select-flavors.html',

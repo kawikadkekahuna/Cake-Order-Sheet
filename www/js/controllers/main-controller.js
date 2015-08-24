@@ -9,6 +9,7 @@ angular.module('starter')
   //$scope.$on('$ionicView.enter', function(e) {
   //});
   //
+  
  $scope.addOrder = function(){
  	$state.go('nav.contact-form')
  }

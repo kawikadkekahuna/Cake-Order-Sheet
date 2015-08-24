@@ -3,7 +3,9 @@ angular.module('starter')
     '$ionicModal',
     '$localStorage',
     function($ionicModal, $localStorage) {
+
       return {
+
         /* Only use as <fancy-select> tag */
         restrict: 'E',
 
@@ -153,7 +155,7 @@ angular.module('starter')
           scope.setCakeFlavor = function(flavor) {
             scope.text = flavor.text;
             scope.value = flavor.id;
-            $localStorage.createOrder.cakeFlavor ='';
+            $localStorage.createOrder.cakeFlavor = '';
             $localStorage.createOrder.cakeFlavor = flavor.text;
             scope.hideItems();
           }
@@ -213,8 +215,8 @@ angular.module('starter')
     };
   })
 
-.controller('OrderFormController', function($scope, $state, OrderService, $stateParams, FlavorService,TimeService, $localStorage, CakeService) {
-  
+.controller('OrderFormController', function($scope, $ionicPlatform, $state, OrderService, $stateParams, FlavorService, TimeService, $localStorage, CakeService) {
+
   $scope.timePickerObject = {
     inputEpochTime: ((new Date()).getHours() * 60 * 60), //Optional
     step: 15, //Optional
@@ -246,9 +248,10 @@ angular.module('starter')
   };
 
   $scope.order = {
-    quantity:1,
+    quantity: 1,
     pickup_date: new Date()
   };
+
 
 
   $scope.createOrder = function(orderData) {
@@ -260,8 +263,8 @@ angular.module('starter')
     orderData.last_name = $stateParams.last_name;
     orderData.phone_number = $stateParams.phone_number;
     orderData.pickup_date = TimeService.parseUTC(orderData.pickup_date);
-    OrderService.placeOrder(orderData).then(function(res){
-      OrderService.getAllOrders().then(function(orders){
+    OrderService.placeOrder(orderData).then(function(res) {
+      OrderService.getAllOrders().then(function(orders) {
         $localStorage.allOrders = orders.data;
         $localStorage.createOrder = {};
         $state.go('nav.orders')
