@@ -7704,10 +7704,14 @@ a.button {
   width: 100%;
   font-size: 25px;
   display: inherit; }
+  .header-wrapper .back-button {
+    text-align: left;
+    width: 5%; }
   .header-wrapper .logo-text {
     text-align: center;
-    width: 95%; }
+    width: 90%; }
   .header-wrapper .add-order {
+    text-align: right;
     width: 5%; }
 
 .order-list-wrapper .order-list {

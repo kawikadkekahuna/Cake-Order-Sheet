@@ -214,6 +214,7 @@ angular.module('starter')
   })
 
 .controller('OrderFormController', function($scope, $state, OrderService, $stateParams, FlavorService,TimeService, $localStorage, CakeService) {
+  
   $scope.timePickerObject = {
     inputEpochTime: ((new Date()).getHours() * 60 * 60), //Optional
     step: 15, //Optional
@@ -243,8 +244,11 @@ angular.module('starter')
     flavorText: 'Icecream Flavors',
     flavors: $localStorage.iceCreamFlavors,
   };
-  $scope.order = {};
-  $scope.order.quantity = 1;
+
+  $scope.order = {
+    quantity:1,
+    pickup_date: new Date()
+  };
 
 
   $scope.createOrder = function(orderData) {
