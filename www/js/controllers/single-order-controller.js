@@ -17,5 +17,9 @@ angular.module('starter')
 		$state.go($stateParams.previous_view);
 	}
 
+	$scope.editOrder = function(){
+		console.log('click');
+		$state.go('nav.edit-order');
+	}
 
 });

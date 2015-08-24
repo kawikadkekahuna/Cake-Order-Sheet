@@ -1,5 +1,5 @@
 angular.module('starter')
-  .directive('fancySelect', [
+  .directive('editCakeOrder', [
     '$ionicModal',
     '$localStorage',
     function($ionicModal, $localStorage) {
@@ -169,74 +169,16 @@ angular.module('starter')
       };
     }
   ])
-  .directive('standardTimeMeridian', function($localStorage) {
-    return {
-      restrict: 'AE',
-      replace: true,
-      scope: {
-        etime: '=etime'
-      },
-      template: "<strong>{{stime}}</strong>",
-      link: function(scope, elem, attrs) {
 
-        scope.stime = epochParser(scope.etime, 'time');
-
-        function prependZero(param) {
-          if (String(param).length < 2) {
-            return "0" + String(param);
-          }
-          return param;
-        }
-
-        function epochParser(val, opType) {
-          if (val === null) {
-            return "00:00";
-          } else {
-            var meridian = ['AM', 'PM'];
-
-            if (opType === 'time') {
-              var hours = parseInt(val / 3600);
-              var minutes = (val / 60) % 60;
-              var hoursRes = hours > 12 ? (hours - 12) : hours;
-
-              var currentMeridian = meridian[parseInt(hours / 12)];
-              $localStorage.createOrder.pickupTime = (prependZero(hoursRes) + ":" + prependZero(minutes) + " " + currentMeridian);
-              return (prependZero(hoursRes) + ":" + prependZero(minutes) + " " + currentMeridian);
-            }
-          }
-        }
-
-        scope.$watch('etime', function(newValue, oldValue) {
-          scope.stime = epochParser(scope.etime, 'time');
-        });
-
-      }
-    };
-  })
-
-.controller('OrderFormController', function($scope, $ionicPlatform, $state, OrderService, $stateParams, FlavorService, TimeService, $localStorage, CakeService) {
-
-  $scope.timePickerObject = {
-    inputEpochTime: ((new Date()).getHours() * 60 * 60), //Optional
-    step: 15, //Optional
-    format: 12, //Optional
-    titleLabel: '12-hour Format', //Optional
-    setLabel: 'Set', //Optional
-    closeLabel: 'Close', //Optional
-    setButtonType: 'button-positive', //Optional
-    closeButtonType: 'button-stable', //Optional
-    callback: function(val) { //Mandatory
-      timePickerCallback(val);
-    }
-  };
-
-  function timePickerCallback(val) {
-    if (typeof(val) === 'undefined') {
-      return;
-    }
-    $scope.timePickerObject.inputEpochTime = val;
-  }
-
+.controller('EditOrderController', function($scope,$localStorage) {
+  // With the new view caching in Ionic, Controllers are only called
+  // when they are recreated or on app start, instead of every page change.
+  // To listen for when this page is active (for example, to refresh data),
+  // listen for the $ionicView.enter event:
+  //
+  //$scope.$on('$ionicView.enter', function(e) {
+  //});
+  //
   $scope.formFieldData = {
     cakeFlavorText: 'Cake Flavors',
     cakeFlavors: $localStorage.cakeFlavors,
@@ -245,31 +187,5 @@ angular.module('starter')
     flavorText: 'Icecream Flavors',
     flavors: $localStorage.iceCreamFlavors,
   };
-
-  $scope.order = {
-    quantity: 1,
-    pickup_date: new Date()
-  };
-
-
-
-  $scope.createOrder = function(orderData) {
-    orderData.icecream_flavor = $localStorage.createOrder.iceCreamFlavors;
-    orderData.cake_flavor = $localStorage.createOrder.cakeFlavor;
-    orderData.pickup_time = $localStorage.createOrder.pickupTime;
-    orderData.cake_size = $localStorage.createOrder.cakeSize;
-    orderData.first_name = $stateParams.first_name;
-    orderData.last_name = $stateParams.last_name;
-    orderData.phone_number = $stateParams.phone_number;
-    orderData.pickup_date = TimeService.parseUTC(orderData.pickup_date);
-    OrderService.placeOrder(orderData).then(function(res) {
-      OrderService.getAllOrders().then(function(orders) {
-        $localStorage.allOrders = orders.data;
-        $localStorage.createOrder = {};
-        $state.go('nav.orders')
-      });
-    })
-  }
-
-
+  
 });

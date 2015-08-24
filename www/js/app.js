@@ -12,7 +12,7 @@ SERVER = 'http://192.168.1.117:3000';
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker'])
 
-.run(function($ionicPlatform, $ionicHistory,$localStorage,FlavorService,OrderService,CakeService) {
+.run(function($ionicPlatform, $ionicHistory, $localStorage, FlavorService, OrderService, CakeService) {
   $ionicPlatform.registerBackButtonAction(function(event) {
     event.stopPropagation();
     alert('propagation stopped');
@@ -106,6 +106,16 @@ angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker'])
       'nav-orders': {
         templateUrl: 'templates/nav-orders.html',
         controller: 'OrdersController'
+      }
+    }
+  })
+
+  .state('nav.edit-order', {
+    url: '/edit-order',
+    views: {
+      'nav-orders': {
+        templateUrl: 'templates/nav-edit-order.html',
+        controller: 'EditOrderController'
       }
     }
   })

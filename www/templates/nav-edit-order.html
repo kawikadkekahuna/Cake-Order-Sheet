@@ -1,0 +1,72 @@
+<ion-view>
+  <ion-content>
+  EDIT FORM
+  <div class="order-form-container">
+        <div>icecream flavors
+            <edit-cake-order
+            header-text="Flavors"
+            allow-empty="false"
+            text="formFieldData.flavorText"\
+            items="formFieldData.flavors"
+            multi-select="true"
+            >
+            </edit-cake-order>
+        </div>
+        <div>cake flavors
+            <edit-cake-order
+            header-text="Cake"
+            allow-empty="false"
+            text="formFieldData.cakeFlavorText"
+            flavors="formFieldData.cakeFlavors"
+            multi-select="false"
+            >
+            </edit-cake-order>
+        </div>
+        <div>cake size
+            <edit-cake-order
+            header-text="Cake Size"
+            allow-empty="false"
+            text="formFieldData.cakeSizeText"
+            items="formFieldData.cakeSizes"
+            multi-select="false"
+            >
+            </edit-cake-order>
+        </div>
+        <div ng-model="order.cake_order">cakeorder</div>
+        <label class="item item-input">
+          <span class="input-label">Qty</span>
+          <input type="number" ng-model="order.quantity"> 
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Pickup_date</span>
+          <input type="date" ng-model="order.pickup_date">
+        </label>
+<!--         <ionic-timepicker input-obj="timePickerObject">
+          <button class="button button-block button-positive overflowShow">
+            <standard-time-meridian etime='timePickerObject.inputEpochTime'></standard-time-meridian>
+          </button>
+        </ionic-timepicker> -->
+        <label class="item item-input">
+          <div class="input-label">Frosting Color</div>
+          <input type="text" ng-model="order.frosting_color">
+        </label>
+        <label class="item item-input">
+          <div class="input-label">Design</div>
+          <input type="text" ng-model="order.design_message">
+        </label>
+        <label class="item item-input">
+          <ion-toggle ng-model="order.paid_status" toggle-class="toggle-calm">Paid Status</ion-toggle>
+        </label>
+        <label class="item item-input">
+          <div class="input-label">Cake-Writing Message</div>
+          <input type="text" ng-model="order.cake_message">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Other Message</span>
+          <input type="text" ng-model="order.other_message">
+        </label>
+        <button class="button submit" ng-click="createOrder(order)">Place Order!</button>
+    </div>
+  </ion-content>
+</ion-view>
+
