@@ -14,7 +14,7 @@ angular.module('starter')
         scope: {
 
           'flavors': '=',
-          
+
           'items': '=',
           /* Items list is mandatory */
           'text': '=',
@@ -154,10 +154,7 @@ angular.module('starter')
             scope.text = flavor.text;
             scope.value = flavor.id;
             $localStorage.createOrder.cakeFlavor ='';
-            console.log('flavor.text',flavor.text);
             $localStorage.createOrder.cakeFlavor = flavor.text;
-            alert('flavor set');
-            alert($localStorage.createOrder.cakeFlavor);
             scope.hideItems();
           }
 
@@ -165,8 +162,6 @@ angular.module('starter')
             scope.text = size.text;
             scope.value = size.id;
             $localStorage.createOrder.cakeSize = size.text;
-            alert('size set');
-            alert($localStorage.createOrder.cakeSize);
             scope.hideItems();
           }
         }
@@ -253,7 +248,6 @@ angular.module('starter')
 
 
   $scope.createOrder = function(orderData) {
-    console.log('$localStorage.createOrder.cakeFlavor',$localStorage.createOrder.cakeFlavor);
     orderData.icecream_flavor = $localStorage.createOrder.iceCreamFlavors;
     orderData.cake_flavor = $localStorage.createOrder.cakeFlavor;
     orderData.pickup_time = $localStorage.createOrder.pickupTime;
@@ -262,14 +256,10 @@ angular.module('starter')
     orderData.last_name = $stateParams.last_name;
     orderData.phone_number = $stateParams.phone_number;
     orderData.pickup_date = TimeService.parseUTC(orderData.pickup_date);
-    console.log('orderData',orderData);
     OrderService.placeOrder(orderData).then(function(res){
       OrderService.getAllOrders().then(function(orders){
-        console.log('order placed');
         $localStorage.allOrders = orders.data;
-        console.log('$localStorage.createOrder',$localStorage.createOrder);
         $localStorage.createOrder = {};
-        console.log('$localStorage.createOrder',$localStorage.createOrder);
         $state.go('nav.orders')
       });
     })

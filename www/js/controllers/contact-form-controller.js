@@ -15,9 +15,6 @@ angular.module('starter')
   }
 
   $scope.next = function(contactData){
-    console.log('first',contactData.first_name);
-    console.log('last',contactData.last_name);
-    console.log('phone',contactData.phone_number);
     var contactInfo =  {
       first_name: contactData.first_name,
       last_name: contactData.last_name,

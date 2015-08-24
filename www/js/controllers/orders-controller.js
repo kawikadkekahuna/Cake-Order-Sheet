@@ -25,7 +25,6 @@ angular.module('starter')
 			delete($localStorage.allOrders);
 			$localStorage.allOrders = orders.data;
 		});
-		alert('done');
 	}
 
 	$scope.completeOrder = function(id) {
