@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('OrdersController', function($scope, OrderService, $state, $localStorage) {
+.controller('OrdersController', function($scope, OrderService, $state, $localStorage,OrderService) {
 	var CURRENT_STATE = 'nav.orders';
 
 	// With the new view caching in Ionic, Controllers are only called
@@ -8,10 +8,8 @@ angular.module('starter')
 	// To listen for when this page is active (for example, to refresh data),
 	// listen for the $ionicView.enter event:
 	//
-	//$scope.$on('$ionicView.enter', function(e) {
-	//});
-	//
-	//
+	
+	
 	
 	$scope.upcomingOrders = $localStorage.allOrders;	
 
@@ -27,6 +25,7 @@ angular.module('starter')
 			delete($localStorage.allOrders);
 			$localStorage.allOrders = orders.data;
 		});
+		alert('done');
 	}
 
 	$scope.completeOrder = function(id) {
@@ -37,5 +36,15 @@ angular.module('starter')
 			order.completed = true;
 		});
 	}
+
+	$scope.doRefresh = function(){
+		OrderService.getAllOrders().then(function(orders){
+			delete($localStorage.allOrders);
+			$localStorage.allOrders = orders.data;
+			$scope.upcomingOrders = $localStorage.allOrders
+       		$scope.$broadcast('scroll.refreshComplete');
+			$state.forceReload();
+		})
+	}	
 
 });

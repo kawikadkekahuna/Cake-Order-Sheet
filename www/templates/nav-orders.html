@@ -1,14 +1,18 @@
 <ion-view view-title="Orders">
   <ion-content>
-	<div class="order-list-wrapper" ng-repeat="orders in upcomingOrders | orderBy:'+id'">
-		<div class="order-list" on-swipe-right="completeOrder(orders.id)" ng-click="showOrder(orders.id)" ng-show="orders.completed == false">
-			<div class="icecream-flavor-order">Order_Number: {{orders.id}}</div>
-			<div class="icecream-flavor-order">Name: {{orders.first_name}} {{orders.last_name}}</div>
-			<div class="icecream-flavor-order">Quantity: {{orders.quantity}}</div>
-			<div class="icecream-flavor-order">Size: {{orders.size}}</div>
-			<div class="icecream-flavor-order">Pickup Date: {{orders.pickup_date}}</div>
-			<div class="icecream-flavor-order">Completed: {{orders.completed}}</div>
-		</div>
+  <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
+	<div class="order-list-wrapper" ng-repeat="orders in upcomingOrders | orderBy:'+id'">	
+		<ion-list class="order-list" on-swipe-right="completeOrder(orders.id)" ng-click="showOrder(orders.id)" ng-show="orders.completed == false">
+			<ion-item class="icecream-flavor-order">Order_Number: {{orders.id}}</ion-item>
+			<ion-item class="icecream-flavor-order">Name: {{orders.first_name}} {{orders.last_name}}</ion-item>
+			<ion-item class="icecream-flavor-order">Quantity: {{orders.quantity}}</ion-item>
+			<ion-item class="icecream-flavor-order">Size: {{orders.size}}</ion-item>
+			<ion-item class="icecream-flavor-order">Pickup Date: {{orders.pickup_date}}</ion-item>
+			<ion-item class="icecream-flavor-order">Completed: {{orders.completed}}</ion-item>
+		</ion-list>
 	</div>
   </ion-content>
 </ion-view>

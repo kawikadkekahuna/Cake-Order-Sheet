@@ -10,7 +10,7 @@ SERVER = 'http://192.168.1.117:3000';
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ngStorage','ionic-timepicker'])
+angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -28,7 +28,17 @@ angular.module('starter', ['ionic', 'ngStorage','ionic-timepicker'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider,$provide) {
+  $provide.decorator('$state', function($delegate, $stateParams) {
+    $delegate.forceReload = function() {
+      return $delegate.go($delegate.current, $stateParams, {
+        reload: true,
+        inherit: false,
+        notify: true
+      });
+    };
+    return $delegate;
+  });
   $ionicConfigProvider.tabs.position('bottom');
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -39,7 +49,7 @@ angular.module('starter', ['ionic', 'ngStorage','ionic-timepicker'])
   // setup an abstract state for the navs directive
 
 
-  .state('nav', {
+    .state('nav', {
     url: '/nav',
     abstract: true,
     templateUrl: 'templates/navigation-bar.html',
@@ -56,7 +66,6 @@ angular.module('starter', ['ionic', 'ngStorage','ionic-timepicker'])
     }
   })
 
-
   .state('nav.completed', {
     url: '/completed',
     views: {
@@ -66,7 +75,6 @@ angular.module('starter', ['ionic', 'ngStorage','ionic-timepicker'])
       }
     }
   })
-
 
   .state('nav.orders', {
     url: '/orders',
@@ -127,7 +135,6 @@ angular.module('starter', ['ionic', 'ngStorage','ionic-timepicker'])
     }
   })
 
-
   .state('nav.calendar', {
     url: '/calendar',
     views: {
@@ -137,7 +144,6 @@ angular.module('starter', ['ionic', 'ngStorage','ionic-timepicker'])
       }
     }
   });
-
 
   $urlRouterProvider.otherwise('/nav/dash');
 

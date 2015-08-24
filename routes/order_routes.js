@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 router.get('/', function(req,res) {
 	
 	db.findAll().then(function(orders){
-		console.log(orders);
+	console.log('ORDERS RECEIVED');
   	res.json(orders);
 	});
 
@@ -42,15 +42,15 @@ router.post('/place_order', function(req,res) {
 		phone:req.body.orderData.phone_number,
 		pickup_date:req.body.orderData.pickup_date,
 		pickup_time:req.body.orderData.pickup_time,
-		paid_status:false,
+		paid_status:req.body.orderData.paid_status,
 		order_processed:'Mobile',
 		message:req.body.orderData.cake_message,
-		design:'Put design in',
-		message_color:'Put message color in',
+		design:req.body.orderData.design_message,
+		message_color:req.body.orderData.frosting_color,
 		other_message:req.body.orderData.other_message,
 		completed:false
 	}).then(function(result){
-		console.log('result',result);
+		console.log('ORDER CREATED');
 		res.json(result);
 	})
 });

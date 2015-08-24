@@ -46,6 +46,17 @@
           </button>
         </ionic-timepicker>
         <label class="item item-input">
+          <div class="input-label">Frosting Color</div>
+          <input type="text" ng-model="order.frosting_color">
+        </label>
+        <label class="item item-input">
+          <div class="input-label">Design</div>
+          <input type="text" ng-model="order.design_message">
+        </label>
+        <label class="item item-input">
+          <ion-toggle ng-model="order.paid_status" toggle-class="toggle-calm">Paid Status</ion-toggle>
+        </label>
+        <label class="item item-input">
           <div class="input-label">Cake-Writing Message</div>
           <input type="text" ng-model="order.cake_message">
         </label>

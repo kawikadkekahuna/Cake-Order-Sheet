@@ -91,7 +91,6 @@ angular.module('starter')
               scope.value = scope.value.substr(0, scope.value.length - 1);
               scope.text = scope.text.substr(0, scope.text.length - 2);
               $localStorage.createOrder.iceCreamFlavors = scope.text;
-              console.log('$localStorage.createOrder.iceCreamFlavors',$localStorage.createOrder.iceCreamFlavors);
             }
 
             // Select first value if not nullable
@@ -240,18 +239,25 @@ angular.module('starter')
     flavorText: 'Icecream Flavors',
     flavors: $localStorage.iceCreamFlavors,
   };
+  $scope.order = {};
+  $scope.order.quantity = 1;
+
 
   $scope.createOrder = function(orderData) {
-    orderData.icecream_flavor = $localStorage.createOrder.iceCreamFlavors ;
+    orderData.icecream_flavor = $localStorage.createOrder.iceCreamFlavors;
     orderData.cake_flavor = $localStorage.createOrder.cakeFlavor;
     orderData.pickup_time = $localStorage.createOrder.pickupTime;
     orderData.cake_size = $localStorage.createOrder.cakeSize;
     orderData.first_name = $stateParams.first_name;
     orderData.last_name = $stateParams.last_name;
     orderData.phone_number = $stateParams.phone_number;
-    console.log('orderData',orderData);
+
     OrderService.placeOrder(orderData).then(function(res){
-      $state.go('nav.orders');
+      OrderService.getAllOrders().then(function(orders){
+        console.log('order placed');
+        $localStorage.allOrders = orders.data;
+        $state.go('nav.orders')
+      });
     })
   }
 

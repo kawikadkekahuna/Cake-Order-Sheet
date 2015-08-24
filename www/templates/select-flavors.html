@@ -10,13 +10,13 @@
   </ion-header-bar>
   <ion-content class="padding">
     <div class="list">
-      <ion-toggle ng-repeat="item in items" ng-if="multiSelect" ng-checked="item.checked" ng-model="item.checked" class="item item-text-wrap" ng-click="setIcecreamFlavor(item)">
+      <ion-toggle name="icecream_flavors" ng-repeat="item in items" ng-if="multiSelect" ng-checked="item.checked" ng-model="item.checked" class="item item-text-wrap" ng-click="setIcecreamFlavor(item)">
         {{item.text}}
       </ion-toggle>
-      <label ng-repeat="item in items" ng-if="!multiSelect" class="item item-text-wrap" ng-click="setCakeSize(item)">
+      <label name="cake_flavors" ng-repeat="item in items" ng-if="!multiSelect" class="item item-text-wrap" ng-click="setCakeSize(item)">
        {{item.text}}
       </label>
-      <label ng-repeat="item in items" ng-if="!multiSelect" class="item item-text-wrap" ng-click="setCakeFlavor(item)">
+      <label name="cake_size" ng-repeat="item in items" ng-if="!multiSelect" class="item item-text-wrap" ng-click="setCakeFlavor(item)">
         {{item.text}}
       </label>
     </div>

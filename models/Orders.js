@@ -18,7 +18,7 @@ module.exports = function(sequelize, DataTypes) {
     phone: DataTypes.STRING,
     pickup_date: DataTypes.STRING,
     pickup_time: DataTypes.STRING,
-    paid_status: DataTypes.STRING,
+    paid_status: DataTypes.BOOLEAN,
     order_processed: DataTypes.STRING,
     message:DataTypes.STRING,
     design:DataTypes.STRING,
