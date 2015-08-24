@@ -4,6 +4,7 @@ angular.module('starter')
   .service('OrderService', ['$http', OrderService])
   .service('FlavorService',['$http', FlavorService])
   .service('CakeService',['$http', CakeService])
+  .service('TimeService',['$http', TimeService])
 
 
 function OrderService($http) {
@@ -56,5 +57,12 @@ function CakeService($http){
 
   }
 
+}
+
+function TimeService($http){
+  this.parseUTC = function(utc){
+    utc = utc.toDateString()
+    return utc;
+  }
 }
 

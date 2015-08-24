@@ -88,6 +88,7 @@ angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker'])
 
   .state('nav.order-form', {
     url: '/order-form',
+    cache:false,
     params: {
       first_name: null,
       last_name: null,
@@ -103,6 +104,7 @@ angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker'])
 
   .state('nav.contact-form', {
     url: '/contact-form',
+    cache:false,
     views: {
       'nav-orders': {
         templateUrl: 'templates/nav-contact-form.html',
@@ -113,6 +115,7 @@ angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker'])
 
   .state('nav.select-flavors', {
     url: '/select-flavors',
+    cache:false,
     views: {
       'nav-orders': {
         templateUrl: 'templates/select-flavors.html',
