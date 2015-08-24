@@ -16,5 +16,8 @@
 		<div class="icecream-flavor-order">Message Color: {{orderData.message_color}}</div>
 		<div class="icecream-flavor-order">Other Message: {{orderData.other_message}}</div>
 	</div>
+	<div ng-if="orderData.completed == false">
+		<div ng-click="editOrder()">Edit me!</div>
+	</div>
 	</ion-content>
 </ion-view>
