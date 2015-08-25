@@ -239,7 +239,7 @@ angular.module('starter')
     setButtonType: 'button-assertive', //Optional
     inputDate: new Date(), //Optional
     mondayFirst: true, //Optional
-    templateType: 'modal', //Optional
+    templateType: 'popup', //Optional
     modalHeaderColor: 'bar-positive', //Optional
     modalFooterColor: 'bar-positive', //Optional
     from: new Date(2012, 8, 2), //Optional
@@ -253,7 +253,9 @@ angular.module('starter')
     if (typeof(val) === 'undefined') {
       console.log('No date selected');
     } else {
-      console.log('Selected date is : ', val)
+      $scope.datepickerObject.inputDate = val;
+      $scope.pickup_date = Date.parse(val);
+      console.log('$scope.pickup_date',$scope.pickup_date);
     }
   };
 
@@ -288,6 +290,8 @@ angular.module('starter')
     orderData.first_name = $stateParams.first_name;
     orderData.last_name = $stateParams.last_name;
     orderData.phone_number = $stateParams.phone_number;
+    orderData.pickup_time = $scope.pickup_time;
+    orderData.pickup_date =$scope.pickup_date;
     OrderService.placeOrder(orderData).then(function(res) {
       OrderService.getAllOrders().then(function(orders) {
         $localStorage.allOrders = orders.data;

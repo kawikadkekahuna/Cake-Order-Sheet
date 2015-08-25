@@ -9,8 +9,17 @@ angular.module('starter')
 	//$scope.$on('$ionicView.enter', function(e) {
 	//});
 	//
+	
+	$scope.upcomingOrders = $localStorage.allOrders;
+	
 	$scope.$on('$ionicView.enter', function(e) {
 		$ionicHistory.clearHistory();
-	})
+	});
+
+	$scope.showOrders = function(){
+
+	}
+
+
 
 });

@@ -15,7 +15,6 @@ router.get('/', function(req,res) {
 });
 
 router.post('/place_order', function(req,res) {
-	console.log('req.body',req.body);
     // quantity: DataTypes.INTEGER,
     // size: DataTypes.STRING,
     // icecream_flavors: DataTypes.STRING,

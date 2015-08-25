@@ -9,7 +9,6 @@
 
   </ion-header-bar>
   <ion-content class="padding">
-
     <div class="list">
       <ion-toggle name="icecream_flavors" ng-repeat="icecream_flavor in items" ng-if="multiSelect" ng-checked="icecream_flavor.checked" ng-model="icecream_flavor.checked" class="item item-text-wrap" ng-click="setIcecreamFlavor(item)">
         {{icecream_flavor.text}}

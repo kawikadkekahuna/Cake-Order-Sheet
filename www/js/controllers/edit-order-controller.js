@@ -2,8 +2,9 @@ angular.module('starter')
   .directive('editCakeOrder', [
     '$ionicModal',
     '$localStorage',
-    function($ionicModal, $localStorage) {
-
+    '$stateParams',
+    function($ionicModal, $localStorage,$stateParams) {
+      console.log('$stateParams',$stateParams);
       return {
 
         /* Only use as <fancy-select> tag */
@@ -170,7 +171,7 @@ angular.module('starter')
     }
   ])
 
-.controller('EditOrderController', function($scope,$localStorage,$stateParams) {
+.controller('EditOrderController', function($scope, $localStorage, $stateParams) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -180,15 +181,64 @@ angular.module('starter')
   //});
   //
   $scope.formFieldData = {
-    cakeFlavorText: 'Cake Flavors',
+    cakeFlavorText: $stateParams.orderData.cake_flavor,
     cakeFlavors: $localStorage.cakeFlavors,
-    cakeSizeText: 'Cake Size',
+    cakeSizeText: $stateParams.orderData.size,
     cakeSizes: $localStorage.cakeSizes,
-    flavorText: 'Icecream Flavors',
+    flavorText: $stateParams.orderData.icecream_flavors,
     flavors: $localStorage.iceCreamFlavors,
+
   };
 
+  $scope.timePickerObject = {
+    inputEpochTime: ((new Date()).getHours() * 60 * 60), //Optional
+    step: 15, //Optional
+    format: 12, //Optional
+    titleLabel: '12-hour Format', //Optional
+    setLabel: 'Set', //Optional
+    closeLabel: 'Close', //Optional
+    setButtonType: 'button-positive', //Optional
+    closeButtonType: 'button-stable', //Optional
+    callback: function(val) { //Mandatory
+      timePickerCallback(val);
+    }
+  };
+
+  $scope.datepickerObject = {
+    titleLabel: 'Title', //Optional
+    todayLabel: 'Today', //Optional
+    closeLabel: 'Close', //Optional
+    setLabel: 'Set', //Optional
+    errorMsgLabel: 'Please select time.', //Optional
+    setButtonType: 'button-assertive', //Optional
+    inputDate: new Date(), //Optional
+    mondayFirst: true, //Optional
+    templateType: 'popup', //Optional
+    modalHeaderColor: 'bar-positive', //Optional
+    modalFooterColor: 'bar-positive', //Optional
+    from: new Date(2012, 8, 2), //Optional
+    to: new Date(2018, 8, 25), //Optional
+    callback: function(val) { //Mandatory
+      datePickerCallback(val);
+    }
+  };
+
+  var datePickerCallback = function(val) {
+    if (typeof(val) === 'undefined') {
+      console.log('No date selected');
+    } else {
+      $scope.datepickerObject.inputDate = val;
+      $scope.pickup_date = val;
+    }
+  };
+
+  function timePickerCallback(val) {
+    if (typeof(val) === 'undefined') {
+      return;
+    }
+    $scope.timePickerObject.inputEpochTime = val;
+  }
+
   $scope.order = $stateParams.orderData;
-  console.log('$scope.order',$scope.order);
-  
+
 });
