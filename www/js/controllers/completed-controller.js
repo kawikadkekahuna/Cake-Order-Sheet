@@ -19,8 +19,7 @@ angular.module('starter')
 
 	$scope.showOrder = function(order_number) {
 		$state.go('nav.single', {
-			order_number: order_number,
-			previous_view: CURRENT_STATE
+			order_number: order_number
 		});
 	}
 

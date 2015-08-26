@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('SingleOrderController', function($scope, $state, $localStorage, $stateParams) {
+.controller('SingleOrderController', function($scope, $state, $localStorage, $stateParams,$ionicHistory) {
 	// With the new view caching in Ionic, Controllers are only called
 	// when they are recreated or on app start, instead of every page change.
 	// To listen for when this page is active (for example, to refresh data),
@@ -14,7 +14,7 @@ angular.module('starter')
 	});
 
 	$scope.return = function() {
-		$state.go($stateParams.previous_view);
+		$state.go($ionicHistory.goBack());
 	}
 
 	$scope.editOrder = function(){

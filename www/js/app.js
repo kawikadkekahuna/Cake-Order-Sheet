@@ -164,8 +164,7 @@ angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker','ionic-datep
   .state('nav.single', {
     url: '/single',
     params: {
-      order_number: null,
-      previous_view: null
+      order_number: null
     },
     views: {
       'nav-orders': {
