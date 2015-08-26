@@ -9,17 +9,18 @@ angular.module('starter')
 	//$scope.$on('$ionicView.enter', function(e) {
 	//});
 	//
-	
-	$scope.upcomingOrders = $localStorage.allOrders;
-	
-	$scope.now = Date.now();
 
-	
+	$scope.upcomingOrders = $localStorage.allOrders;
+	var date = new Date();
+	var numberOfDaysToAdd = 6;
+	date.setDate(date.getDate() + numberOfDaysToAdd);
+	$scope.date = date.getTime().toString();
+
 	$scope.$on('$ionicView.enter', function(e) {
 		$ionicHistory.clearHistory();
 	});
 
-	$scope.showOrders = function(){
+	$scope.showOrders = function() {
 
 	}
 
