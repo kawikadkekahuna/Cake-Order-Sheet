@@ -12,6 +12,9 @@ angular.module('starter')
 	
 	$scope.upcomingOrders = $localStorage.allOrders;
 	
+	$scope.now = Date.now();
+
+	
 	$scope.$on('$ionicView.enter', function(e) {
 		$ionicHistory.clearHistory();
 	});

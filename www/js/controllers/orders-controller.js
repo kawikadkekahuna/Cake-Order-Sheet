@@ -12,8 +12,10 @@ angular.module('starter')
 		$ionicHistory.clearHistory();
 	});
 
-
 	$scope.upcomingOrders = $localStorage.allOrders;
+
+
+
 
 	$scope.showOrder = function(order_number) {
 		$state.go('nav.single', {

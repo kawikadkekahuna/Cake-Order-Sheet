@@ -254,8 +254,7 @@ angular.module('starter')
       console.log('No date selected');
     } else {
       $scope.datepickerObject.inputDate = val;
-      $scope.pickup_date = Date.parse(val);
-      console.log('$scope.pickup_date',$scope.pickup_date);
+      $scope.pickup_date = new Date(val).getTime().toString();
     }
   };
 
@@ -291,7 +290,7 @@ angular.module('starter')
     orderData.last_name = $stateParams.last_name;
     orderData.phone_number = $stateParams.phone_number;
     orderData.pickup_time = $scope.pickup_time;
-    orderData.pickup_date =$scope.pickup_date;
+    orderData.pickup_date = $scope.pickup_date;
     OrderService.placeOrder(orderData).then(function(res) {
       OrderService.getAllOrders().then(function(orders) {
         $localStorage.allOrders = orders.data;
