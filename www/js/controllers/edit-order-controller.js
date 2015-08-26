@@ -239,6 +239,10 @@ angular.module('starter')
     $scope.timePickerObject.inputEpochTime = val;
   }
 
+  $scope.updateOrder = function(order){
+    console.log('$scope.editForm',$scope.editForm);
+  }
+
   $scope.order = $stateParams.orderData;
 
 });

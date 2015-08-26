@@ -24,7 +24,9 @@ module.exports = function(sequelize, DataTypes) {
     design:DataTypes.STRING,
     message_color:DataTypes.STRING,
     other_message:DataTypes.STRING,
-    completed:DataTypes.BOOLEAN
+    completed:DataTypes.BOOLEAN,
+    cake_status:DataTypes.STRING
+
 
   }, {
     underscored: true,

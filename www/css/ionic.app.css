@@ -7716,7 +7716,7 @@ a.button {
 
 .order-list-wrapper .order-list {
   height: 100%;
-  width: 50%;
+  width: 75%;
   border: 1px solid black; }
   .order-list-wrapper .order-list .block {
     height: 250px;
@@ -7774,5 +7774,23 @@ a.button {
 /* Dashboard */
 .page-content {
   padding-top: 20px; }
-  .page-content .list {
+  .page-content .order-list-wrapper {
     padding: 25px; }
+  .page-content .wrapper {
+    width: 100%; }
+    .page-content .wrapper .order-info {
+      width: 77%;
+      display: inline-block;
+      margin: 0; }
+    .page-content .wrapper .icon-wrapper {
+      width: 7%;
+      display: inline-block;
+      position: absolute;
+      padding-left: 15%; }
+      .page-content .wrapper .icon-wrapper .status-not-started {
+        width: 25%;
+        height: 32px;
+        width: 32px;
+        background-image: url('../img/purchase1.png');
+        background-size: cover;
+        display: inline-block; }
