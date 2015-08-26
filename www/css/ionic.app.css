@@ -7770,3 +7770,9 @@ a.button {
 
 .header {
   padding: 10px; }
+
+/* Dashboard */
+.page-content {
+  padding-top: 20px; }
+  .page-content .list {
+    padding: 25px; }

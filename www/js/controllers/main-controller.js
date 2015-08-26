@@ -15,7 +15,6 @@ angular.module('starter')
  }
 
  $scope.goBack = function(){
- 	console.log('going back');
  	$ionicHistory.goBack();
  }
 

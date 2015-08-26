@@ -126,3 +126,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .header{
 	padding:10px;
 }
+
+/* Dashboard */
+
+.page-content{
+	padding-top:20px;
+	.list{
+		padding:25px;
+	}
+}

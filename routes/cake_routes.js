@@ -16,7 +16,6 @@ router.get('/get_flavors', function(req, res) {
 router.get('/get_sizes', function(req, res) {
 
 	cakeSizeDB.findAll().then(function(size) {
-		console.log('size',size);
 		res.json(size);
 	});
 
