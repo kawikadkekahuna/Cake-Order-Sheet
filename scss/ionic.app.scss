@@ -22,144 +22,38 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "www/lib/ionic/scss/ionic";
 
 
-
 .list{
 	background-image: url('http://freestocktextures.net/wp-content/uploads/2013/10/Free-Dark-Pink-Bokeh-Texture.jpg');
 	background-size: cover;
+	top:60px;
 }
 
-.header-wrapper{
-	width:100%;
-	font-size:25px;
-	display:inherit;
-	.back-button{
-		text-align: left;
-		width:5%;
-	}
-	.logo-text{
-		text-align: center;
-		width:90%;
-	}
-	.add-order{
-		text-align: right;
-		width:5%;
-	}
-
-
-}
-
-.order-data{
-	border:1px solid black;
-}
-
-.order-contact-information{
-	width:100%;
-	.list{
-		.button-container{
-				text-align: right;
-			.button button-positive{
-			}
-		}
-	}
-}
-
-.contact-box{
-	display:inline-block;
-	text-align: center;
-	.first-name{
-		display:inline-block;
-		margin-right:5%;
-	}
-
-	.last-name{
-		display:inline-block;
-		margin-right:5%;
-	}
-
-	.phone-number{
-		display:inline-block;
-		margin-right:5%;
-
-	}
-}
-
-.order-form{
-	width:100%;
-	.size-dropdown{
-		width:33%;
-		border:1px solid black;
-		margin-right:5%;
-	}
-	.ice-cream-flavor-dropdown{
-		width:33%;
-		border:1px solid black;
-		margin-right:5%;
-	
-	}
-	.cake-type{
-		border:1px solid black;
-		width:33%;
-		margin-right:5%;
-	
-	}
-}
-
-.modal{
-	top:0% !important;
-}
-
-.fancy-select .list {
-  margin: -1px 0; }
-
+/*    Header   */
 .header{
-	padding:10px;
-}
-
-/* Dashboard */
-
-.page-content{
-	padding-top:20px;
-	.order-list-wrapper{
-		padding:25px;
+	height:105px;
+	width:100%;
+	.header-wrapper{
 		width:100%;
-	}
-		.order-info{
-			width:77%;
-			display:inline-block;
-			margin:0;
-
-			.name{
-				text-overflow: ellipsis;
-			}
-		}
-		.icon-wrapper{
-			width:7%;
-			display:inline-block;
-			position: absolute;
-			padding-left: 6%;
-			.status-not-started{
-				width:25%;
-				height:32px;
-				width:32px;
-				background-image:url('../img/purchase1.png');
-				background-size:cover;
-				display:inline-block;
-			}
-			.status-built{
-
-			}
-			.status-frosted{
-
-			}
-			.status-completed{
-
-			}
-		}
-	.order-list{
 		height:100%;
-		width:75%;
-		border-radius:25px;
-		opacity: 0.7;
-		box-shadow: 6px 2px 6px 6px #000;
+		.back-button{
+			width:5%;
+			height:100%;
+			display: inline;
+		}
+		.logo-wrapper{
+			height:105px;
+			width:90%;
+			display:inline-block;
+		.logo{
+				background-image:url('../img/br-logo-header.png');
+				background-size: contain;
+				background-repeat: no-repeat;
+			}
+		}
+		.add-order{
+			display:inline;
+			width:5%;
+			height:100%;
+		}
 	}
 }
