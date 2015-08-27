@@ -7700,6 +7700,10 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.list {
+  background-image: url('http://freestocktextures.net/wp-content/uploads/2013/10/Free-Dark-Pink-Bokeh-Texture.jpg');
+  background-size: cover; }
+
 .header-wrapper {
   width: 100%;
   font-size: 25px;
@@ -7713,15 +7717,6 @@ a.button {
   .header-wrapper .add-order {
     text-align: right;
     width: 5%; }
-
-.order-list-wrapper .order-list {
-  height: 100%;
-  width: 75%;
-  border: 1px solid black; }
-  .order-list-wrapper .order-list .block {
-    height: 250px;
-    width: 250px;
-    border: 1px solid red; }
 
 .order-data {
   border: 1px solid black; }
@@ -7759,9 +7754,6 @@ a.button {
     width: 33%;
     margin-right: 5%; }
 
-.order-list .icecream-flavor-order {
-  border: 1px solid; }
-
 .modal {
   top: 0% !important; }
 
@@ -7775,22 +7767,29 @@ a.button {
 .page-content {
   padding-top: 20px; }
   .page-content .order-list-wrapper {
-    padding: 25px; }
-  .page-content .wrapper {
+    padding: 25px;
     width: 100%; }
-    .page-content .wrapper .order-info {
-      width: 77%;
-      display: inline-block;
-      margin: 0; }
-    .page-content .wrapper .icon-wrapper {
-      width: 7%;
-      display: inline-block;
-      position: absolute;
-      padding-left: 15%; }
-      .page-content .wrapper .icon-wrapper .status-not-started {
-        width: 25%;
-        height: 32px;
-        width: 32px;
-        background-image: url('../img/purchase1.png');
-        background-size: cover;
-        display: inline-block; }
+  .page-content .order-info {
+    width: 77%;
+    display: inline-block;
+    margin: 0; }
+    .page-content .order-info .name {
+      text-overflow: ellipsis; }
+  .page-content .icon-wrapper {
+    width: 7%;
+    display: inline-block;
+    position: absolute;
+    padding-left: 6%; }
+    .page-content .icon-wrapper .status-not-started {
+      width: 25%;
+      height: 32px;
+      width: 32px;
+      background-image: url('../img/purchase1.png');
+      background-size: cover;
+      display: inline-block; }
+  .page-content .order-list {
+    height: 100%;
+    width: 75%;
+    border-radius: 25px;
+    opacity: 0.7;
+    box-shadow: 6px 2px 6px 6px #000; }

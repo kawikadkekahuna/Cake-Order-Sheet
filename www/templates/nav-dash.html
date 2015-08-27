@@ -9,7 +9,7 @@
 			<ion-item class="order-list" on-swipe-right="completeOrder(orders.id)" ng-click="showOrder(orders.id)" ng-if="orders.completed == false && orders.pickup_date < date">
 				<div class="wrapper">
 					<div class="order-info card">
-						<div>Name: {{orders.first_name}} {{orders.last_name}}</div>
+						<div class="name">Name: {{orders.first_name}} {{orders.last_name}}</div>
 						<div>Date: {{orders.pickup_date | date:'yyyy-MM-dd'}}
 						</div>
 						<div>Time: {{orders.pickup_time}}
