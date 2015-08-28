@@ -7714,13 +7714,14 @@ a.button {
     height: 100%; }
     .header .header-wrapper .back-button {
       width: 5%;
-      height: 100%;
       display: inline; }
     .header .header-wrapper .logo-wrapper {
-      height: 105px;
+      height: 100%;
       width: 90%;
       display: inline-block; }
       .header .header-wrapper .logo-wrapper .logo {
+        height: 100%;
+        width: 100%;
         background-image: url('../img/br-logo-header.png');
         background-size: contain;
         background-repeat: no-repeat; }

@@ -37,14 +37,15 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 		height:100%;
 		.back-button{
 			width:5%;
-			height:100%;
 			display: inline;
 		}
 		.logo-wrapper{
-			height:105px;
+			height:100%;
 			width:90%;
 			display:inline-block;
 		.logo{
+				height:100%;
+				width:100%;
 				background-image:url('../img/br-logo-header.png');
 				background-size: contain;
 				background-repeat: no-repeat;
