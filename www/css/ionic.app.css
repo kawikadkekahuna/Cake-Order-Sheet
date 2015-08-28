@@ -7707,25 +7707,32 @@ a.button {
 
 /*    Header   */
 .header {
-  height: 105px;
-  width: 100%; }
+  width: 100%;
+  height: 205px;
+  display: inline; }
   .header .header-wrapper {
-    width: 100%;
-    height: 100%; }
+    height: 100%;
+    width: 100%; }
     .header .header-wrapper .back-button {
-      width: 5%;
-      display: inline; }
-    .header .header-wrapper .logo-wrapper {
+      width: 15%;
       height: 100%;
-      width: 90%;
-      display: inline-block; }
+      display: inline-block;
+      background-color: orange;
+      float: left; }
+    .header .header-wrapper .logo-wrapper {
+      width: 70%;
+      height: 100%;
+      display: inline-block;
+      background-color: red; }
       .header .header-wrapper .logo-wrapper .logo {
+        background-image: url('../img/br-logo-header.png');
+        background-size: cover;
         height: 100%;
         width: 100%;
-        background-image: url('../img/br-logo-header.png');
-        background-size: contain;
-        background-repeat: no-repeat; }
+        display: inline-block; }
     .header .header-wrapper .add-order {
-      display: inline;
-      width: 5%;
-      height: 100%; }
+      width: 15%;
+      height: 100%;
+      display: inline-block;
+      background-color: blue;
+      float: right; }
