@@ -22,11 +22,6 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "www/lib/ionic/scss/ionic";
 
 
-.list{
-	background-image: url('http://freestocktextures.net/wp-content/uploads/2013/10/Free-Dark-Pink-Bokeh-Texture.jpg');
-	background-size: cover;
-	top:60px;
-}
 
 /*    Header   */
 .header{
@@ -48,7 +43,6 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 			width:70%;
 			height:100%;
 			display:inline-block;
-			background-color:red;
 
 			.logo{
 				background-image: url('../img/br-logo-header.png');
@@ -68,4 +62,9 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 			float:right;
 		}
 	}
+}
+
+/* List */
+.list{
+	top:60px;
 }

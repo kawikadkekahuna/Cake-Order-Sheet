@@ -7700,11 +7700,6 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.list {
-  background-image: url('http://freestocktextures.net/wp-content/uploads/2013/10/Free-Dark-Pink-Bokeh-Texture.jpg');
-  background-size: cover;
-  top: 60px; }
-
 /*    Header   */
 .header {
   width: 100%;
@@ -7722,8 +7717,7 @@ a.button {
     .header .header-wrapper .logo-wrapper {
       width: 70%;
       height: 100%;
-      display: inline-block;
-      background-color: red; }
+      display: inline-block; }
       .header .header-wrapper .logo-wrapper .logo {
         background-image: url('../img/br-logo-header.png');
         background-size: cover;
@@ -7736,3 +7730,7 @@ a.button {
       display: inline-block;
       background-color: blue;
       float: right; }
+
+/* List */
+.list {
+  top: 60px; }
