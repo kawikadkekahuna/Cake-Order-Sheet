@@ -1,0 +1,24 @@
+<ion-view class="modal" view-title="Flavors">
+  <ion-header-bar class="bar-positive">
+    
+    <button ng-click="hideItems()" class="button button-positive button-icon ion-android-exit"></button>
+
+    <h1 class="title">{{headerText}}</h1>
+
+    <button ng-click="validate()" class="button button-positive button-icon ion-checkmark"></button>
+
+  </ion-header-bar>
+  <ion-content class="padding">
+    <div class="list">
+      <ion-toggle name="icecream_flavors" ng-repeat="icecream_flavor in items" ng-if="multiSelect" ng-checked="icecream_flavor.checked" ng-model="icecream_flavor.checked" class="item item-text-wrap" ng-click="setIcecreamFlavor(item)">
+        {{icecream_flavor.text}}
+      </ion-toggle>
+      <label name="cake_flavor" ng-repeat="cake_flavor in flavors" ng-if="!multiSelect" class="item item-text-wrap" ng-click="setCakeFlavor(cake_flavor)">
+        {{cake_flavor.text}}
+      </label>
+      <label name="cake_size" ng-repeat="cake_size in items" ng-if="!multiSelect" class="item item-text-wrap" ng-click="setCakeSize(cake_size)">
+       {{cake_size.text}}
+      </label>
+    </div>
+  </ion-content>
+</ion-view>

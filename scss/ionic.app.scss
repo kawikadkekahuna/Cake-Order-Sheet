@@ -82,17 +82,49 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 			text-overflow: ellipsis;
 			background-color: rgba(0,0,0,0.2);
 			border-radius: 20px 80px 20px;
+			.item-content{
+				background-color:transparent;
+			}
 		}
 
 			.wrapper{
 				
 				.card{
+					font-family: 'Ubuntu Condensed', sans-serif;
+					font-weight: 800;
+					text-align: center;
+					color:white;
+					text-shadow: 2px 2px 2px #000;
 					background-color: rgba(0,0,0,0);
 					-webkit-box-shadow: 6px 10px 27px 0px rgba(0,0,0,0.75);
 					-moz-box-shadow: 6px 10px 27px 0px rgba(0,0,0,0.75);
 					box-shadow: 6px 10px 27px 0px rgba(0,0,0,0.75);
 					border-radius:25px;
+					margin-top:0;
+					.icon-wrapper{
+						width:100%;
+						height:1.5em;
+						text-align: right;
+						.status-not-started{
+							background-image:url('../img/purchase1.png');
+							background-size: contain;
+							background-repeat: no-repeat;
+							width:1.5em;
+							height:100%;
+							margin-left:80%;
+							-webkit-box-shadow: 0px 0px 3px 5px #f2e1f2;
+							-moz-box-shadow: 0px 0px 3px 5px #b20000;
+							box-shadow: 0px 0px 3px 5px #b20000; 
+							background-color:transparent;
+						}
+					}
+
+					&:hover{
+						font-weight:400;
+					}
 				}
+
+
 			}
 		}	
 

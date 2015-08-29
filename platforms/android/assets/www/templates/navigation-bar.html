@@ -3,24 +3,34 @@ Create tabs with an icon and label, using the tabs-positive style.
 Each tab's child <ion-nav-view> directive will have its own
 navigation history that also transitions its views in and out.
 -->
+<ion-header-bar class="header">
+    <div class="header-wrapper">
+      <div class="back-button" ng-click="goBack()">
+         <i class="ion-arrow-left-c"></i>
+      </div>
+      <div class="logo-wrapper">
+        <div class="logo"></div>
+      </div>
+      <div class="add-order" ng-click="addOrder()">
+        <i class="ion-plus-round"></i>
+      </div>
+    </div>
+</ion-header-bar>
 <ion-tabs class="navigation-bar tabs-icon-top tabs-color-active-positive">
 
-  <!-- Dashboard Tab -->
-  <ion-tab title="Dashboard" icon-off="nav-dash" icon-on="nav-dash" href="#/nav/dashboard">
+  <ion-tab title="Dashboard" icon="ion-ios-home" href="#/nav/dashboard">
     <ion-nav-view name="nav-dash"></ion-nav-view>
   </ion-tab>
 
-  <!-- Chats Tab -->
-  <ion-tab title="Orders" icon-off="nav-orders" icon-on="nav-orders" href="/nav/orders">
+  <ion-tab title="Orders" icon="ion-icecream" href="#/nav/orders">
     <ion-nav-view name="nav-orders"></ion-nav-view>
   </ion-tab>
 
-  <!-- Account Tab -->
-  <ion-tab title="Calendar" icon-off="nav-calendar" icon-on="nav-calendar" href="#/nav/calendar">
+  <ion-tab title="Calendar" icon="ion-android-calendar" href="#/nav/calendar">
     <ion-nav-view name="nav-calendar"></ion-nav-view>
   </ion-tab>
 
-  <ion-tab title="Completed" icon-off="nav-completed" icon-on="nav-completed" href="#/nav/completed"> 
+  <ion-tab title="Completed" icon="ion-android-checkbox-outline" href="#/nav/completed"> 
     <ion-nav-view name="nav-completed"></ion-nav-view>
   </ion-tab>
 

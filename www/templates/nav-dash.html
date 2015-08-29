@@ -4,21 +4,24 @@
 	pulling-text="Pull to refresh..."
 	on-refresh="doRefresh()">
 	</ion-refresher>
-	<ion-list>
+	<ion-list can-swipe="true">
 		<div class="order-list-wrapper" ng-repeat="orders in upcomingOrders | orderBy:'+id'">	
 			<ion-item class="order-list" on-swipe-right="completeOrder(orders.id)" ng-click="showOrder(orders.id)" ng-if="orders.completed == false && orders.pickup_date < date">
 				<div class="wrapper">
 					<div class="order-info card">
+					<div class="icon-wrapper">
+						<div class="status-not-started"></div>
+					</div>
 						<div class="name">Name: {{orders.first_name}} {{orders.last_name}}</div>
 						<div>Date: {{orders.pickup_date | date:'yyyy-MM-dd'}}
 						</div>
 						<div>Time: {{orders.pickup_time}}
 						</div>
+						<ion-option-button class="button-positive" ng-click="share(item)">
+					      Complete
+					    </ion-option-button>
 					</div>
-					<div class="icon-wrapper">
-						<div class="status-not-started"></div>
-					</div>
-				</div>	
+				</div>
 			</ion-item>
 		</div>
 	</ion-list>

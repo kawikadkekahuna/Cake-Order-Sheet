@@ -1,0 +1,23 @@
+<ion-view view-title="Order">
+	<ion-content>
+  		<div>Single Order</div>
+	<div class="order-data" ng-click="return()">
+		<div class="block"></div>
+		<div class="icecream-flavor-order">Flavors: {{orderData.icecream_flavors}}</div>
+		<div class="icecream-flavor-order">Cake: {{orderData.cake_flavor}}</div>
+		<div class="icecream-flavor-order">Quantity: {{orderData.quantity}}</div>
+		<div class="icecream-flavor-order">Size: {{orderData.size}}</div>
+		<div class="icecream-flavor-order">Pickup Date: {{orderData.pickup_date}}</div>
+		<div class="icecream-flavor-order">Pickup Time: {{orderData.pickup_time}}</div>
+		<div class="icecream-flavor-order">Payment Status: {{orderData.paid_status}}</div>
+		<div class="icecream-flavor-order">Order Processed: {{orderData.order_processed}}</div>
+		<div class="icecream-flavor-order">Messge: {{orderData.message}}</div>
+		<div class="icecream-flavor-order">design: {{orderData.design}}</div>
+		<div class="icecream-flavor-order">Message Color: {{orderData.message_color}}</div>
+		<div class="icecream-flavor-order">Other Message: {{orderData.other_message}}</div>
+	</div>
+	<div ng-if="orderData.completed == false">
+		<div ng-click="editOrder()">Edit me!</div>
+	</div>
+	</ion-content>
+</ion-view>

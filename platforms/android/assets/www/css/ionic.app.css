@@ -7700,59 +7700,77 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.header-wrapper {
+/*    Header   */
+.header {
   width: 100%;
-  font-size: 25px;
-  text-align: center; }
-  .header-wrapper .br-logo {
-    width: 100%;
+  height: 10%;
+  display: inline; }
+  .header .header-wrapper {
     height: 100%;
-    display: inline-block;
-    float: left;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 800; }
-  .header-wrapper .icon-container {
-    height: 100%;
-    display: inline-block; }
-    .header-wrapper .icon-container .information-icon {
+    width: 100%; }
+    .header .header-wrapper .back-button {
+      width: 15%;
+      height: 100%;
+      display: inline-block;
+      background-color: orange;
+      float: left; }
+    .header .header-wrapper .logo-wrapper {
+      width: 68%;
+      height: 100%;
+      display: inline-block;
       position: absolute;
-      right: 0;
-      text-align: left;
-      background-image: url('/img/information.svg');
-      height: 30px;
-      width: 30px;
-      background-size: cover; }
+      top: 0%; }
+      .header .header-wrapper .logo-wrapper .logo {
+        background-image: url('../img/br-logo-header.png');
+        background-size: cover;
+        background-position-y: 62%;
+        height: 100%;
+        width: 100%;
+        display: inline-block; }
+    .header .header-wrapper .add-order {
+      width: 15%;
+      height: 100%;
+      display: inline-block;
+      background-color: blue;
+      float: right; }
 
-.navigation-bar .icon.nav-completed {
-  background-image: url('/img/letter-x3.svg');
-  background-repeat: no-repeat;
-  background-position: 50%;
-  height: 100%;
-  background-size: contain; }
-.navigation-bar .icon.nav-orders {
-  background-image: url('/img/baker4.svg');
-  background-repeat: no-repeat;
-  background-position: 50%;
-  height: 100%;
-  background-size: contain; }
-.navigation-bar .icon.nav-calendar {
-  background-image: url('/img/event5.svg');
-  background-repeat: no-repeat;
-  background-position: 50%;
-  height: 100%;
-  background-size: contain; }
-.navigation-bar .icon.nav-dash {
-  background-image: url('/img/home87.svg');
-  background-repeat: no-repeat;
-  background-position: 50%;
-  height: 100%;
-  background-size: contain; }
-
-.order-list-wrapper .order-list {
-  height: 500px;
-  width: 350px;
-  border: 1px solid black; }
-  .order-list-wrapper .order-list .block {
-    height: 250px;
-    width: 250px;
-    border: 1px solid red; }
+/* List */
+.scroll .list {
+  top: 10%;
+  background-image: url('../img/background.png'); }
+  .scroll .list .order-list-wrapper {
+    width: 80%; }
+    .scroll .list .order-list-wrapper .order-list {
+      width: 100%;
+      text-overflow: ellipsis;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 20px 80px 20px; }
+    .scroll .list .order-list-wrapper .wrapper .card {
+      font-family: 'Ubuntu Condensed', sans-serif;
+      font-weight: 800;
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 2px #000;
+      background-color: transparent;
+      -webkit-box-shadow: 6px 10px 27px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 6px 10px 27px 0px rgba(0, 0, 0, 0.75);
+      box-shadow: 6px 10px 27px 0px rgba(0, 0, 0, 0.75);
+      border-radius: 25px;
+      margin-top: 0; }
+      .scroll .list .order-list-wrapper .wrapper .card .icon-wrapper {
+        width: 100%;
+        height: 1.5em;
+        text-align: right; }
+        .scroll .list .order-list-wrapper .wrapper .card .icon-wrapper .status-not-started {
+          background-image: url('../img/purchase1.png');
+          background-size: contain;
+          background-repeat: no-repeat;
+          width: 1.5em;
+          height: 100%;
+          margin-left: 80%;
+          -webkit-box-shadow: 0px 0px 3px 5px #f2e1f2;
+          -moz-box-shadow: 0px 0px 3px 5px #b20000;
+          box-shadow: 0px 0px 3px 5px #b20000;
+          background-color: transparent; }
+      .scroll .list .order-list-wrapper .wrapper .card:hover {
+        font-weight: 400; }

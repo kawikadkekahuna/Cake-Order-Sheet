@@ -1,19 +1,8 @@
-// SERVER = 'http://192.168.1.117:3000';
-SERVER ='http://localhost:3000';
-// SERVER = 'http://192.168.29.127:3000';
+// SERVER ='http://localhost:3000';
+SERVER = 'http://192.168.29.127:3000';
 /*Mobile HotSpot IP*/
 // SERVER = 'http://192.168.29.205:3000';
-/**/
-// SERVER = 'http://166.122.119.247:3000';
-// 
 
-// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker','ionic-datepicker'])
 
 .run(function($ionicPlatform, $ionicHistory, $localStorage, FlavorService, OrderService, CakeService) {

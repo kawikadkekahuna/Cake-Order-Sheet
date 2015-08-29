@@ -1,15 +1,26 @@
 <ion-view view-title="Dashboard">
-  <ion-content class="padding">
-	<div class="order-list-wrapper" ng-repeat="orders in upcomingOrders">
-		<div class="order-list">
-			<div class="block"></div>
-			<div class="icecream-flavor-order">Flavors: {{orders.icecream_flavors}}</div>
-			<div class="icecream-flavor-order">Cake: {{orders.cake_flavor}}</div>
-			<div class="icecream-flavor-order">Quantity: {{orders.quantity}}</div>
-			<div class="icecream-flavor-order">Size: {{orders.size}}</div>
-			<div class="icecream-flavor-order">Pickup Date: {{orders.pickup_date}}</div>
-			<div class="icecream-flavor-order">phone: {{orders.phone}}</div>
+  <ion-content class="page-content">
+	<ion-refresher
+	pulling-text="Pull to refresh..."
+	on-refresh="doRefresh()">
+	</ion-refresher>
+	<ion-list can-swipe="true">
+		<div class="order-list-wrapper" ng-repeat="orders in upcomingOrders | orderBy:'+id'">	
+			<ion-item class="order-list" on-swipe-right="completeOrder(orders.id)" ng-click="showOrder(orders.id)" ng-if="orders.completed == false && orders.pickup_date < date">
+				<div class="wrapper">
+					<div class="order-info card">
+					<div class="icon-wrapper">
+						<div class="status-not-started"></div>
+					</div>
+						<div class="name">Name: {{orders.first_name}} {{orders.last_name}}</div>
+						<div>Date: {{orders.pickup_date | date:'yyyy-MM-dd'}}
+						</div>
+						<div>Time: {{orders.pickup_time}}
+						</div>
+					</div>
+				</div>	
+			</ion-item>
 		</div>
-		</div>
+	</ion-list>
   </ion-content>
 </ion-view>
