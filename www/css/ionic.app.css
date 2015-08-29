@@ -7735,15 +7735,19 @@ a.button {
       float: right; }
 
 /* List */
-.list {
-  top: 10%; }
-  .list .order-list-wrapper {
-    background-color: pink; }
-    .list .order-list-wrapper .order-list {
-      width: 50%;
+.scroll .list {
+  top: 10%;
+  background-image: url('../img/background.png'); }
+  .scroll .list .order-list-wrapper {
+    width: 80%; }
+    .scroll .list .order-list-wrapper .order-list {
+      width: 100%;
       text-overflow: ellipsis;
-      background-color: purple; }
-    .list .order-list-wrapper .wrapper {
-      background-color: green; }
-      .list .order-list-wrapper .wrapper .card {
-        background-color: blue; }
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 20px 80px 20px; }
+    .scroll .list .order-list-wrapper .wrapper .card {
+      background-color: transparent;
+      -webkit-box-shadow: 6px 10px 27px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 6px 10px 27px 0px rgba(0, 0, 0, 0.75);
+      box-shadow: 6px 10px 27px 0px rgba(0, 0, 0, 0.75);
+      border-radius: 25px; }

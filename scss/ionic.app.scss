@@ -69,26 +69,33 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 }
 
 /* List */
-.list{
-	top:10%;
+.scroll{
+	.list{
+		top:10%;
+		background-image: url('../img/background.png');
 
-	.order-list-wrapper{
-	background-color:pink;
-
-	.order-list{
-		width:50%;
-		text-overflow: ellipsis;
-		background-color:purple;
-	}
-
-		.wrapper{
-			background-color:green;
-			
-			.card{
-				background-color:blue;
-			}
+		.order-list-wrapper{
+			width:80%;
+		
+		.order-list{
+			width:100%;
+			text-overflow: ellipsis;
+			background-color: rgba(0,0,0,0.2);
+			border-radius: 20px 80px 20px;
 		}
-	}	
 
+			.wrapper{
+				
+				.card{
+					background-color: rgba(0,0,0,0);
+					-webkit-box-shadow: 6px 10px 27px 0px rgba(0,0,0,0.75);
+					-moz-box-shadow: 6px 10px 27px 0px rgba(0,0,0,0.75);
+					box-shadow: 6px 10px 27px 0px rgba(0,0,0,0.75);
+					border-radius:25px;
+				}
+			}
+		}	
+
+	}
 }
 
