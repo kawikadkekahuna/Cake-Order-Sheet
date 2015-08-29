@@ -40,7 +40,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 		}
 
 		.logo-wrapper{
-			width:70%;
+			width:68%;
 			height:100%;
 			display:inline-block;
 
@@ -67,4 +67,25 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 /* List */
 .list{
 	top:60px;
+
+	.order-list-wrapper{
+	background-color:pink;
+	text-align:center;
+
+	.order-list{
+		width:50%;
+		text-overflow: ellipsis;
+		background-color:purple;
+	}
+
+	.wrapper{
+		background-color:green;
+		
+		.card{
+			background-color:blue;
+		}
+	}
 }
+
+}
+

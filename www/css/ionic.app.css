@@ -7715,7 +7715,7 @@ a.button {
       background-color: orange;
       float: left; }
     .header .header-wrapper .logo-wrapper {
-      width: 70%;
+      width: 68%;
       height: 100%;
       display: inline-block; }
       .header .header-wrapper .logo-wrapper .logo {
@@ -7734,3 +7734,14 @@ a.button {
 /* List */
 .list {
   top: 60px; }
+  .list .order-list-wrapper {
+    background-color: pink;
+    text-align: center; }
+    .list .order-list-wrapper .order-list {
+      width: 50%;
+      text-overflow: ellipsis;
+      background-color: purple; }
+    .list .order-list-wrapper .wrapper {
+      background-color: green; }
+      .list .order-list-wrapper .wrapper .card {
+        background-color: blue; }
