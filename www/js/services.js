@@ -69,20 +69,27 @@ function TimeService($http){
 function StatusService($http){
 
   this.options = [{
-    status:'status-not-built'
+    status:'status-not-built',
+    name:'Not-Built'
    },{
-    status:'status-built'
+    status:'status-built',
+    name:'Built'
    },{
-    status:'status-frosted'
+    status:'status-frosted',
+    name:'Frosted'
    },{
-    status:'status-complete'
-   },];
+    status:'status-complete',
+    name:'Complete'
+   }];
 
   this.getOptions = function(){
     return this.options;
   }
 
-  this.updateStatus = function(status){
-    console.log('status',status);
+  this.updateStatus = function(id,name){
+    return $http.post(SERVER +'/api/order_routes/update_status',{
+      id:id,
+      name:name
+    });
   }
 }

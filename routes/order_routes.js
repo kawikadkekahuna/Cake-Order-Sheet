@@ -47,11 +47,25 @@ router.post('/place_order', function(req,res) {
 		design:req.body.orderData.design_message,
 		message_color:req.body.orderData.frosting_color,
 		other_message:req.body.orderData.other_message,
-		completed:false
+		completed:false,
+		cake_status:'Not Built'
 	}).then(function(result){
 		console.log('ORDER CREATED');
 		res.json(result);
 	})
+});
+
+router.post('/update_status',function(req,res){
+	db.findOne({
+		where:{
+			id: req.body.id
+		}
+	}).then(function(order){
+		order.updateAttributes({'cake_status':req.body.name}).then(function(orderData){
+			res.json(orderData)
+		});
+	});
+
 });
 
 router.post('/complete',function(req,res){

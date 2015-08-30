@@ -38,6 +38,8 @@ angular.module('starter')
 			StatusBar.styleLightContent();
 			f
 		}
+		$scope.editOptions = StatusService.getOptions();
+
 	});
 
 	$scope.$on('$ionicView.enter', function(e) {
@@ -52,7 +54,8 @@ angular.module('starter')
 		});
 	}
 
-	$scope.editCakeStatus = function() {
+	$scope.showEditStatus = function(id) {
+		$scope.editId = id;
 		var statusPopup = $ionicPopup.show({
 			templateUrl: 'templates/nav-edit-cake-status.html',
 			title: 'Whats the staus of the cake?',
@@ -60,15 +63,11 @@ angular.module('starter')
 			buttons: [{
 				text: 'Cancel'
 			}]
-		});
-		statusPopup.then(function(res) {
-			console.log('Tapped!', res);
-		});
+		})
 		$timeout(function() {
 			statusPopup.close();
-		}, 10000);
+		}, 7000);
 	};
 
-	$scope.editOptions = StatusService.getOptions();
-
-});
+	$scope.updateStatus = StatusService.updateStatus;
+})
