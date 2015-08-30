@@ -7720,7 +7720,7 @@ a.button {
       -ms-transition: all 0.5s ease-out;
       -o-transition: all 0.5s ease-out;
       transition: all 0.5s ease-out; }
-      .header .header-wrapper .back-button:hover {
+      .header .header-wrapper .back-button:active {
         -webkit-transform: scale(.7);
         -moz-transform: scale(.7);
         -ms-transform: scale(.7);
@@ -7751,7 +7751,7 @@ a.button {
       -ms-transition: all 0.5s ease-out;
       -o-transition: all 0.5s ease-out;
       transition: all 0.5s ease-out; }
-      .header .header-wrapper .add-order:hover {
+      .header .header-wrapper .add-order:active {
         -webkit-transform: scale(.7);
         -moz-transform: scale(.7);
         -ms-transform: scale(.7);

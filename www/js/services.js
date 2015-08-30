@@ -5,7 +5,7 @@ angular.module('starter')
   .service('FlavorService',['$http', FlavorService])
   .service('CakeService',['$http', CakeService])
   .service('TimeService',['$http', TimeService])
-
+  .service('StatusService',['$http', StatusService])
 
 function OrderService($http) {
 
@@ -66,3 +66,23 @@ function TimeService($http){
   }
 }
 
+function StatusService($http){
+
+  this.options = [{
+    status:'status-not-built'
+   },{
+    status:'status-built'
+   },{
+    status:'status-frosted'
+   },{
+    status:'status-complete'
+   },];
+
+  this.getOptions = function(){
+    return this.options;
+  }
+
+  this.updateStatus = function(status){
+    console.log('status',status);
+  }
+}

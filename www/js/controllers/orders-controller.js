@@ -24,10 +24,7 @@ angular.module('starter')
 				buttons: [{
 					text: 'Cancel'
 				}]
-			});
-			statusPopup.then(function(res) {
-				console.log('Tapped!', res);
-			});
+			})
 			$timeout(function() {
 				statusPopup.close();
 			}, 80000);
