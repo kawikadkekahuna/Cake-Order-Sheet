@@ -6,7 +6,7 @@
 	</ion-refresher>
 	<ion-list can-swipe="true">
 		<div class="order-list-wrapper" ng-repeat="orders in upcomingOrders | orderBy:'+id'">	
-			<ion-item class="order-list" on-swipe-right="completeOrder(orders.id)" ng-click="showOrder(orders.id)" ng-if="orders.completed == false && orders.pickup_date < date">
+			<ion-item class="order-list" on-swipe-right="completeOrder(orders.id)" ng-click="showOrder(orders.id)">
 				<div class="wrapper">
 					<div class="order-info card">
 					<div class="icon-wrapper">

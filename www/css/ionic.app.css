@@ -7712,7 +7712,8 @@ a.button {
       width: 15%;
       height: 100%;
       display: inline-block;
-      background-color: orange;
+      background-image: url('../img/back-arrow.svg');
+      background-size: cover;
       float: left; }
     .header .header-wrapper .logo-wrapper {
       width: 68%;
@@ -7731,8 +7732,9 @@ a.button {
       width: 15%;
       height: 100%;
       display: inline-block;
-      background-color: blue;
-      float: right; }
+      float: right;
+      background-image: url('../img/order-add.svg');
+      background-size: cover; }
 
 /* List */
 .scroll .list {
@@ -7744,7 +7746,7 @@ a.button {
       width: 100%;
       text-overflow: ellipsis;
       background-color: rgba(0, 0, 0, 0.2);
-      border-radius: 20px 80px 20px; }
+      border-radius: 25px; }
       .scroll .list .order-list-wrapper .order-list .item-content {
         background-color: transparent; }
     .scroll .list .order-list-wrapper .wrapper .card {
@@ -7764,7 +7766,7 @@ a.button {
         height: 1.5em;
         text-align: right; }
         .scroll .list .order-list-wrapper .wrapper .card .icon-wrapper .status-not-started {
-          background-image: url('../img/purchase1.png');
+          background-image: url('../img/order-not-started.svg');
           background-size: contain;
           background-repeat: no-repeat;
           width: 1.5em;
@@ -7776,3 +7778,32 @@ a.button {
           background-color: transparent; }
       .scroll .list .order-list-wrapper .wrapper .card:hover {
         font-weight: 400; }
+
+/* Button Popups */
+.status-not-built {
+  height: 24px;
+  width: 24px;
+  background-image: url('../img/order-not-started.svg');
+  background-size: contain;
+  background-repeat: no-repeat; }
+
+.status-built {
+  height: 24px;
+  width: 24px;
+  background-image: url('../img/order-built.svg');
+  background-size: contain;
+  background-repeat: no-repeat; }
+
+.status-frosted {
+  height: 24px;
+  width: 24px;
+  background-image: url('../img/order-frosted.png');
+  background-size: contain;
+  background-repeat: no-repeat; }
+
+.status-complete {
+  height: 24px;
+  width: 24px;
+  background-image: url('../img/order-complete.svg');
+  background-size: contain;
+  background-repeat: no-repeat; }

@@ -7,12 +7,16 @@
 	<ion-list>
 		<div class="order-list-wrapper" ng-repeat="orders in upcomingOrders | orderBy:'+id'">	
 			<ion-item class="order-list" on-swipe-right="completeOrder(orders.id)" ng-click="showOrder(orders.id)" ng-if="orders.completed == false ">
-				<div class="icecream-flavor-order">Order_Number: {{orders.id}}</div>
-				<div class="icecream-flavor-order">Name: {{orders.first_name}} {{orders.last_name}}</div>
-				<div class="icecream-flavor-order">Quantity: {{orders.quantity}}</div>
-				<div class="icecream-flavor-order">Size: {{orders.size}}</div>
-				<div class="icecream-flavor-order">Pickup Date: {{orders.pickup_date | date:'yyyy-MM-dd'}}</div>
-				<div class="icecream-flavor-order">Completed: {{orders.completed}}</div>
+				<div class="wrapper">
+					<div class="card" on-hold="editCakeStatus()">
+						<div class="icecream-flavor-order">Order_Number: {{orders.id}}</div>
+						<div class="icecream-flavor-order">Name: {{orders.first_name}} {{orders.last_name}}</div>
+						<div class="icecream-flavor-order">Quantity: {{orders.quantity}}</div>
+						<div class="icecream-flavor-order">Size: {{orders.size}}</div>
+						<div class="icecream-flavor-order">Pickup Date: {{orders.pickup_date | date:'yyyy-MM-dd'}}</div>
+						<div class="icecream-flavor-order">Completed: {{orders.completed}}</div>
+					</div>
+				</div>
 			</ion-item>
 		</div>
 	</ion-list>

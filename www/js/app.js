@@ -1,5 +1,6 @@
 // SERVER ='http://localhost:3000';
-SERVER = 'http://192.168.29.127:3000';
+// SERVER = 'http://192.168.29.127:3000';
+SERVER = 'http://192.168.1.117:3000';
 /*Mobile HotSpot IP*/
 // SERVER = 'http://192.168.29.205:3000';
 
@@ -11,34 +12,6 @@ angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker','ionic-datep
     alert('propagation stopped');
     $ionicHistory.goBack();
   }, 100);
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    OrderService.getAllOrders().then(function(orders) {
-      $localStorage.allOrders = orders.data;
-    });
-
-    FlavorService.getAllFlavors().then(function(iceCreamFlavors) {
-      $localStorage.iceCreamFlavors = iceCreamFlavors.data;
-    });
-    CakeService.getAllFlavors().then(function(cakeFlavors) {
-      $localStorage.cakeFlavors = cakeFlavors.data;
-    });
-    CakeService.getAllSizes().then(function(cakeSizes) {
-      $localStorage.cakeSizes = cakeSizes.data;
-    })
-
-    $localStorage.createOrder = {};
-    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
-
-    }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleLightContent();
-    }
-  });
 })
 
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, $provide) {
