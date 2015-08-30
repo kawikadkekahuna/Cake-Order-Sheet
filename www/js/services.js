@@ -78,7 +78,7 @@ function StatusService($http){
     status:'status-frosted',
     name:'Frosted'
    },{
-    status:'status-complete',
+    status:'status-completed',
     name:'Complete'
    }];
 

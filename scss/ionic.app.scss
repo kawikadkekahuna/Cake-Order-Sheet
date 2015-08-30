@@ -206,22 +206,24 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 }
 
 /* Button Popups */
-
-.status-not-built{
-	background-image: url('../img/order-not-started.svg');
-	background-size: contain;
-	background-repeat: no-repeat;
-}
-.status-built{
-	background-image: url('../img/order-built.svg');
-	background-size: contain;
-	background-repeat: no-repeat;
-}.status-frosted{
-	background-image: url('../img/order-frosted.png');
-	background-size: contain;
-	background-repeat: no-repeat;
-}.status-complete{
-	background-image: url('../img/order-complete.svg');
-	background-size: contain;
-	background-repeat: no-repeat;
+.popup{
+	background-color: rgba(0,0,0,0.9);
+	.status-not-built{
+		background-image: url('../img/order-not-started.svg');
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	.status-built{
+		background-image: url('../img/order-built.svg');
+		background-size: contain;
+		background-repeat: no-repeat;
+	}.status-frosted{
+		background-image: url('../img/order-frosted.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+	}.status-completed{
+		background-image: url('../img/order-complete.svg');
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
 }

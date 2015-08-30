@@ -10,11 +10,11 @@
 				<div class="wrapper">
 					<div class="order-info card" on-hold="showEditStatus(orders.id)">
 					<div class="icon-wrapper">
-						<div class="status-not-built" ng-show="orders.cake_status == 'Not Built'"></div>
+						<div class="status-not-built" ng-show="orders.cake_status == 'Not-Built'"></div>
 						<div class="status-built" ng-show="orders.cake_status == 'Built'"></div>
 
 						<div class="status-frosted" ng-show="orders.cake_status == 'Frosted'"></div>
-						<div class="status-completed" ng-show="orders.cake_status == 'Completed'"></div>
+						<div class="status-completed" ng-show="orders.cake_status == 'Complete'"></div>
 					</div>
 						<div class="name">Name: {{orders.first_name}} {{orders.last_name}}</div>
 						<div>Date: {{orders.pickup_date | date:'yyyy-MM-dd'}}
