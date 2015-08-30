@@ -7759,9 +7759,11 @@ a.button {
         transform: scale(.7); }
 
 /* List */
-.scroll .list {
-  top: 10%;
+.scroll-content {
   background-image: url('../img/background.png'); }
+
+.scroll .list {
+  top: 40px; }
   .scroll .list .order-list-wrapper {
     width: 80%; }
     .scroll .list .order-list-wrapper .order-list {

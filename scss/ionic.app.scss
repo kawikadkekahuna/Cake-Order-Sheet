@@ -97,10 +97,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 }
 
 /* List */
+.scroll-content{
+	background-image: url('../img/background.png');
+}
 .scroll{
 	.list{
-		top:10%;
-		background-image: url('../img/background.png');
+		top:40px;
 
 		.order-list-wrapper{
 			width:80%;
@@ -201,8 +203,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 				}
 			}
 		}	
-
 	}
+
 }
 
 /* Button Popups */

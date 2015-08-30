@@ -1,23 +1,29 @@
 <ion-view view-title="Order">
 	<ion-content>
-  		<div>Single Order</div>
-	<div class="order-data" ng-click="return()">
-		<div class="block"></div>
-		<div class="icecream-flavor-order">Flavors: {{orderData.icecream_flavors}}</div>
-		<div class="icecream-flavor-order">Cake: {{orderData.cake_flavor}}</div>
-		<div class="icecream-flavor-order">Quantity: {{orderData.quantity}}</div>
-		<div class="icecream-flavor-order">Size: {{orderData.size}}</div>
-		<div class="icecream-flavor-order">Pickup Date: {{orderData.pickup_date}}</div>
-		<div class="icecream-flavor-order">Pickup Time: {{orderData.pickup_time}}</div>
-		<div class="icecream-flavor-order">Payment Status: {{orderData.paid_status}}</div>
-		<div class="icecream-flavor-order">Order Processed: {{orderData.order_processed}}</div>
-		<div class="icecream-flavor-order">Messge: {{orderData.message}}</div>
-		<div class="icecream-flavor-order">design: {{orderData.design}}</div>
-		<div class="icecream-flavor-order">Message Color: {{orderData.message_color}}</div>
-		<div class="icecream-flavor-order">Other Message: {{orderData.other_message}}</div>
-	</div>
-	<div ng-if="orderData.completed == false">
-		<div ng-click="editOrder()">Edit me!</div>
-	</div>
+	<ion-list>
+		<div class="order-list-wrapper">
+			<ion-item class="order-list" ng-click="return()">
+				<div class="wrapper">
+					<div class="order-info card">
+						<div>Flavors: {{orderData.icecream_flavors}}</div>
+						<div>Cake: {{orderData.cake_flavor}}</div>
+						<div>Quantity: {{orderData.quantity}}</div>
+						<div>Size: {{orderData.size}}</div>
+						<div>Pickup Date: {{orderData.pickup_date}}</div>
+						<div>Pickup Time: {{orderData.pickup_time}}</div>
+						<div>Payment Status: {{orderData.paid_status}}</div>
+						<div>Order Processed: {{orderData.order_processed}}</div>
+						<div>Messge: {{orderData.message}}</div>
+						<div>design: {{orderData.design}}</div>
+						<div>Message Color: {{orderData.message_color}}</div>
+						<div>Other Message: {{orderData.other_message}}</div>
+					</div>
+				</div>
+			</ion-item>
+		</div>
+		<div ng-if="orderData.completed == false">
+			<div ng-click="editOrder()">Edit me!</div>
+		</div>
+	</ion-list>
 	</ion-content>
 </ion-view>
