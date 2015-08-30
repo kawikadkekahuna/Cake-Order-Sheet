@@ -7792,7 +7792,7 @@ a.button {
         width: 100%;
         height: 1.5em;
         text-align: right; }
-        .scroll .list .order-list-wrapper .wrapper .card .icon-wrapper .status-not-built {
+        .scroll .list .order-list-wrapper .wrapper .card .icon-wrapper .Not-Built {
           background-image: url('../img/order-not-started.svg');
           background-size: contain;
           background-repeat: no-repeat;
@@ -7803,7 +7803,7 @@ a.button {
           -moz-box-shadow: 1px 0px 3px 5px #b20000;
           box-shadow: 0px 0px 3px 5px #b20000;
           background-color: transparent; }
-        .scroll .list .order-list-wrapper .wrapper .card .icon-wrapper .status-built {
+        .scroll .list .order-list-wrapper .wrapper .card .icon-wrapper .Built {
           background-image: url('../img/order-built.svg');
           background-size: contain;
           background-repeat: no-repeat;
@@ -7814,7 +7814,7 @@ a.button {
           -moz-box-shadow: 1px 0px 3px 5px #ffa500;
           box-shadow: 0px 0px 3px 5px #ffa500;
           background-color: transparent; }
-        .scroll .list .order-list-wrapper .wrapper .card .icon-wrapper .status-frosted {
+        .scroll .list .order-list-wrapper .wrapper .card .icon-wrapper .Frosted {
           background-image: url('../img/order-frosted.png');
           background-size: contain;
           background-repeat: no-repeat;
@@ -7825,7 +7825,7 @@ a.button {
           -moz-box-shadow: 1px 0px 3px 5px #FFFF00;
           box-shadow: 0px 0px 3px 5px #FFFF00;
           background-color: transparent; }
-        .scroll .list .order-list-wrapper .wrapper .card .icon-wrapper .status-completed {
+        .scroll .list .order-list-wrapper .wrapper .card .icon-wrapper .Complete {
           background-image: url('../img/order-complete.svg');
           background-size: contain;
           background-repeat: no-repeat;

@@ -134,7 +134,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 						height:1.5em;
 						text-align: right;
 
-						.status-not-built{
+						.Not-Built{
 							background-image:url('../img/order-not-started.svg');
 							background-size: contain;
 							background-repeat: no-repeat;
@@ -146,7 +146,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 							box-shadow: 0px 0px 3px 5px #b20000; 
 							background-color:transparent;
 						}
-						.status-built{
+						.Built{
 							background-image:url('../img/order-built.svg');
 							background-size: contain;
 							background-repeat: no-repeat;
@@ -158,7 +158,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 							box-shadow: 0px 0px 3px 5px #ffa500; 
 							background-color:transparent;
 						}
-						.status-frosted{
+						.Frosted{
 							background-image:url('../img/order-frosted.png');
 							background-size: contain;
 							background-repeat: no-repeat;
@@ -170,7 +170,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 							box-shadow: 0px 0px 3px 5px #FFFF00; 
 							background-color:transparent;
 						}
-						.status-completed{
+						.Complete{
 							background-image:url('../img/order-complete.svg');
 							background-size: contain;
 							background-repeat: no-repeat;

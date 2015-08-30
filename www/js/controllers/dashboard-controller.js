@@ -64,10 +64,23 @@ angular.module('starter')
 				text: 'Cancel'
 			}]
 		})
+
+
+		$scope.updateStatus = function(id, name) {
+			StatusService.updateStatus(id, name).then(function(res) {
+				var order = $scope.upcomingOrders.filter(function(element){
+					return element.id === id
+				})[0];
+				order.cake_status = name;
+
+				statusPopup.close()
+			});
+		}
+
 		$timeout(function() {
 			statusPopup.close();
 		}, 7000);
 	};
 
-	$scope.updateStatus = StatusService.updateStatus;
-})
+
+});
