@@ -17,10 +17,7 @@ angular.module('starter')
 
 
 		$scope.editCakeStatus = function() {
-			$scope.data = {}
-
-			// An elaborate, custom popup
-			var myPopup = $ionicPopup.show({
+			var statusPopup = $ionicPopup.show({
 				templateUrl: 'templates/nav-edit-cake-status.html',
 				title: 'Whats the staus of the cake?',
 				scope: $scope,
@@ -28,13 +25,14 @@ angular.module('starter')
 					text: 'Cancel'
 				}]
 			});
-			myPopup.then(function(res) {
+			statusPopup.then(function(res) {
 				console.log('Tapped!', res);
 			});
 			$timeout(function() {
-				myPopup.close();
+				statusPopup.close();
 			}, 80000);
 		};
+
 		$scope.showOrder = function(order_number) {
 			$state.go('nav.single', {
 				order_number: order_number,

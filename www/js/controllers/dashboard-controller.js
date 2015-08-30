@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('DashController', function($scope, $ionicPlatform, $ionicHistory, $state, $localStorage, OrderService, FlavorService, CakeService) {
+.controller('DashController', function($scope, $ionicPlatform, $ionicHistory, $state, $localStorage,$ionicPopup,$timeout, OrderService, FlavorService, CakeService) {
 	// With the new view caching in Ionic, Controllers are only called
 	// when they are recreated or on app start, instead of every page change.
 	// To listen for when this page is active (for example, to refresh data),
@@ -36,7 +36,8 @@ angular.module('starter')
 		if (window.StatusBar) {
 			// org.apache.cordova.statusbar required
 			StatusBar.styleLightContent();
-f		}
+			f
+		}
 	});
 
 	$scope.$on('$ionicView.enter', function(e) {
@@ -51,6 +52,21 @@ f		}
 		});
 	}
 
-
+	$scope.editCakeStatus = function() {
+		var statusPopup = $ionicPopup.show({
+			templateUrl: 'templates/nav-edit-cake-status.html',
+			title: 'Whats the staus of the cake?',
+			scope: $scope,
+			buttons: [{
+				text: 'Cancel'
+			}]
+		});
+		statusPopup.then(function(res) {
+			console.log('Tapped!', res);
+		});
+		$timeout(function() {
+			statusPopup.close();
+		}, 80000);
+	};
 
 });

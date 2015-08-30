@@ -8,7 +8,7 @@
 		<div class="order-list-wrapper" ng-repeat="orders in upcomingOrders | orderBy:'+id'">	
 			<ion-item class="order-list" on-swipe-right="completeOrder(orders.id)" ng-click="showOrder(orders.id)">
 				<div class="wrapper">
-					<div class="order-info card">
+					<div class="order-info card" on-hold="editCakeStatus()">
 					<div class="icon-wrapper">
 						<div class="status-not-started"></div>
 					</div>
