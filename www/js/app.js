@@ -1,6 +1,6 @@
 // SERVER ='http://localhost:3000';
-// SERVER = 'http://192.168.29.127:3000';
-SERVER = 'http://192.168.1.117:3000';
+SERVER = 'http://192.168.29.205:3000';
+// SERVER = 'http://192.168.1.117:3000';
 /*Mobile HotSpot IP*/
 // SERVER = 'http://192.168.29.205:3000';
 
@@ -9,7 +9,6 @@ angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker','ionic-datep
 .run(function($ionicPlatform, $ionicHistory, $localStorage, FlavorService, OrderService, CakeService) {
   $ionicPlatform.registerBackButtonAction(function(event) {
     event.stopPropagation();
-    alert('propagation stopped');
     $ionicHistory.goBack();
   }, 100);
 })
@@ -30,15 +29,8 @@ angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker','ionic-datep
     return $delegate;
   });
   $ionicConfigProvider.tabs.position('bottom');
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
+
   $stateProvider
-
-  // setup an abstract state for the navs directive
-
-
     .state('nav', {
     url: '/nav',
     abstract: true,

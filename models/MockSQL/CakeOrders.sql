@@ -12,6 +12,39 @@ INSERT INTO orders VALUES (DEFAULT,1,'9" Round','Mint Chocolate Chip','Chocolate
 INSERT INTO orders VALUES (DEFAULT,1,'Dome','Mint Chocolate Chip','Chocolate Cake','Oompa','Loompa','80893291203','1422748799','10:00AM',false,'In-store','Happy Birthday Sean!','Candy Crazy','Blue','None',false,'Not-Built','2015-08-12 15:33:02.933-10', '2015-08-12 15:33:02.933-10');
 INSERT INTO orders VALUES (DEFAULT,1,'Cupcake-Cake','Mint Chocolate Chip','Chocolate Cake','Hunter','Grunt','80893291203','1422748799','10:00AM',false,'In-store','Happy Birthday Sean!','Candy Crazy','Blue','None',false,'Not-Built','2015-08-12 15:33:02.933-10', '2015-08-12 15:33:02.933-10');
 INSERT INTO orders VALUES (DEFAULT,1,'Roll','Mint Chocolate Chip','Chocolate Cake','Rex','Chun','80893291203','1422748799','3:00PM',false,'In-store','Happy Birthday Sean!','Candy Crazy','Blue','1 24pk candles',false,'Not-Built','2015-08-12 15:33:02.933-10', '2015-08-12 15:33:02.933-10');
+INSERT INTO cake_size VALUES (DEFAULT,'1/6 Sheet',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'1/3 Sheet',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'1/2 Sheet',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'2/3 Sheet',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'Full Sheet',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'Full + 1/3 Sheet',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'Full + 1/2 Sheet',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'Full + 2/3 Sheet',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'Double-Full Sheet',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'6" Round',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'9" Round',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'Dome',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'Cupcake-Cake',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'Roll',false,false);
+INSERT INTO cake_size VALUES (DEFAULT,'Decoration Pack',false,false);
+INSERT INTO cake_flavor VALUES (DEFAULT,'White',false,false);
+INSERT INTO cake_flavor VALUES (DEFAULT,'Chocolate',false,false);
+INSERT INTO cake_flavor VALUES (DEFAULT,'Fudge Crunch',false,false);
+INSERT INTO flavors VALUES (DEFAULT,'Oreo Cookies & Cream',false,false);
+INSERT INTO flavors VALUES (DEFAULT,'Chocolate Chip Cookie Dough',false,false);
+INSERT INTO flavors VALUES (DEFAULT,'Made With Snickers',false,false);
+INSERT INTO flavors VALUES (DEFAULT,'Pistachio Almond',false,false);
+INSERT INTO flavors VALUES (DEFAULT,'Rocky Road',false,false);
+INSERT INTO flavors VALUES (DEFAULT,'Chocolate',false,false);
+INSERT INTO flavors VALUES (DEFAULT,'Jamoca',false,false);
+INSERT INTO flavors VALUES (DEFAULT,'Mint Chocolate Chip',false,false);
+INSERT INTO flavors VALUES (DEFAULT,'Pralines n Cream',false,false);
+INSERT INTO flavors VALUES (DEFAULT,'Vanilla',false,false);
+INSERT INTO flavors VALUES (DEFAULT,'Chocolate Chip',false,false);
+INSERT INTO flavors VALUES (DEFAULT,'Jamoca Almond Fudge',false,false);
+INSERT INTO flavors VALUES (DEFAULT,'Peanut Butter & Chocolate',false,false);
+INSERT INTO flavors VALUES (DEFAULT,'Reeses Peanut Butter Cup',false,false);
+INSERT INTO flavors VALUES (DEFAULT,'Very Bery Strawberry',false,false);
 
 	-- quantity: DataTypes.INTEGER,
     -- size: DataTypes.STRING,
