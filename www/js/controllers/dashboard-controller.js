@@ -44,21 +44,26 @@ angular.module('starter')
 
 	$scope.$on('$ionicView.enter', function(e) {
 		$ionicHistory.clearHistory();
+		/*$scope.gate is to fix android rendering issues with $ionicPopup*/
+		$scope.gate = true;
 	});
 
 
 
-	$scope.showOrder = function(order_number) {
-		$state.go('nav.single', {
-			order_number: order_number
-		});
+	$scope.showOrder = function(event, order_number) {
+		if ($scope.gate) {
+			$state.go('nav.single', {
+				order_number: order_number
+			});
+		}
 	}
 
-	$scope.showEditStatus = function(id) {
+	$scope.showEditStatus = function(event, id) {
+		$scope.gate = false;
 		$scope.editId = id;
 		var statusPopup = $ionicPopup.show({
 			templateUrl: 'templates/nav-edit-cake-status.html',
-			title: 'Whats the staus of the cake?',
+			title: 'Cake Status?',
 			scope: $scope,
 			buttons: [{
 				text: 'Cancel'
@@ -67,18 +72,21 @@ angular.module('starter')
 
 
 		$scope.updateStatus = function(id, name) {
+
 			StatusService.updateStatus(id, name).then(function(res) {
-				var order = $scope.upcomingOrders.filter(function(element){
+				var order = $scope.upcomingOrders.filter(function(element) {
 					return element.id === id
 				})[0];
 				order.cake_status = name;
-
-				statusPopup.close()
+				statusPopup.close();
+				$scope.gate = true;
 			});
 		}
 
 		$timeout(function() {
+			$scope.gate = true;
 			statusPopup.close();
+
 		}, 7000);
 	};
 
