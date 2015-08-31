@@ -7769,7 +7769,7 @@ a.button {
     .scroll .list .order-list-wrapper .order-list {
       width: 100%;
       text-overflow: ellipsis;
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: rgba(255, 255, 255, 0.3);
       border-radius: 25px; }
       .scroll .list .order-list-wrapper .order-list .item-content {
         background-color: transparent; }
@@ -7779,7 +7779,7 @@ a.button {
       text-align: center;
       color: white;
       text-shadow: 2px 2px 2px #000;
-      background-color: transparent;
+      background-color: rgba(0, 0, 0, 0.2);
       -webkit-box-shadow: 6px 10px 27px 0px rgba(0, 0, 0, 0.75);
       -moz-box-shadow: 6px 10px 27px 0px rgba(0, 0, 0, 0.75);
       box-shadow: 6px 10px 27px 0px rgba(0, 0, 0, 0.75);
@@ -7866,3 +7866,13 @@ a.button {
     background-image: url('../img/order-complete.svg');
     background-size: contain;
     background-repeat: no-repeat; }
+
+/*Contact-Information*/
+.order-contact-information .list {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 25px; }
+  .order-contact-information .list label {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 25px 25px; }
+.order-contact-information .button-container {
+  text-align: right; }
