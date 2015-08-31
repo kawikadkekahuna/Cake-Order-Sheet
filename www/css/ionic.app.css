@@ -7926,3 +7926,15 @@ a.button {
     .order-form-container .cake-quantity .quantity {
       width: 70%;
       display: inline-block; }
+  .order-form-container .datepicker-wrapper {
+    width: 50%;
+    height: 100%; }
+  .order-form-container .timepicker-wrapper {
+    width: 50%;
+    height: 100%; }
+  .order-form-container .paid-status-wrapper {
+    width: 50%;
+    height: 100%; }
+  .order-form-container .order-processed-wrapper {
+    width: 50%;
+    height: 100%; }

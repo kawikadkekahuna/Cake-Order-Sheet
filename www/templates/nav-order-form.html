@@ -40,34 +40,47 @@
             <input class="quantity" type="number" ng-model="order.quantity"> 
           </div>
         </div>
-          <ionic-datepicker input-obj="datepickerObject">
-            <button class="button button-block button-positive"> {{datepickerObject.inputDate | date:'dd - MMMM - yyyy'}}</button>
-          </ionic-datepicker>
-          <ionic-timepicker input-obj="timePickerObject">
-            <button class="button button-block button-positive overflowShow">
-              <standard-time-meridian etime='timePickerObject.inputEpochTime'></standard-time-meridian>
-            </button>
-          </ionic-timepicker>
+        <div class="row">
           <label class="item item-input">
-            <div class="input-label">Frosting Color</div>
-            <input type="text" ng-model="order.frosting_color">
+            <input type="text" ng-model="order.frosting_color" placeholder="Frosting Color">
           </label>
           <label class="item item-input">
-            <div class="input-label">Design</div>
-            <input type="text" ng-model="order.design_message">
+            <input type="text" ng-model="order.design_message" placeholder="Design Message">
+          </label>
+        </div>
+        <div class="row">
+          <label class="item item-input">
+            <input type="text" ng-model="order.cake_message" placeholder="Cake-Writing Message">
           </label>
           <label class="item item-input">
-            <ion-toggle ng-model="order.paid_status" toggle-class="toggle-calm">Paid Status</ion-toggle>
+            <input type="text" ng-model="order.other_message" placeholder="Notes to Decorator">
           </label>
-          <label class="item item-input">
-            <div class="input-label">Cake-Writing Message</div>
-            <input type="text" ng-model="order.cake_message">
-          </label>
-          <label class="item item-input">
-            <span class="input-label">Other Message</span>
-            <input type="text" ng-model="order.other_message">
-          </label>
-          <button class="button submit" ng-click="createOrder(order)">Place Order!</button>
+        </div>
+        <div class="row">
+          <div class="datepicker-wrapper">
+            <ionic-datepicker input-obj="datepickerObject">
+              <button class="button button-block button-positive"> {{datepickerObject.inputDate | date:'dd - MMMM - yyyy'}}</button>
+            </ionic-datepicker>
+          </div>
+          <div class="timepicker-wrapper">
+            <ionic-timepicker input-obj="timePickerObject">
+              <button class="button button-block button-positive overflowShow">
+                <standard-time-meridian etime='timePickerObject.inputEpochTime'></standard-time-meridian>
+              </button>
+            </ionic-timepicker>
+          </div>
+        </div>
+          <div class="row">
+            <div class="paid-status-wrapper">
+              <ion-toggle ng-model="order.paid_status" ng-change="renamePaidStatus()" toggle-class="toggle-positive">{{order.paid_status_text}}</ion-toggle>
+            </div>
+            <div class="order-processed-wrapper">
+              <ion-toggle ng-model="order.order_processed" ng-change="renameOrderProcessed()" toggle-class="toggle-positive">{{order.order_processed_text}}</ion-toggle>
+            </div>
+          </div>
+          <div class="row">
+            <button class="button button-full button-positive submit" ng-click="createOrder(order)">Place Order!</button>
+          </div>
       </div>
     </ion-list>
   </ion-content>
