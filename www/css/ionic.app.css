@@ -7900,6 +7900,10 @@ a.button {
 .order-form-container {
   width: 100%;
   height: 100%; }
+  .order-form-container .item {
+    border-radius: 10px; }
+  .order-form-container .button {
+    border-radius: 10px; }
   .order-form-container .row {
     margin-top: 0px; }
   .order-form-container .icecream-flavors {

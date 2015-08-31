@@ -43,7 +43,7 @@ router.post('/place_order', function(req,res) {
 		phone:req.body.orderData.phone_number,
 		pickup_date:req.body.orderData.pickup_date,
 		pickup_time:req.body.orderData.pickup_time,
-		paid_status:req.body.orderData.paid_status_text,
+		paid_status:req.body.orderData.paid_status,
 		order_processed:req.body.orderData.order_processed_text,
 		message:req.body.orderData.cake_message,
 		design:req.body.orderData.design_message,
