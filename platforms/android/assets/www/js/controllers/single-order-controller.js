@@ -14,7 +14,7 @@ angular.module('starter')
 	});
 
 	$scope.return = function() {
-		$state.go($ionicHistory.goBack());
+		$ionicHistory.goBack()
 	}
 
 	$scope.editOrder = function(){

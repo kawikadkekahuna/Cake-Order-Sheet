@@ -271,13 +271,31 @@ angular.module('starter')
     cakeSizeText: 'Cake Size',
     cakeSizes: $localStorage.cakeSizes,
     flavorText: 'Icecream Flavors',
-    flavors: $localStorage.iceCreamFlavors,
+    flavors: $localStorage.iceCreamFlavors
   };
 
   $scope.order = {
     quantity: 1,
-    pickup_date: new Date()
+    pickup_date: new Date(),
+    order_processed_text:'Online',
+    paid_status_text:'Not-Paid'
   };
+
+  $scope.renameOrderProcessed = function(){
+    if($scope.order.order_processed){
+      $scope.order.order_processed_text = 'In Store'
+    }else{
+      $scope.order.order_processed_text = 'Online'
+    }
+  }
+
+  $scope.renamePaidStatus = function(){
+    if($scope.order.paid_status){
+      $scope.order.paid_status_text = 'Paid'
+    }else{
+      $scope.order.paid_status_text = 'Not-Paid'
+    }
+  }
 
 
 
@@ -291,6 +309,9 @@ angular.module('starter')
     orderData.phone_number = $stateParams.phone_number;
     orderData.pickup_time = $scope.pickup_time;
     orderData.pickup_date = $scope.pickup_date;
+    orderData.order_processed = $scope.order_processed_text;
+    orderData.paid_status = $scope.paid_status_text;
+    console.log('orderData.order_processed',orderData);
     OrderService.placeOrder(orderData).then(function(res) {
       OrderService.getAllOrders().then(function(orders) {
         $localStorage.allOrders = orders.data;

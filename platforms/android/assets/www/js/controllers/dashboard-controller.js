@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('DashController', function($scope, $ionicHistory,$state, $localStorage, OrderService, FlavorService, CakeService) {
+.controller('DashController', function($scope, $ionicPlatform, $ionicHistory, $state, $localStorage, $ionicPopup, $timeout, OrderService, FlavorService, CakeService, StatusService) {
 	// With the new view caching in Ionic, Controllers are only called
 	// when they are recreated or on app start, instead of every page change.
 	// To listen for when this page is active (for example, to refresh data),
@@ -9,27 +9,86 @@ angular.module('starter')
 	//$scope.$on('$ionicView.enter', function(e) {
 	//});
 	//
-	ionic.Platform.ready(function(){
-		var date = new Date();
-		var numberOfDaysToAdd = 6;
-		$scope.upcomingOrders = $localStorage.allOrders;
-		date.setDate(date.getDate() + numberOfDaysToAdd);
-		$scope.date = date.getTime().toString();
-		
+	ionic.Platform.ready(function() {
+		// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+		// for form inputs)
+		OrderService.getAllOrders().then(function(orders) {
+			$localStorage.allOrders = orders.data;
+			$scope.upcomingOrders = orders.data;
+		});
+
+		FlavorService.getAllFlavors().then(function(iceCreamFlavors) {
+			$localStorage.iceCreamFlavors = iceCreamFlavors.data;
+		});
+		CakeService.getAllFlavors().then(function(cakeFlavors) {
+			$localStorage.cakeFlavors = cakeFlavors.data;
+		});
+		CakeService.getAllSizes().then(function(cakeSizes) {
+			$localStorage.cakeSizes = cakeSizes.data;
+		})
+
+		$localStorage.createOrder = {};
+		if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+			cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+			cordova.plugins.Keyboard.disableScroll(true);
+
+		}
+		if (window.StatusBar) {
+			// org.apache.cordova.statusbar required
+			StatusBar.styleLightContent();
+			f
+		}
+		$scope.editOptions = StatusService.getOptions();
+
 	});
 
 	$scope.$on('$ionicView.enter', function(e) {
 		$ionicHistory.clearHistory();
+		/*$scope.gate is to fix android rendering issues with $ionicPopup*/
+		$scope.gate = true;
 	});
 
 
 
-	$scope.showOrder = function(order_number) {
-		$state.go('nav.single', {
-			order_number: order_number
-		});
+	$scope.showOrder = function(event, order_number) {
+		if ($scope.gate) {
+			$state.go('nav.single', {
+				order_number: order_number
+			});
+		}
 	}
 
+	$scope.showEditStatus = function(event, id) {
+		$scope.gate = false;
+		$scope.editId = id;
+		var statusPopup = $ionicPopup.show({
+			templateUrl: 'templates/nav-edit-cake-status.html',
+			title: 'Cake Status?',
+			scope: $scope,
+			buttons: [{
+				text: 'Cancel'
+			}]
+		})
+
+
+		$scope.updateStatus = function(id, name) {
+
+			StatusService.updateStatus(id, name).then(function(res) {
+				var order = $scope.upcomingOrders.filter(function(element) {
+					return element.id === id
+				})[0];
+				order.cake_status = name;
+				statusPopup.close();
+				$scope.gate = true;
+			});
+		}
+
+		$timeout(function() {
+			$scope.gate = true;
+			statusPopup.close();
+
+		}, 7000);
+	};
 
 
 });

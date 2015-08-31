@@ -309,6 +309,9 @@ angular.module('starter')
     orderData.phone_number = $stateParams.phone_number;
     orderData.pickup_time = $scope.pickup_time;
     orderData.pickup_date = $scope.pickup_date;
+    orderData.order_processed = $scope.order_processed_text;
+    orderData.paid_status = $scope.paid_status_text;
+    console.log('orderData.order_processed',orderData);
     OrderService.placeOrder(orderData).then(function(res) {
       OrderService.getAllOrders().then(function(orders) {
         $localStorage.allOrders = orders.data;
