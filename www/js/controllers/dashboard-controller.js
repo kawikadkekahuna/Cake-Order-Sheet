@@ -19,12 +19,10 @@ angular.module('starter')
 
 		OrderService.getMessageColors().then(function(colors) {
 			$localStorage.messageColors = colors.data;
-			console.log('$localStorage.messageColors',$localStorage.messageColors);
 		});
 
 		OrderService.getPresetMessages().then(function(messages) {
 			$localStorage.presetMessages = messages.data;
-			console.log('$localStorage.presetMessages',$localStorage.presetMessages);
 		});
 		FlavorService.getAllFlavors().then(function(iceCreamFlavors) {
 			$localStorage.iceCreamFlavors = iceCreamFlavors.data;
