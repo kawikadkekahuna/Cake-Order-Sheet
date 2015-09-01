@@ -17,6 +17,13 @@ angular.module('starter')
 			$scope.upcomingOrders = orders.data;
 		});
 
+		OrderService.getMessageColors().then(function(colors) {
+			$localStorage.messageColors = colors.data;
+		});
+
+		OrderService.getPresetMessages().then(function(messages) {
+			$localStorage.presetMessages = messages.data;
+		});
 		FlavorService.getAllFlavors().then(function(iceCreamFlavors) {
 			$localStorage.iceCreamFlavors = iceCreamFlavors.data;
 		});

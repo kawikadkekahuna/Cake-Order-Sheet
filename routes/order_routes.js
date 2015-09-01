@@ -2,12 +2,15 @@
 
 var express = require('express');
 var router = express.Router();
-var db = require('../models').Order;
 var preset_messages = require('../models').PresetMessage;
 var message_colors = require('../models').MessageColor;
+var db = require('../models').Order;
 var bodyParser = require('body-parser');
 
 router.get('/', function(req,res) {
+	console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+	console.log('preset_messages',preset_messages);
+	console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
 	
 	db.findAll().then(function(orders){
 	console.log('ORDERS RECEIVED');
@@ -107,7 +110,7 @@ router.get('/message_colors',function(req,res){
 });
 
 router.get('/preset_messages',function(req,res){
-	preset_messages.findAll.then(function(messages){
+	preset_messages.findAll().then(function(messages){
 		res.json(messages);
 	})
 });

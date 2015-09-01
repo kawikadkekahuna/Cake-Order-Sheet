@@ -275,11 +275,11 @@ angular.module('starter')
     cakeSizeText: 'Cake Size',
     cakeSizes: $localStorage.cakeSizes,
     flavorText: 'Icecream Flavors',
-    flavors: $localStorage.iceCreamFlavors
-    presetMessageText:,
-    presetMessage:
-    frostingColorText:,
-    frostingColor:
+    flavors: $localStorage.iceCreamFlavors,
+    presetMessageText:'Preset Messages',
+    presetMessage: $localStorage.presetMessages,
+    messageColorText:'Message Color',
+    messageColor: $localStorage.messageColors
   };
 
   $scope.order = {
