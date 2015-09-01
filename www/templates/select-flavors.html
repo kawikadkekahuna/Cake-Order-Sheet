@@ -19,11 +19,11 @@
       <label name="cake_size" ng-repeat="cake_size in items" ng-if="!multiSelect" class="item item-text-wrap" ng-click="setCakeSize(cake_size)">
        {{cake_size.text}}
       </label>
-      <label name="frosting_color" ng-repeat="color in frosting_color" ng-if="!multiSelect" class="item item-text-wrap" ng-click="setCakeSize(cake_size)">
-       {{cake_size.text}}
+      <label name="message_color" ng-repeat="color in colors" ng-if="!multiSelect" class="item item-text-wrap">
+       {{color.text}}
       </label>
-      <label name="cake_message" ng-repeat="message in preset_message" ng-if="!multiSelect" class="item item-text-wrap" ng-click="setCakeSize(cake_size)">
-       {{cake_size.text}}
+      <label name="preset_message" ng-repeat="message in messages" ng-if="!multiSelect" class="item item-text-wrap">
+       {{message.text}}
       </label>
     </div>
   </ion-content>

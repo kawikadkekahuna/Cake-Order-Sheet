@@ -17,11 +17,12 @@ angular.module('starter')
 
           'flavors': '=',
 
-          'frosting_color':'=',
-
-          'preset_message':'=',
-
           'items': '=',
+
+          'colors': '=',
+
+          'messages': '=',
+
           /* Items list is mandatory */
           'text': '=',
           /* Displayed text is mandatory */
@@ -281,6 +282,9 @@ angular.module('starter')
     messageColorText:'Message Color',
     messageColor: $localStorage.messageColors
   };
+
+  console.log('$scope.formFieldData',$scope.formFieldData);
+
 
   $scope.order = {
     quantity: 1,
