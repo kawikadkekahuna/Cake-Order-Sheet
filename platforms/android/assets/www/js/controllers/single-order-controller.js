@@ -11,6 +11,12 @@ angular.module('starter')
 		$scope.orderData = $localStorage.allOrders.filter(function(element, index, array) {
 			return element.id === $stateParams.order_number;
 		})[0];
+		if($scope.orderData.paid_status){
+			$scope.paid_status_text = "Paid"
+		}else{
+			$scope.paid_status_text = "Not Paid"
+		}
+		console.log($scope.orderData.pickup_time);
 	});
 
 	$scope.return = function() {

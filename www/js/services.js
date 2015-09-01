@@ -35,6 +35,14 @@ function OrderService($http) {
       orderData : request
     });
   }
+
+  this.getMessageColors = function(){
+    return $http.get(SERVER + '/api/order_routes/message_colors');
+  }
+
+  this.getPresetMessages = function(){
+    return $http.get(SERVER + '/api/order_routes/preset_messages');
+  }
 }
 
 function FlavorService($http){

@@ -17,6 +17,10 @@ angular.module('starter')
 
           'flavors': '=',
 
+          'frosting_color':'=',
+
+          'preset_message':'=',
+
           'items': '=',
           /* Items list is mandatory */
           'text': '=',
@@ -272,6 +276,10 @@ angular.module('starter')
     cakeSizes: $localStorage.cakeSizes,
     flavorText: 'Icecream Flavors',
     flavors: $localStorage.iceCreamFlavors
+    presetMessageText:,
+    presetMessage:
+    frostingColorText:,
+    frostingColor:
   };
 
   $scope.order = {

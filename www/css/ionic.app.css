@@ -7896,6 +7896,9 @@ a.button {
     border-radius: 25px;
     margin-top: 0; }
 
+.edit-button {
+  font-weight: 800; }
+
 /*Order Form*/
 .order-form-container {
   width: 100%;

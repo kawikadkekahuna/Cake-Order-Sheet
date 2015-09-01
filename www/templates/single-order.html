@@ -13,16 +13,17 @@
 						<div>Pickup Time: {{orderData.pickup_time}}</div>
 						<div>Payment Status: {{paid_status_text}}</div>
 						<div>Order Processed: {{orderData.order_processed}}</div>
-						<div>Messge: {{orderData.message}}</div>
-						<div>design: {{orderData.design}}</div>
+						<div>Message: {{orderData.message}}</div>
+						<div>Design: {{orderData.design}}</div>
 						<div>Message Color: {{orderData.message_color}}</div>
+						<div>Frosting Color: {{orderData.frosting_color}}</div>
 						<div>Other Message: {{orderData.other_message}}</div>
 					</div>
 				</div>
 			</ion-item>
 		</div>
 		<div ng-if="orderData.completed == false">
-			<div ng-click="editOrder()">Edit me!</div>
+			<button class="edit-button button button-full button-positive" ng-click="editOrder()">Edit Me!</button>
 		</div>
 	</ion-list>
 	</ion-content>

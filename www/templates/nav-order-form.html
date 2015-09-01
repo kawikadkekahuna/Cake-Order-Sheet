@@ -57,6 +57,28 @@
           </label>
         </div>
         <div class="row">
+          <div class="icecream-flavors">
+              <fancy-select
+              header-text="Frosting"
+              allow-empty="false"
+              text="formFieldData.frostingColorText"\
+              frosting_color="formFieldData.frostingColor"
+              multi-select="false"
+              >
+              </fancy-select>
+          </div>
+          <div class="cake-flavors">
+              <fancy-select
+              header-text="Message"
+              allow-empty="false"
+              text="formFieldData.presetMessageText"
+              preset_message="formFieldData.presetMessage"
+              multi-select="false"
+              >
+              </fancy-select>
+          </div>
+        </div>
+        <div class="row">
           <div class="datepicker-wrapper">
             <ionic-datepicker input-obj="datepickerObject">
               <button class="button button-block button-positive"> {{datepickerObject.inputDate | date:'dd - MMMM - yyyy'}}</button>

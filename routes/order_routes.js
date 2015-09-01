@@ -3,6 +3,8 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../models').Order;
+var preset_messages = require('../models').PresetMessage;
+var message_colors = require('../models').MessageColor;
 var bodyParser = require('body-parser');
 
 router.get('/', function(req,res) {
@@ -98,5 +100,16 @@ router.post('/incomplete',function(req,res){
 
 });
 
+router.get('/message_colors',function(req,res){
+	message_colors.findAll().then(function(colors){
+		res.json(colors);
+	})
+});
+
+router.get('/preset_messages',function(req,res){
+	preset_messages.findAll.then(function(messages){
+		res.json(messages);
+	})
+});
 
 module.exports = router;
