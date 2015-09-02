@@ -129,6 +129,6 @@ angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker','ionic-datep
     }
   });
 
-  $urlRouterProvider.otherwise('/nav/dash');
+  $urlRouterProvider.otherwise('/nav/order-form');
 
 });
