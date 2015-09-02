@@ -4,7 +4,7 @@ SERVER = 'http://192.168.29.205:3000';
 /*Mobile HotSpot IP*/
 // SERVER = 'http://192.168.29.127:3000';
 
-angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker','ionic-datepicker'])
+angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker','ionic-datepicker','ui.calendar'])
 
 .run(function($ionicPlatform, $ionicHistory, $localStorage, FlavorService, OrderService, CakeService) {
   $ionicPlatform.registerBackButtonAction(function(event) {
@@ -14,20 +14,7 @@ angular.module('starter', ['ionic', 'ngStorage', 'ionic-timepicker','ionic-datep
 })
 
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, $provide) {
-  //improves android functionality
-  if (ionic.Platform.isAndroid()) {
-    $ionicConfigProvider.scrolling.jsScrolling(false);
-  }
-  $provide.decorator('$state', function($delegate, $stateParams) {
-    $delegate.forceReload = function() {
-      return $delegate.go($delegate.current, $stateParams, {
-        reload: true,
-        inherit: false,
-        notify: true
-      });
-    };
-    return $delegate;
-  });
+
   $ionicConfigProvider.tabs.position('bottom');
 
   $stateProvider

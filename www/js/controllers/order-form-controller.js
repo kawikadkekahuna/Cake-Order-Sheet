@@ -23,11 +23,10 @@ angular.module('starter')
 
           'messages': '=',
 
-          /* Items list is mandatory */
           'text': '=',
-          /* Displayed text is mandatory */
+
           'value': '=',
-          /* Selected value binding is mandatory */
+
           'callback': '&'
         },
 
