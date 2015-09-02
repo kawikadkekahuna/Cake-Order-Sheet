@@ -5,6 +5,7 @@
         <div class="row">
           <div class="icecream-flavors">
               <fancy-select
+              ng-model="order.icecream_flavor"
               header-text="Flavors"
               allow-empty="false"
               text="formFieldData.flavorText"\
@@ -15,6 +16,7 @@
           </div>
           <div class="cake-flavors">
               <fancy-select
+              ng-model="order.cake_flavor"
               header-text="Cake"
               allow-empty="false"
               text="formFieldData.cakeFlavorText"
@@ -27,6 +29,7 @@
         <div class="row">
           <div class="cake-size">
               <fancy-select
+              ng-model="order.cake_size"
               header-text="Cake Size"
               allow-empty="false"
               text="formFieldData.cakeSizeText"
@@ -51,6 +54,7 @@
         <div class="row">
           <div class="icecream-flavors">
               <fancy-select
+              ng-model="order.message_colors"
               header-text="Message Colors"
               allow-empty="false"
               text="formFieldData.messageColorText"
@@ -66,6 +70,7 @@
         <div class="row">
           <div class="cake-flavors">
               <fancy-select
+              ng-model="order.preset_messages"
               header-text="Preset Messages"
               allow-empty="false"
               text="formFieldData.presetMessageText"

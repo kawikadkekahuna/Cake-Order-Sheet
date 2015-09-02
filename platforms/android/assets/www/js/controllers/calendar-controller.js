@@ -35,7 +35,7 @@ angular.module('starter')
   $scope.eventSources = [{
     events: CalendarService.getMonthlyEvents(),
     color: 'yellow', // an option!
-    textColor: 'black', // an option!
+    textColor: 'black' // an option!
 
   }];
 

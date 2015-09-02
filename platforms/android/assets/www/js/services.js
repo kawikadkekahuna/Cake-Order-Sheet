@@ -8,6 +8,13 @@ angular.module('starter')
   .service('StatusService', ['$http', StatusService])
   .service('CalendarService', ['$http', '$localStorage', CalendarService])
 
+Date.prototype.yyyymmdd = function() {
+  var yyyy = this.getFullYear().toString();
+  var mm = (this.getMonth() + 1).toString(); // getMonth() is zero-based
+  var dd = this.getDate().toString();
+  return yyyy  +'-'+ (mm[1] ? mm : "0" + mm[0]) +'-'+ (dd[1] ? dd : "0" + dd[0]); // padding
+};
+
 function OrderService($http) {
 
   this.getAllOrders = function() {
@@ -103,22 +110,19 @@ function StatusService($http) {
   }
 }
 
-function CalendarService($http,$localStorage) {
+function CalendarService($http, $localStorage) {
 
   this.getMonthlyEvents = function() {
     var events = [];
     $localStorage.allOrders.forEach(function(order) {
-      var date = new Date(parseInt(order.pickup_date));
-      var month = date.getMonth();
-      var day = date.getDate();
-      var year = date.getFullYear();
+      if (order.pickup_date) {
+        var date = new Date(parseInt(order.pickup_date));
+        events.push({
+          title: order.pickup_time,
+          start: date.yyyymmdd()
+        })
 
-      console.log('test',date.toISOString());
-
-      events.push({
-        title: order.first_name,
-        start: date.toISOString()
-      })
+      }
     })
     return events;
   }

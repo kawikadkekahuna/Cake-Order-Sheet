@@ -9,6 +9,7 @@ angular.module('starter')
         /* Only use as <fancy-select> tag */
         restrict: 'E',
 
+        require:'ngModel',
         /* Our template */
         templateUrl: 'templates/flavor-select.html',
 
@@ -30,8 +31,10 @@ angular.module('starter')
           'callback': '&'
         },
 
-        link: function(scope, element, attrs) {
-
+        link: function(scope, element, attrs,ngModel) {
+          element.on('click',function(){
+            console.log('element.$modelValue',element.$modelValue);
+          })
           /* Default values */
           scope.multiSelect = attrs.multiSelect === 'true' ? true : false;
           scope.allowEmpty = attrs.allowEmpty === 'false' ? false : true;
@@ -326,17 +329,18 @@ angular.module('starter')
 
 
   $scope.createOrder = function(orderData) {
-    orderData.icecream_flavor = $localStorage.createOrder.iceCreamFlavors;
-    orderData.cake_flavor = $localStorage.createOrder.cakeFlavor;
-    orderData.cake_size = $localStorage.createOrder.cakeSize;
-    orderData.first_name = $stateParams.first_name;
-    orderData.last_name = $stateParams.last_name;
-    orderData.phone_number = $stateParams.phone_number;
-    orderData.pickup_time = $localStorage.createOrder.pickupTime;
-    orderData.pickup_date = $scope.pickup_date;
-    orderData.order_processed = $scope.order.order_processed_text;
-    orderData.message_color = $localStorage.createOrder.message_color;
-    orderData.message = $localStorage.createOrder.message +' '+ orderData.cake_message;
+    // console.log('orderData',orderData);
+    // orderData.icecream_flavor = $localStorage.createOrder.iceCreamFlavors;
+    // orderData.cake_flavor = $localStorage.createOrder.cakeFlavor;
+    // orderData.cake_size = $localStorage.createOrder.cakeSize;
+    // orderData.first_name = $stateParams.first_name;
+    // orderData.last_name = $stateParams.last_name;
+    // orderData.phone_number = $stateParams.phone_number;
+    // orderData.pickup_time = $localStorage.createOrder.pickupTime;
+    // orderData.pickup_date = $scope.pickup_date;
+    // orderData.order_processed = $scope.order.order_processed_text;
+    // orderData.message_color = $localStorage.createOrder.message_color;
+    // orderData.message = $localStorage.createOrder.message +' '+ orderData.cake_message;
     console.log('orderData',orderData);
 
     OrderService.placeOrder(orderData).then(function(res) {
