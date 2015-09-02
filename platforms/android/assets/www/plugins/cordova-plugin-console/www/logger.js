@@ -353,5 +353,11 @@ logger.__onDeviceReady = function() {
 
 // add a deviceready event to log queued messages
 document.addEventListener("deviceready", logger.__onDeviceReady, false);
+window.cordova = window.cordova || {};
+window.cordova.logger = window.cordova.logger || {};
 
+require('cordova/builder').assignOrWrapInDeprecateGetter(window.cordova, 'logger', module.exports);window.cordova = window.cordova || {};
+window.cordova.logger = window.cordova.logger || {};
+
+require('cordova/builder').assignOrWrapInDeprecateGetter(window.cordova, 'logger', module.exports);
 });

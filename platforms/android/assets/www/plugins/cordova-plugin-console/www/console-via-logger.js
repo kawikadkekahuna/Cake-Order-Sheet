@@ -185,5 +185,9 @@ for (var key in console) {
         console[key] = wrappedOrigCall(WinConsole[key], console[key]);
     }
 }
+window.console = window.console || {};
 
+require('cordova/builder').assignOrWrapInDeprecateGetter(window, 'console', module.exports);window.console = window.console || {};
+
+require('cordova/builder').assignOrWrapInDeprecateGetter(window, 'console', module.exports);
 });

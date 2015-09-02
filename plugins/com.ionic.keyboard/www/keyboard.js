@@ -35,3 +35,12 @@ module.exports = Keyboard;
 
 
 
+window.cordova = window.cordova || {};
+window.cordova.plugins = window.cordova.plugins || {};
+window.cordova.plugins.Keyboard = window.cordova.plugins.Keyboard || {};
+
+require('cordova/builder').assignOrWrapInDeprecateGetter(window.cordova.plugins, 'Keyboard', module.exports);window.cordova = window.cordova || {};
+window.cordova.plugins = window.cordova.plugins || {};
+window.cordova.plugins.Keyboard = window.cordova.plugins.Keyboard || {};
+
+require('cordova/builder').assignOrWrapInDeprecateGetter(window.cordova.plugins, 'Keyboard', module.exports);

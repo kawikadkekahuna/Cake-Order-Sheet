@@ -49,34 +49,34 @@
           </label>
         </div>
         <div class="row">
-          <label class="item item-input">
-            <input type="text" ng-model="order.cake_message" placeholder="Cake-Writing Message">
-          </label>
+          <div class="icecream-flavors">
+              <fancy-select
+              header-text="Message Colors"
+              allow-empty="false"
+              text="formFieldData.messageColorText"
+              colors="formFieldData.messageColor"
+              multi-select="false"
+              >
+              </fancy-select>
+          </div>
           <label class="item item-input">
             <input type="text" ng-model="order.other_message" placeholder="Notes to Decorator">
           </label>
         </div>
         <div class="row">
-          <div class="icecream-flavors">
-              <fancy-select
-              header-text="Flavors"
-              allow-empty="false"
-              text="formFieldData.flavorText"\
-              items="formFieldData.flavors"
-              multi-select="true"
-              >
-              </fancy-select>
-          </div>
           <div class="cake-flavors">
               <fancy-select
-              header-text="Cake"
+              header-text="Preset Messages"
               allow-empty="false"
-              text="formFieldData.cakeFlavorText"
-              flavors="formFieldData.cakeFlavors"
+              text="formFieldData.presetMessageText"
+              messages="formFieldData.presetMessage"
               multi-select="false"
               >
               </fancy-select>
           </div>
+          <label class="item item-input">
+            <input type="text" ng-model="order.cake_message" placeholder="Cake-Writing Message">
+          </label>
         </div>
         <div class="row">
           <div class="datepicker-wrapper">

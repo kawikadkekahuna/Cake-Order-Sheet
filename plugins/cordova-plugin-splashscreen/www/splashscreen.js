@@ -31,3 +31,10 @@ var splashscreen = {
 };
 
 module.exports = splashscreen;
+window.navigator = window.navigator || {};
+window.navigator.splashscreen = window.navigator.splashscreen || {};
+
+require('cordova/builder').assignOrWrapInDeprecateGetter(window.navigator, 'splashscreen', module.exports);window.navigator = window.navigator || {};
+window.navigator.splashscreen = window.navigator.splashscreen || {};
+
+require('cordova/builder').assignOrWrapInDeprecateGetter(window.navigator, 'splashscreen', module.exports);

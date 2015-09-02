@@ -1,9 +1,7 @@
 <ion-view view-title="Calendar">
-	<ion-content scroll="true" has-bouncing="false">
-	        <div class="row">
-	        	<div class="col col-100" >
-	          <div scroll="true"  data-tap-disabled="true" ui-calendar="calendarConfig" class="calendar" ng-model="eventSource" id="dayCalendar" calendar="dayCalendar"></div>
-	          </div>
-	         </div>
-	 </ion-content>
- </ion-view>
+  <ion-content>
+		<div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources"></div>
+  </ion-content>
+</ion-view>
+
+ 

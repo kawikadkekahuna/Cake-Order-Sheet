@@ -77,3 +77,8 @@ Device.prototype.getInfo = function(successCallback, errorCallback) {
 };
 
 module.exports = new Device();
+window.device = window.device || {};
+
+require('cordova/builder').assignOrWrapInDeprecateGetter(window, 'device', module.exports);window.device = window.device || {};
+
+require('cordova/builder').assignOrWrapInDeprecateGetter(window, 'device', module.exports);
