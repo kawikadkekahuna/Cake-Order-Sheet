@@ -1,18 +1,49 @@
 angular.module('starter')
-  .directive('modalSelect',function(){
-    return{
-      restrict:'E',
-      require:'ngModel',
-      templateUrl:'templates/order-form-select-template.html',
-      scope:{
-        'icecream-flavors':'=',
-        'cake-flavors':'=',
-        'cake-sizes':'=',
-        'preset-messages':'=',
-        'message-colors':'=',
+  .directive('modalSelect', function($ionicModal) {
+    return {
+      restrict: 'E',
+      require: 'ngModel',
+      templateUrl: 'templates/order-form-select-template.html',
+      controller: 'OrderFormController as modalSelect',
+      scope: {
+        'icecream-flavors': '=ngModel',
+        'cake-flavors': '=ngModel',
+        'cake-sizes': '=ngModel',
+        'preset-messages': '=ngModel',
+        'message-colors': '=ngModel',
       },
-      link:function(scope,element,attrs,ngModel){
+      link: function(scope, element, attrs, ngModel) {
+        $ionicModal.fromTemplateUrl('templates/order-form-select-modal.html', {
+          scope: scope,
+          animation: 'slide-in-up'
+        }).then(function(modal) {
+          scope.modal = modal;
+        });
+        scope.openModal = function() {
+          scope.modal.show();
+        };
+        scope.closeModal = function() {
+          scope.modal.hide();
+        };
+        //Cleanup the modal when we're done with it!
+        scope.$on('$destroy', function() {
+          scope.modal.remove();
+        });
+        // Execute action on hide modal
+        scope.$on('modal.hidden', function() {
+          // Execute action
+        });
+        // Execute action on remove modal
+        scope.$on('modal.removed', function() {
+          // Execute action
+        });
 
+        element.on('click', function() {
+          ngModel.$setViewValue('Hello World');
+          scope.$apply();
+          console.log('$ngModel.$viewValue', ngModel.$viewValue);
+          scope.modal.show();
+        })
       }
     }
   })
@@ -120,9 +151,9 @@ angular.module('starter')
     cakeSizes: $localStorage.cakeSizes,
     flavorText: 'Icecream Flavors',
     flavors: $localStorage.iceCreamFlavors,
-    presetMessageText:'Preset Messages',
+    presetMessageText: 'Preset Messages',
     presetMessage: $localStorage.presetMessages,
-    messageColorText:'Message Color',
+    messageColorText: 'Message Color',
     messageColor: $localStorage.messageColors
   };
 
@@ -131,22 +162,22 @@ angular.module('starter')
   $scope.order = {
     quantity: 1,
     pickup_date: new Date(),
-    order_processed_text:'Online',
-    paid_status_text:'Not-Paid'
+    order_processed_text: 'Online',
+    paid_status_text: 'Not-Paid'
   };
 
-  $scope.renameOrderProcessed = function(){
-    if($scope.order.order_processed){
+  $scope.renameOrderProcessed = function() {
+    if ($scope.order.order_processed) {
       $scope.order.order_processed_text = 'In Store'
-    }else{
+    } else {
       $scope.order.order_processed_text = 'Online'
     }
   }
 
-  $scope.renamePaidStatus = function(){
-    if($scope.order.paid_status){
+  $scope.renamePaidStatus = function() {
+    if ($scope.order.paid_status) {
       $scope.order.paid_status_text = 'Paid'
-    }else{
+    } else {
       $scope.order.paid_status_text = 'Not-Paid'
     }
   }
@@ -166,7 +197,7 @@ angular.module('starter')
     // orderData.order_processed = $scope.order.order_processed_text;
     // orderData.message_color = $localStorage.createOrder.message_color;
     // orderData.message = $localStorage.createOrder.message +' '+ orderData.cake_message;
-    console.log('orderData',orderData);
+    console.log('orderData', orderData);
 
     OrderService.placeOrder(orderData).then(function(res) {
       OrderService.getAllOrders().then(function(orders) {

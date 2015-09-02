@@ -4,39 +4,25 @@
     <div class="order-form-container">
         <div class="row">
           <div class="icecream-flavors">
-              <fancy-select
+              <modal-select
               ng-model="order.icecream_flavor"
-              header-text="Flavors"
-              allow-empty="false"
-              text="formFieldData.flavorText"\
-              items="formFieldData.flavors"
-              multi-select="true"
+              value="test"
               >
-              </fancy-select>
+              </modal-select>
           </div>
           <div class="cake-flavors">
-              <fancy-select
+              <modal-select
               ng-model="order.cake_flavor"
-              header-text="Cake"
-              allow-empty="false"
-              text="formFieldData.cakeFlavorText"
-              flavors="formFieldData.cakeFlavors"
-              multi-select="false"
               >
-              </fancy-select>
+              </modal-select>
           </div>
         </div>
         <div class="row">
           <div class="cake-size">
-              <fancy-select
+              <modal-select
               ng-model="order.cake_size"
-              header-text="Cake Size"
-              allow-empty="false"
-              text="formFieldData.cakeSizeText"
-              items="formFieldData.cakeSizes"
-              multi-select="false"
               >
-              </fancy-select>
+              </modal-select>
           </div>
           <div class="item item-input cake-quantity">
             <div class="input-label">Qty</div>
@@ -53,15 +39,10 @@
         </div>
         <div class="row">
           <div class="icecream-flavors">
-              <fancy-select
+              <modal-select
               ng-model="order.message_colors"
-              header-text="Message Colors"
-              allow-empty="false"
-              text="formFieldData.messageColorText"
-              colors="formFieldData.messageColor"
-              multi-select="false"
               >
-              </fancy-select>
+              </modal-select>
           </div>
           <label class="item item-input">
             <input type="text" ng-model="order.other_message" placeholder="Notes to Decorator">
@@ -69,15 +50,10 @@
         </div>
         <div class="row">
           <div class="cake-flavors">
-              <fancy-select
+              <modal-select
               ng-model="order.preset_messages"
-              header-text="Preset Messages"
-              allow-empty="false"
-              text="formFieldData.presetMessageText"
-              messages="formFieldData.presetMessage"
-              multi-select="false"
               >
-              </fancy-select>
+              </modal-select>
           </div>
           <label class="item item-input">
             <input type="text" ng-model="order.cake_message" placeholder="Cake-Writing Message">
