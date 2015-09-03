@@ -6,24 +6,25 @@ angular.module('starter')
       templateUrl: 'templates/order-form-select-template.html',
       controller: 'OrderFormController as modalSelect',
       scope: {
-        'icecreamFlavors': '=',
-        'cake-flavors': '=',
-        'cake-sizes': '=',
-        'preset-messages': '=',
-        'message-colors': '=',
+        // 'icecreamFlavors': '=',
+        // 'cake-flavors': '=',
+        // 'cake-sizes': '=',
+        // 'preset-messages': '=',
+        // 'message-colors': '=',
+        'items': '='
+        
       },
       link: function(scope, element, attrs, ngModel) {
-        scope.headerText = attrs.headertext;
         console.log('attrs',attrs);
-        console.log('scope',scope);
+        scope.headerText = attrs.headertext;
+
         $ionicModal.fromTemplateUrl('templates/order-form-select-modal.html', {
           scope: scope,
           animation: 'slide-in-up'
         }).then(function(modal) {
           scope.modal = modal;
         });
-        scope.flavors = attrs.icecreamflavors;
-        console.log('scope.icecreamFlavors',scope.flavors); 
+
         scope.openModal = function() {
           scope.modal.show();
         };
@@ -91,9 +92,6 @@ angular.module('starter')
   })
 
 .controller('OrderFormController', function($scope, $ionicPlatform, $state, OrderService, $stateParams, FlavorService, TimeService, $localStorage, CakeService) {
-  var modalSelect = this;
-
-  console.log('modalSelect',modalSelect);
 
   $scope.timePickerObject = {
     inputEpochTime: ((new Date()).getHours() * 60 * 60), //Optional
@@ -153,9 +151,9 @@ angular.module('starter')
     flavorText: 'Icecream Flavors',
     flavors: $localStorage.iceCreamFlavors,
     presetMessageText: 'Preset Messages',
-    presetMessage: $localStorage.presetMessages,
+    presetMessages: $localStorage.presetMessages,
     messageColorText: 'Message Color',
-    messageColor: $localStorage.messageColors
+    messageColors: $localStorage.messageColors
   };
 
 

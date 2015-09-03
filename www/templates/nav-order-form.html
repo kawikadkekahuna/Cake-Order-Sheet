@@ -7,7 +7,7 @@
               <modal-select
               headerText="Icecream Flavors"
               ng-model="order.icecream_flavor"
-              icecreamFlavors="{{formFieldData.flavors}}"
+              items="formFieldData.flavors"
               >
               </modal-select>
           </div>
@@ -15,6 +15,7 @@
               <modal-select
               headerText="Cake Flavors"
               ng-model="order.cake_flavor"
+              items="formFieldData.cakeFlavors"
               >
               </modal-select>
           </div>
@@ -22,8 +23,9 @@
         <div class="row">
           <div class="cake-size">
               <modal-select
-              headerText="Cake Size"
+              headerText="Cake Sizes"
               ng-model="order.cake_size"
+              items="formFieldData.cakeSizes"
               >
               </modal-select>
           </div>
@@ -37,7 +39,7 @@
             <input type="text" ng-model="order.frosting_color" placeholder="Frosting Color">
           </label>
           <label class="item item-input">
-            <input type="text" ng-model="order.design_message" placeholder="Design Message">
+            <input type="text" ng-model="order.design_message" placeholder="Design">
           </label>
         </div>
         <div class="row">
@@ -45,6 +47,7 @@
               <modal-select
               headerText="Message Colors"
               ng-model="order.message_colors"
+              items="formFieldData.messageColors"
               >
               </modal-select>
           </div>
@@ -57,6 +60,7 @@
               <modal-select
               headerText="Preset Messages"
               ng-model="order.preset_messages"
+              items="formFieldData.presetMessages"
               >
               </modal-select>
           </div>

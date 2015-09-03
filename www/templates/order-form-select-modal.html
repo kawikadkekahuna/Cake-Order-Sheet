@@ -10,10 +10,30 @@
   </ion-header-bar>
 
   <ion-content class="padding">
-        <div>flavor:</div>
-
-  	<ion-list ng-repeat="flavor in formFieldData.flavors">
-    {{flavor.text}}
-  	</ion-list>
+    <label name="icecream-flavors" ng-if="headerText=='Icecream Flavors'">
+    	<ion-list class="item item-text-wrap"  ng-repeat="flavor in items">
+      {{flavor.text}}
+    	</ion-list>
+    </label>
+    <label name="cake-flavors" ng-if="headerText=='Cake Flavors'">
+      <ion-list class="item item-text-wrap" ng-repeat="cakeFlavor in items">
+      {{cakeFlavor.text}}
+      </ion-list>
+    </label>
+    <label name="cake-sizes" ng-if="headerText=='Cake Sizes'">
+      <ion-list class="item item-text-wrap" ng-repeat="cakeSize in items">
+      {{cakeSize.text}}
+      </ion-list>
+    </label>
+    <label name="cake-flavors" ng-if="headerText=='Message Colors'">
+      <ion-list class="item item-text-wrap" ng-repeat="messageColor in items">
+      {{messageColor.text}}
+      </ion-list>
+    </label>
+    <label name="icecream-flavors" ng-if="headerText=='Preset Messages'">
+      <ion-list class="item item-text-wrap" ng-repeat="presetMessage in items">
+      {{presetMessage.text}}
+      </ion-list>
+    </label>
   </ion-content>
 </ion-view>
