@@ -6,19 +6,24 @@ angular.module('starter')
       templateUrl: 'templates/order-form-select-template.html',
       controller: 'OrderFormController as modalSelect',
       scope: {
-        'icecream-flavors': '=ngModel',
-        'cake-flavors': '=ngModel',
-        'cake-sizes': '=ngModel',
-        'preset-messages': '=ngModel',
-        'message-colors': '=ngModel',
+        'icecreamFlavors': '=',
+        'cake-flavors': '=',
+        'cake-sizes': '=',
+        'preset-messages': '=',
+        'message-colors': '=',
       },
       link: function(scope, element, attrs, ngModel) {
+        scope.headerText = attrs.headertext;
+        console.log('attrs',attrs);
+        console.log('scope',scope);
         $ionicModal.fromTemplateUrl('templates/order-form-select-modal.html', {
           scope: scope,
           animation: 'slide-in-up'
         }).then(function(modal) {
           scope.modal = modal;
         });
+        scope.flavors = attrs.icecreamflavors;
+        console.log('scope.icecreamFlavors',scope.flavors); 
         scope.openModal = function() {
           scope.modal.show();
         };
@@ -36,14 +41,7 @@ angular.module('starter')
         // Execute action on remove modal
         scope.$on('modal.removed', function() {
           // Execute action
-        });
-
-        element.on('click', function() {
-          ngModel.$setViewValue('Hello World');
-          scope.$apply();
-          console.log('$ngModel.$viewValue', ngModel.$viewValue);
-          scope.modal.show();
-        })
+        }); 
       }
     }
   })
@@ -93,6 +91,9 @@ angular.module('starter')
   })
 
 .controller('OrderFormController', function($scope, $ionicPlatform, $state, OrderService, $stateParams, FlavorService, TimeService, $localStorage, CakeService) {
+  var modalSelect = this;
+
+  console.log('modalSelect',modalSelect);
 
   $scope.timePickerObject = {
     inputEpochTime: ((new Date()).getHours() * 60 * 60), //Optional
@@ -156,6 +157,7 @@ angular.module('starter')
     messageColorText: 'Message Color',
     messageColor: $localStorage.messageColors
   };
+
 
 
 

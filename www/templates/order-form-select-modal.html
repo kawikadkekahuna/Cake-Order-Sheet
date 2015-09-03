@@ -3,12 +3,17 @@
     
     <button ng-click="closeModal()" class="button button-positive button-icon ion-android-exit"></button>
 
-    <h1 class="title">{{headerText}}</h1>
+    <h1 class="title">{{headerTest}}</h1>
 
     <button ng-click="validate()" class="button button-positive button-icon ion-checkmark"></button>
 
   </ion-header-bar>
+
   <ion-content class="padding">
-  test content
+        <div>flavor:</div>
+
+  	<ion-list ng-repeat="flavor in formFieldData.flavors">
+    {{flavor.text}}
+  	</ion-list>
   </ion-content>
 </ion-view>

@@ -5,13 +5,15 @@
         <div class="row">
           <div class="icecream-flavors">
               <modal-select
+              headerText="Icecream Flavors"
               ng-model="order.icecream_flavor"
-              value="test"
+              icecreamFlavors="{{formFieldData.flavors}}"
               >
               </modal-select>
           </div>
           <div class="cake-flavors">
               <modal-select
+              headerText="Cake Flavors"
               ng-model="order.cake_flavor"
               >
               </modal-select>
@@ -20,6 +22,7 @@
         <div class="row">
           <div class="cake-size">
               <modal-select
+              headerText="Cake Size"
               ng-model="order.cake_size"
               >
               </modal-select>
@@ -40,6 +43,7 @@
         <div class="row">
           <div class="icecream-flavors">
               <modal-select
+              headerText="Message Colors"
               ng-model="order.message_colors"
               >
               </modal-select>
@@ -51,6 +55,7 @@
         <div class="row">
           <div class="cake-flavors">
               <modal-select
+              headerText="Preset Messages"
               ng-model="order.preset_messages"
               >
               </modal-select>
