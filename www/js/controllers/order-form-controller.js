@@ -11,11 +11,14 @@ angular.module('starter')
         // 'cake-sizes': '=',
         // 'preset-messages': '=',
         // 'message-colors': '=',
-        'items': '='
+        'items': '=',
+        'multiSelect' : '=',
         
       },
       link: function(scope, element, attrs, ngModel) {
-        console.log('attrs',attrs);
+        if(attrs.multiselect){
+          console.log('attrs',attrs);
+        }
         scope.headerText = attrs.headertext;
 
         $ionicModal.fromTemplateUrl('templates/order-form-select-modal.html', {
