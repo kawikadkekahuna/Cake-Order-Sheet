@@ -11,28 +11,28 @@
 
   <ion-content class="padding">
   	<ion-list class="item item-text-wrap" ng-if="headerText=='Icecream Flavors'">
-      <ion-checkbox ng-repeat="icecreamFlavor in items" ng-model="icecreamFlavor.checked">
-        {{icecreamFlavor.text}}
+      <ion-checkbox ng-repeat="icecream_flavor in items" ng-model="icecream_flavor.checked">
+        {{icecream_flavor.text}}
       </ion-checkbox>
   	</ion-list>
     <ion-list class="item item-text-wrap" ng-if="headerText=='Cake Flavors'">
-      <ion-item ng-repeat="cakeFlavor in items" ng-click="attachToModel(cakeFlavor)">
-        {{cakeFlavor.text}}
+      <ion-item ng-repeat="cake_flavor in items" ng-click="attachToModel(cake_flavor)">
+        {{cake_flavor.text}}
       </ion-item>
     </ion-list>
     <ion-list class="item item-text-wrap" ng-if="headerText=='Cake Sizes'">
-      <ion-item ng-click="attachToModel(cakeSize)" ng-repeat="cakeSize in items">
-        {{cakeSize.text}}
+      <ion-item ng-click="attachToModel(cake_size)" ng-repeat="cake_size in items">
+        {{cake_size.text}}
       </ion-item>
     </ion-list>
     <ion-list class="item item-text-wrap" ng-if="headerText=='Message Colors'">
-      <ion-item ng-click="attachToModel(messageColor)" ng-repeat="messageColor in items">
-        {{messageColor.text}}
+      <ion-item ng-click="attachToModel(message_color)" ng-repeat="message_color in items">
+        {{message_color.text}}
       </ion-item>
     </ion-list>
-    <ion-list  ng-if="headerText=='Preset Messages'" class="item item-text-wrap">
-      <ion-item ng-click="attachToModel(presetMessage)" ng-repeat="presetMessage in items">
-        {{presetMessage.text}}
+    <ion-list ng-if="headerText=='Preset Messages'" class="item item-text-wrap">
+      <ion-item ng-click="attachToModel(message)" ng-repeat="message in items">
+        {{message.text}}
       </ion-item>
     </ion-list>
   </ion-content>

@@ -51,12 +51,6 @@ angular.module('starter')
           })
 
         }
-
-        scope.$on('$destroy', function() {
-          scope.modal.remove();
-        });
-        scope.$on('modal.hidden', function() {});
-        scope.$on('modal.removed', function() {});
       }
     }
   })
@@ -64,11 +58,12 @@ angular.module('starter')
     return {
       restrict: 'AE',
       replace: true,
+      require: 'ngModel',
       scope: {
         etime: '=etime'
       },
       template: "<strong>{{stime}}</strong>",
-      link: function(scope, elem, attrs) {
+      link: function(scope, elem, attrs,ngModel) {
 
         scope.stime = epochParser(scope.etime, 'time');
 
@@ -89,9 +84,8 @@ angular.module('starter')
               var hours = parseInt(val / 3600);
               var minutes = (val / 60) % 60;
               var hoursRes = hours > 12 ? (hours - 12) : hours;
-
               var currentMeridian = meridian[parseInt(hours / 12)];
-              $localStorage.createOrder.pickupTime = (prependZero(hoursRes) + ":" + prependZero(minutes) + " " + currentMeridian);
+              ngModel.$setViewValue(prependZero(hoursRes) + ":" + prependZero(minutes) + " " + currentMeridian)
               return (prependZero(hoursRes) + ":" + prependZero(minutes) + " " + currentMeridian);
             }
           }
@@ -146,6 +140,7 @@ angular.module('starter')
     } else {
       $scope.datepickerObject.inputDate = val;
       $scope.pickup_date = new Date(val).getTime().toString();
+      $scope.order.pickup_date = $scope.pickup_date;
     }
   };
 
@@ -154,7 +149,6 @@ angular.module('starter')
       return;
     }
     $scope.timePickerObject.inputEpochTime = val;
-    $scope.pickup_time = val;
   }
 
   $scope.formFieldData = {
@@ -174,7 +168,7 @@ angular.module('starter')
 
   $scope.order = {
     quantity: 1,
-    pickup_date: new Date(),
+    pickup_date: 'Select Date',
     order_processed_text: 'Online',
     paid_status_text: 'Not-Paid'
   };
@@ -199,14 +193,20 @@ angular.module('starter')
 
 
   $scope.createOrder = function(orderData) {
-  console.log('orderData',orderData);
-    // OrderService.placeOrder(orderData).then(function(res) {
-    //   OrderService.getAllOrders().then(function(orders) {
-    //     $localStorage.allOrders = orders.data;
-    //     $localStorage.createOrder = {};
-    //     $state.go('nav.orders')
-    //   });
-    // })
+    /*ionic-datepicker is in another js file. unable to add ng-model.  hacky way */
+    orderData.pickup_date = $scope.pickup_date;
+    orderData.message += ' ' +orderData.cake_message;
+    orderData.first_name = $stateParams.first_name;
+    orderData.last_name = $stateParams.last_name;
+    orderData.phone_number = $stateParams.phone_number;
+    console.log('orderData',orderData);
+    OrderService.placeOrder(orderData).then(function(res) {
+      OrderService.getAllOrders().then(function(orders) {
+        $localStorage.allOrders = orders.data;
+        $localStorage.createOrder = {};
+        $state.go('nav.orders')
+      });
+    })
   }
 
 

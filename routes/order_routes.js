@@ -52,7 +52,8 @@ router.post('/place_order', function(req,res) {
 		order_processed:req.body.orderData.order_processed_text,
 		message:req.body.orderData.cake_message,
 		design:req.body.orderData.design_message,
-		message_color:req.body.orderData.frosting_color,
+		message_color:req.body.orderData.message_color,
+		frosting_color:req.body.orderData.frosting_color,
 		other_message:req.body.orderData.other_message,
 		completed:false,
 		cake_status:'Not Built'

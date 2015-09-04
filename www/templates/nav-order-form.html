@@ -6,7 +6,7 @@
           <div class="icecream-flavors">
               <modal-select
               headerText="Icecream Flavors"
-              ng-model="order.icecreamFlavors"
+              ng-model="order.icecream_flavor"
               items="formFieldData.flavors"
               multiSelect="true"
               >
@@ -15,7 +15,7 @@
           <div class="cake-flavors">
               <modal-select
               headerText="Cake Flavors"
-              ng-model="order.cakeFlavors"
+              ng-model="order.cake_flavor"
               items="formFieldData.cakeFlavors"
               >
               </modal-select>
@@ -25,7 +25,7 @@
           <div class="cake-size">
               <modal-select
               headerText="Cake Sizes"
-              ng-model="order.cakeSizes"
+              ng-model="order.cake_size"
               items="formFieldData.cakeSizes"
               >
               </modal-select>
@@ -47,7 +47,7 @@
           <div class="icecream-flavors">
               <modal-select
               headerText="Message Colors"
-              ng-model="order.messageColors"
+              ng-model="order.message_color"
               items="formFieldData.messageColors"
               >
               </modal-select>
@@ -59,7 +59,7 @@
         <div class="row">
           <div class="cake-flavors">
               <modal-select
-              ng-model="order.presetMessages"
+              ng-model="order.message"
               headerText="Preset Messages"
               items="formFieldData.presetMessages"
               >
@@ -72,13 +72,13 @@
         <div class="row">
           <div class="datepicker-wrapper">
             <ionic-datepicker input-obj="datepickerObject">
-              <button class="button button-block button-positive"> {{datepickerObject.inputDate | date:'dd - MMMM - yyyy'}}</button>
+              <button class="button button-block button-positive"> {{order.pickup_date | date:'dd - MMMM - yyyy'}}</button>
             </ionic-datepicker>
           </div>
           <div class="timepicker-wrapper">
             <ionic-timepicker input-obj="timePickerObject">
               <button class="button button-block button-positive overflowShow">
-                <standard-time-meridian etime='timePickerObject.inputEpochTime'></standard-time-meridian>
+                <standard-time-meridian ng-model="order.pickup_time" etime='timePickerObject.inputEpochTime'></standard-time-meridian>
               </button>
             </ionic-timepicker>
           </div>
