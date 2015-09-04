@@ -11,7 +11,7 @@ angular.module('starter')
       },
       link: function(scope, element, attrs, ngModel) {
 
-
+        scope.headerText = attrs.headertext;
         $ionicModal.fromTemplateUrl('templates/order-form-select-modal.html', {
           scope: scope,
           animation: 'slide-in-up'
@@ -26,32 +26,50 @@ angular.module('starter')
           scope.modal.hide();
         };
         scope.select = function() {
-          console.log('in');
           if (attrs.multiselect) {
             scope.multiSelect();
+          }else{
+            scope.closeModal();
           }
         }
+
         scope.setCakeFlavor = function(flavor){
           ngModel.$setViewValue(flavor.text);
+          scope.headerText = flavor.text;
           scope.closeModal();
         }
 
-        scope.multiSelect = function() {
-          scope.orderList.icecreamFlavors = '';
-          jQuery.each(scope.items, function(index, item) {
-            if (item.checked) {
-              console.log('scope.orderList.icecreamFlavors',scope.orderList.icecreamFlavors);
-              scope.orderList.icecreamFlavors += (item.text + ' ');
-              scope.headerText = scope.orderList.icecreamFlavors;
-              console.log('scope.orderList',scope.orderList);
-              scope.closeModal();
-            };
-          })
+        scope.setCakeSize = function(size){
+          ngModel.$setViewValue(size.text);
+          scope.headerText = size.text;
+
+          scope.closeModal();
+        }
+
+        scope.setPresetMessage = function(message){
+          ngModel.$setViewValue(message.text);
+          scope.headerText = message.text;
+          scope.closeModal();
+        }
+
+        scope.setMessageColor = function(color){
+          ngModel.$setViewValue(color.text);
+          scope.headerText = color.text;
+          scope.closeModal();
 
         }
 
-        scope.see = function(){
-          console.log(scope.orderList);
+        scope.multiSelect = function() {
+          var icecreamFlavors = '';
+          jQuery.each(scope.items, function(index, item) {
+            if (item.checked) {
+              icecreamFlavors += (item.text + ' ');
+              scope.closeModal();
+            };
+            scope.headerText = icecreamFlavors;
+            ngModel.$setViewValue(icecreamFlavors);
+          })
+
         }
 
         scope.$on('$destroy', function() {
