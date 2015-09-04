@@ -2,30 +2,21 @@ angular.module('starter')
   .directive('modalSelect', function($ionicModal) {
     return {
       restrict: 'E',
-      require: 'ngModel',
       templateUrl: 'templates/order-form-select-template.html',
       controller: 'OrderFormController as modalSelect',
+      require:'ngModel',
       scope: {
-        // 'icecreamFlavors': '=',
-        // 'cake-flavors': '=',
-        // 'cake-sizes': '=',
-        // 'preset-messages': '=',
-        // 'message-colors': '=',
         'items': '=',
-        'multiSelect' : '=',
-        
+        'multiSelect': '=',
       },
       link: function(scope, element, attrs, ngModel) {
-        if(attrs.multiselect){
-          console.log('attrs',attrs);
-        }
-        scope.headerText = attrs.headertext;
+
 
         $ionicModal.fromTemplateUrl('templates/order-form-select-modal.html', {
           scope: scope,
           animation: 'slide-in-up'
         }).then(function(modal) {
-          scope.modal = modal;
+          scope.modal = modal; 
         });
 
         scope.openModal = function() {
@@ -34,18 +25,40 @@ angular.module('starter')
         scope.closeModal = function() {
           scope.modal.hide();
         };
-        //Cleanup the modal when we're done with it!
+        scope.select = function() {
+          console.log('in');
+          if (attrs.multiselect) {
+            scope.multiSelect();
+          }
+        }
+        scope.setCakeFlavor = function(flavor){
+          ngModel.$setViewValue(flavor.text);
+          scope.closeModal();
+        }
+
+        scope.multiSelect = function() {
+          scope.orderList.icecreamFlavors = '';
+          jQuery.each(scope.items, function(index, item) {
+            if (item.checked) {
+              console.log('scope.orderList.icecreamFlavors',scope.orderList.icecreamFlavors);
+              scope.orderList.icecreamFlavors += (item.text + ' ');
+              scope.headerText = scope.orderList.icecreamFlavors;
+              console.log('scope.orderList',scope.orderList);
+              scope.closeModal();
+            };
+          })
+
+        }
+
+        scope.see = function(){
+          console.log(scope.orderList);
+        }
+
         scope.$on('$destroy', function() {
           scope.modal.remove();
         });
-        // Execute action on hide modal
-        scope.$on('modal.hidden', function() {
-          // Execute action
-        });
-        // Execute action on remove modal
-        scope.$on('modal.removed', function() {
-          // Execute action
-        }); 
+        scope.$on('modal.hidden', function() {});
+        scope.$on('modal.removed', function() {});
       }
     }
   })
@@ -161,13 +174,16 @@ angular.module('starter')
 
 
 
-
   $scope.order = {
     quantity: 1,
     pickup_date: new Date(),
     order_processed_text: 'Online',
     paid_status_text: 'Not-Paid'
   };
+
+  $scope.setCakeFlavor = function(){
+    console.log('in main controller setCakeFlavor')
+  }
 
   $scope.renameOrderProcessed = function() {
     if ($scope.order.order_processed) {
@@ -200,15 +216,15 @@ angular.module('starter')
     // orderData.order_processed = $scope.order.order_processed_text;
     // orderData.message_color = $localStorage.createOrder.message_color;
     // orderData.message = $localStorage.createOrder.message +' '+ orderData.cake_message;
-    console.log('orderData', orderData);
-
-    OrderService.placeOrder(orderData).then(function(res) {
-      OrderService.getAllOrders().then(function(orders) {
-        $localStorage.allOrders = orders.data;
-        $localStorage.createOrder = {};
-        $state.go('nav.orders')
-      });
-    })
+    // console.log('orderData', orderData);
+  console.log('orderData',orderData);
+    // OrderService.placeOrder(orderData).then(function(res) {
+    //   OrderService.getAllOrders().then(function(orders) {
+    //     $localStorage.allOrders = orders.data;
+    //     $localStorage.createOrder = {};
+    //     $state.go('nav.orders')
+    //   });
+    // })
   }
 
 
