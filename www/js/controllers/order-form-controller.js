@@ -33,30 +33,11 @@ angular.module('starter')
           }
         }
 
-        scope.setCakeFlavor = function(flavor){
-          ngModel.$setViewValue(flavor.text);
-          scope.headerText = flavor.text;
-          scope.closeModal();
-        }
-
-        scope.setCakeSize = function(size){
-          ngModel.$setViewValue(size.text);
-          scope.headerText = size.text;
-
-          scope.closeModal();
-        }
-
-        scope.setPresetMessage = function(message){
-          ngModel.$setViewValue(message.text);
-          scope.headerText = message.text;
-          scope.closeModal();
-        }
-
-        scope.setMessageColor = function(color){
-          ngModel.$setViewValue(color.text);
-          scope.headerText = color.text;
-          scope.closeModal();
-
+        scope.attachToModel = function(item){
+          alert(item.text);
+          ngModel.$setViewValue(item.text);
+          scope.headerText = item.text;
+          scope.closeModal();          
         }
 
         scope.multiSelect = function() {
@@ -66,8 +47,7 @@ angular.module('starter')
               icecreamFlavors += (item.text + ' ');
               scope.closeModal();
             };
-            scope.headerText = icecreamFlavors;
-            ngModel.$setViewValue(icecreamFlavors);
+            scope.attachToModel({text:icecreamFlavors});
           })
 
         }
@@ -199,9 +179,6 @@ angular.module('starter')
     paid_status_text: 'Not-Paid'
   };
 
-  $scope.setCakeFlavor = function(){
-    console.log('in main controller setCakeFlavor')
-  }
 
   $scope.renameOrderProcessed = function() {
     if ($scope.order.order_processed) {
@@ -222,19 +199,6 @@ angular.module('starter')
 
 
   $scope.createOrder = function(orderData) {
-    // console.log('orderData',orderData);
-    // orderData.icecream_flavor = $localStorage.createOrder.iceCreamFlavors;
-    // orderData.cake_flavor = $localStorage.createOrder.cakeFlavor;
-    // orderData.cake_size = $localStorage.createOrder.cakeSize;
-    // orderData.first_name = $stateParams.first_name;
-    // orderData.last_name = $stateParams.last_name;
-    // orderData.phone_number = $stateParams.phone_number;
-    // orderData.pickup_time = $localStorage.createOrder.pickupTime;
-    // orderData.pickup_date = $scope.pickup_date;
-    // orderData.order_processed = $scope.order.order_processed_text;
-    // orderData.message_color = $localStorage.createOrder.message_color;
-    // orderData.message = $localStorage.createOrder.message +' '+ orderData.cake_message;
-    // console.log('orderData', orderData);
   console.log('orderData',orderData);
     // OrderService.placeOrder(orderData).then(function(res) {
     //   OrderService.getAllOrders().then(function(orders) {
