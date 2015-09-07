@@ -34,7 +34,6 @@ angular.module('starter')
         }
 
         scope.attachToModel = function(item){
-          alert(item.text);
           ngModel.$setViewValue(item.text);
           scope.headerText = item.text;
           scope.closeModal();          

@@ -21,9 +21,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 @import "./fullcalendar.min.css";
+@import "./swipe-li.css";
+
 
 
 /*    Header   */
+
 .header{
 	width:100%;
 	height:10%;
@@ -32,25 +35,18 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 	.header-wrapper{
 		height:100%;
 		width:100%;
-		.back-button{
+		.back-button-wrapper{
 			width:15%;
 			height:100%;
 			display:inline-block;
-			background-image: url('../img/back-arrow.svg');
-			background-size:cover;
 			float:left;
-			-webkit-transition:all 0.5s ease-out;
-			-moz-transition:all 0.5s ease-out;
-			-ms-transition:all 0.5s ease-out;
-			-o-transition:all 0.5s ease-out;
-			transition:all 0.5s ease-out;
-
-			&:active{
-				-webkit-transform:scale(.7);
-				-moz-transform:scale(.7);
-				-ms-transform:scale(.7);
-				-o-transform:scale(.7);
-				transform:scale(.7);
+			.back-button{
+				height:50%;
+				width:50%;
+				background-image: url('../img/back-arrow.svg');
+				background-size:cover;
+				margin:auto;
+				margin-top:25%;
 			}
 		}
 
@@ -72,25 +68,19 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 		}
 
-		.add-order{
+		.add-order-wrapper{
 			width:15%;
 			height:100%;
 			display:inline-block;
 			float:right;
-			background-image: url('../img/order-add.svg');
-			background-size:cover;
-			-webkit-transition:all 0.5s ease-out;
-			-moz-transition:all 0.5s ease-out;
-			-ms-transition:all 0.5s ease-out;
-			-o-transition:all 0.5s ease-out;
-			transition:all 0.5s ease-out;
 			
-			&:active{
-				-webkit-transform:scale(.7);
-				-moz-transform:scale(.7);
-				-ms-transform:scale(.7);
-				-o-transform:scale(.7);
-				transform:scale(.7);
+			.add-order{
+				height:50%;
+				width:50%;
+				background-image: url('../img/order-add.svg');
+				background-size:cover;
+				margin:auto;
+				margin-top:25%;
 			}
 		}
 	}
@@ -183,21 +173,6 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 								background-color:transparent;
 							}
 						}
-						-webkit-transition:all 0.3s ease-out;
-						-moz-transition:all 0.3s ease-out;
-						-ms-transition:all 0.3s ease-out;
-						-o-transition:all 0.3s ease-out;
-						transition:all 0.3s ease-out;
-						
-						&:active{
-							-webkit-transform:scale(1.3);
-							-moz-transform:scale(1.3);
-							-ms-transform:scale(1.3);
-							-o-transform:scale(1.3);
-							transform:scale(1.3);
-							text-shadow: 1px 1px 1px #000;
-							font-weight: 500;
-						}
 					}
 				}
 			}	
@@ -208,6 +183,9 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 /* Button Popups */
 .popup{
 	background-color: rgba(0,0,0,0.9);
+	.popup-body{
+		text-align: center;
+	}
 	.status-not-built{
 		background-image: url('../img/order-not-started.svg');
 		background-size: contain;

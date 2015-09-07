@@ -1,0 +1,29 @@
+{
+  "name": "swipe-li",
+  "description": "A three pane swipeable element. Swipe right for accept. Swipe left for reject.",
+  "main": [
+    "dist/swipe-li.min.js",
+    "dist/swipe-li.css"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "example"
+  ],
+  "dependencies": {
+    "angular": "1.2.14",
+    "angular-touch": "1.2.14",
+    "hammerjs": "~1.0.6",
+    "modernizr": "~2.7.1"
+  },
+  "homepage": "https://github.com/winkerVSbecks/swipe-li",
+  "_release": "2ddfe03a27",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "2ddfe03a274fcae2a95ecbea5c51f3e2226fc6e0"
+  },
+  "_source": "git://github.com/winkerVSbecks/swipe-li.git",
+  "_target": "*",
+  "_originalSource": "swipe-li",
+  "_direct": true
+}
