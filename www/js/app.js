@@ -1,10 +1,10 @@
 // SERVER ='http://localhost:3000';
 // SERVER = 'http://192.168.29.205:3000';
-SERVER = 'http://192.168.1.117:3000';
+SERVER = 'http://166.122.118.77:3000';
 /*Mobile HotSpot IP*/
 // SERVER = 'http://192.168.29.127:3000';
 
-angular.module('starter', ['ionic', 'ngStorage','swipeLi', 'ionic-timepicker','ionic-datepicker','ui.calendar','ui.bootstrap'])
+angular.module('starter', ['ionic', 'ngStorage','ionic-timepicker','ionic-datepicker','ui.calendar','ui.bootstrap'])
 
 .run(function($ionicPlatform, $ionicHistory, $localStorage, FlavorService, OrderService, CakeService) {
   $ionicPlatform.registerBackButtonAction(function(event) {
