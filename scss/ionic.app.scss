@@ -181,6 +181,17 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 /* Button Popups */
 .popup{
+	.icon-container{
+		position:absolute;
+		top:5px;
+		right:5px;
+		height:32px;
+		width:32px;
+		.ion-ios-information-outline{
+			font-size:25px;
+			background-image:cover;
+		}		
+	}
 	background-color: rgba(0,0,0,0.9);
 	.popup-body{
 		text-align: center;

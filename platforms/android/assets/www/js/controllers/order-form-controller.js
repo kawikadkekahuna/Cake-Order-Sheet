@@ -11,7 +11,7 @@ angular.module('starter')
       },
       link: function(scope, element, attrs, ngModel) {
 
-        scope.headerText = attrs.headertext;
+        scope.headerText = attrs.headertext;  
         $ionicModal.fromTemplateUrl('templates/order-form-select-modal.html', {
           scope: scope,
           animation: 'slide-in-up'
@@ -34,6 +34,7 @@ angular.module('starter')
         }
 
         scope.attachToModel = function(item){
+          console.log('item',item);
           ngModel.$setViewValue(item.text);
           scope.headerText = item.text;
           scope.closeModal();          
@@ -155,6 +156,8 @@ angular.module('starter')
     cakeFlavors: $localStorage.cakeFlavors,
     cakeSizeText: 'Cake Size',
     cakeSizes: $localStorage.cakeSizes,
+    quantityText: '1',
+    quantity: $localStorage.quantityAmount,
     flavorText: 'Icecream Flavors',
     flavors: $localStorage.iceCreamFlavors,
     presetMessageText: 'Preset Messages',
@@ -198,9 +201,12 @@ angular.module('starter')
     orderData.first_name = $stateParams.first_name;
     orderData.last_name = $stateParams.last_name;
     orderData.phone_number = $stateParams.phone_number;
-    console.log('orderData',orderData);
+    orderData = JSON.stringify(orderData);
+    console.log(orderData);
     OrderService.placeOrder(orderData).then(function(res) {
+      console.log(res.data.cake_status);
       OrderService.getAllOrders().then(function(orders) {
+        console.log(orders);
         $localStorage.allOrders = orders.data;
         $localStorage.createOrder = {};
         $state.go('nav.orders')

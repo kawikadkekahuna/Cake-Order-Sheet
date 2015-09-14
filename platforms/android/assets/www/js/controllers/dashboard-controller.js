@@ -1,16 +1,5 @@
 angular.module('starter')
 
-.directive('orderSwipe',function($ionicGesture){
-	return{
-		restrict:'A',
-		link:function(scope,element,attrs){
-			$ionicGesture.on('on-swipe-right',function(event){
-				console.log('swipped');
-				console.log('event');
-			})
-		}
-	}
-})
 .controller('DashController', function($scope, $ionicPlatform, $ionicHistory, $state, $localStorage, $ionicPopup, $timeout, OrderService, FlavorService, CakeService, StatusService) {
 	// With the new view caching in Ionic, Controllers are only called
 	// when they are recreated or on app start, instead of every page change.
@@ -45,6 +34,19 @@ angular.module('starter')
 			$localStorage.cakeSizes = cakeSizes.data;
 		})
 
+		$localStorage.quantityAmount = [{
+			text:'1',
+			checked:false,
+			icon:false
+		},{
+			text:'2',
+			checked:false,
+			icon:false
+		},{
+			text:'3',
+			checked:false,
+			icon:false
+		},];
 		$localStorage.createOrder = {};
 		if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
 			cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -100,12 +102,6 @@ angular.module('starter')
 				$scope.gate = true;
 			});
 		}
-
-		$timeout(function() {
-			$scope.gate = true;
-			statusPopup.close();
-
-		}, 7000);
 	};
 
 
