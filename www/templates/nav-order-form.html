@@ -1,9 +1,8 @@
 <ion-view>
   <ion-content>
-  <ion-list>
     <div class="order-form-container">
         <div class="row">
-          <div class="icecream-flavors">
+          <div class="order-form-field">
               <modal-select
               headerText="Icecream Flavors"
               ng-model="order.icecream_flavor"
@@ -12,7 +11,7 @@
               >
               </modal-select>
           </div>
-          <div class="cake-flavors">
+          <div class="order-form-field">
               <modal-select
               headerText="Cake Flavors"
               ng-model="order.cake_flavor"
@@ -22,7 +21,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="cake-size">
+          <div class="order-form-field">
               <modal-select
               headerText="Cake Sizes"
               ng-model="order.cake_size"
@@ -30,9 +29,13 @@
               >
               </modal-select>
           </div>
-          <div class="item item-input cake-quantity">
-            <div class="input-label">Qty</div>
-            <input class="quantity" type="number" ng-model="order.quantity"> 
+          <div class="order-form-field">
+              <modal-select
+              ng-model="order.quantity"
+              headerText="Quantity"
+              items="formFieldData.quantity"
+              >
+              </modal-select>
           </div>
         </div>
         <div class="row">
@@ -44,7 +47,7 @@
           </label>
         </div>
         <div class="row">
-          <div class="icecream-flavors">
+          <div class="order-form-field">
               <modal-select
               headerText="Message Colors"
               ng-model="order.message_color"
@@ -52,12 +55,14 @@
               >
               </modal-select>
           </div>
-          <label class="item item-input">
-            <input type="text" ng-model="order.other_message" placeholder="Notes to Decorator">
-          </label>
+          <div class="order-form-field">
+            <label class="item item-input">
+              <input type="text" ng-model="order.other_message" placeholder="Notes to Decorator">
+            </label>
+          </div>
         </div>
         <div class="row">
-          <div class="cake-flavors">
+          <div class="order-form-field">
               <modal-select
               ng-model="order.message"
               headerText="Preset Messages"
@@ -65,17 +70,19 @@
               >
               </modal-select>
           </div>
-          <label class="item item-input">
-            <input type="text" ng-model="order.cake_message" placeholder="Cake-Writing Message">
-          </label>
+          <div class="order-form-field">
+            <label class="item item-input">
+              <input type="text" ng-model="order.cake_message" placeholder="Cake-Writing Message">
+            </label>
+          </div>
         </div>
         <div class="row">
-          <div class="datepicker-wrapper">
+          <div class="order-form-field">
             <ionic-datepicker input-obj="datepickerObject">
-              <button class="button button-block button-positive"> {{order.pickup_date | date:'dd - MMMM - yyyy'}}</button>
+              <button class="button button-block button-positive"> {{order.pickup_date | date:' MMMM  dd'}}</button>
             </ionic-datepicker>
           </div>
-          <div class="timepicker-wrapper">
+          <div class="order-form-field">
             <ionic-timepicker input-obj="timePickerObject">
               <button class="button button-block button-positive overflowShow">
                 <standard-time-meridian ng-model="order.pickup_time" etime='timePickerObject.inputEpochTime'></standard-time-meridian>
@@ -83,19 +90,18 @@
             </ionic-timepicker>
           </div>
         </div>
-          <div class="row">
-            <div class="paid-status-wrapper">
-              <ion-toggle ng-model="order.paid_status" ng-change="renamePaidStatus()" toggle-class="toggle-positive">{{order.paid_status_text}}</ion-toggle>
-            </div>
-            <div class="order-processed-wrapper">
-              <ion-toggle ng-model="order.order_processed" ng-change="renameOrderProcessed()" toggle-class="toggle-positive">{{order.order_processed_text}}</ion-toggle>
-            </div>
+        <div class="row">
+          <div class="order-form-field">
+            <ion-toggle ng-model="order.paid_status" ng-change="renamePaidStatus()" toggle-class="toggle-positive">{{order.paid_status_text}}</ion-toggle>
           </div>
-          <div class="row">
-            <button class="button button-full button-positive submit" ng-click="createOrder(order)">Place Order!</button>
+          <div class="order-form-field">
+            <ion-toggle ng-model="order.order_processed" ng-change="renameOrderProcessed()" toggle-class="toggle-positive">{{order.order_processed_text}}</ion-toggle>
           </div>
+        </div>
+        <div class="row">
+          <button class="button button-full button-positive submit" ng-click="createOrder(order)">Place Order!</button>
+        </div>
       </div>
-    </ion-list>
   </ion-content>
 </ion-view>
 

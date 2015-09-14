@@ -255,9 +255,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 /*Order Form*/
 
+
 .order-form-container{
 	width:100%;
-	height:100%;
+	height:50px;
 	.item{
 		border-radius:10px;
 	}
@@ -267,53 +268,15 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 	.row{
 		margin-top:0px;
 	}
-	.icecream-flavors{
+	.order-form-field{
 		display:inline-block;
 		width:50%;
-		height:100%;
+		height:55px;
+		.item{
+			height:100%;
+		}
 		.item-text-wrap{
 			white-space: nowrap;
 		}
 	}
-	.cake-flavors{
-		display:inline-block;
-		height:100%;
-		width:50%;
-	}
-	.cake-size{
-		display:inline-block;
-		width:50%;
-		height:100%;
-	}
-	.cake-quantity{
-		display:inline-block;
-		width:50%;
-		margin:0;
-		.input-label{
-			width:30%;
-			display:inline-block;
-		}
-		.quantity{
-			width:70%;
-			display:inline-block;
-		}
-	}
-	.datepicker-wrapper{
-		width:50%;
-		height:100%;
-	}
-
-	.timepicker-wrapper{
-		width:50%;
-		height:100%;
-	}
-	.paid-status-wrapper{
-		width:50%;
-		height:100%;
-	}
-	.order-processed-wrapper{
-		width:50%;
-		height:100%;
-	}
-
 }

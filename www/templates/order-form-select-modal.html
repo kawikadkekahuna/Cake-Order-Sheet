@@ -25,6 +25,11 @@
         {{cake_size.text}}
       </ion-item>
     </ion-list>
+    <ion-list class="item item-text-wrap" ng-if="items==formFieldData.quantity">
+      <ion-item ng-click="attachToModel(quantity)" ng-repeat="quantity in items">
+        {{quantity.text}}
+      </ion-item>
+    </ion-list>
     <ion-list class="item item-text-wrap" ng-if="items==formFieldData.messageColors">
       <ion-item ng-click="attachToModel(message_color)" ng-repeat="message_color in items">
         {{message_color.text}}

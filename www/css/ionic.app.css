@@ -7880,46 +7880,18 @@ a.button {
 /*Order Form*/
 .order-form-container {
   width: 100%;
-  height: 100%; }
+  height: 50px; }
   .order-form-container .item {
     border-radius: 10px; }
   .order-form-container .button {
     border-radius: 10px; }
   .order-form-container .row {
     margin-top: 0px; }
-  .order-form-container .icecream-flavors {
+  .order-form-container .order-form-field {
     display: inline-block;
     width: 50%;
-    height: 100%; }
-    .order-form-container .icecream-flavors .item-text-wrap {
+    height: 55px; }
+    .order-form-container .order-form-field .item {
+      height: 100%; }
+    .order-form-container .order-form-field .item-text-wrap {
       white-space: nowrap; }
-  .order-form-container .cake-flavors {
-    display: inline-block;
-    height: 100%;
-    width: 50%; }
-  .order-form-container .cake-size {
-    display: inline-block;
-    width: 50%;
-    height: 100%; }
-  .order-form-container .cake-quantity {
-    display: inline-block;
-    width: 50%;
-    margin: 0; }
-    .order-form-container .cake-quantity .input-label {
-      width: 30%;
-      display: inline-block; }
-    .order-form-container .cake-quantity .quantity {
-      width: 70%;
-      display: inline-block; }
-  .order-form-container .datepicker-wrapper {
-    width: 50%;
-    height: 100%; }
-  .order-form-container .timepicker-wrapper {
-    width: 50%;
-    height: 100%; }
-  .order-form-container .paid-status-wrapper {
-    width: 50%;
-    height: 100%; }
-  .order-form-container .order-processed-wrapper {
-    width: 50%;
-    height: 100%; }

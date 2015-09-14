@@ -12,7 +12,6 @@ angular.module('starter')
       link: function(scope, element, attrs, ngModel) {
 
         scope.headerText = attrs.headertext;  
-        console.log(attrs);
         $ionicModal.fromTemplateUrl('templates/order-form-select-modal.html', {
           scope: scope,
           animation: 'slide-in-up'
@@ -35,6 +34,7 @@ angular.module('starter')
         }
 
         scope.attachToModel = function(item){
+          console.log('item',item);
           ngModel.$setViewValue(item.text);
           scope.headerText = item.text;
           scope.closeModal();          
@@ -156,6 +156,8 @@ angular.module('starter')
     cakeFlavors: $localStorage.cakeFlavors,
     cakeSizeText: 'Cake Size',
     cakeSizes: $localStorage.cakeSizes,
+    quantityText: '1',
+    quantity: $localStorage.quantityAmount,
     flavorText: 'Icecream Flavors',
     flavors: $localStorage.iceCreamFlavors,
     presetMessageText: 'Preset Messages',
