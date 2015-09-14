@@ -15,21 +15,6 @@ angular.module('starter')
 
 		$scope.upcomingOrders = $localStorage.allOrders;
 
-
-		$scope.editCakeStatus = function() {
-			var statusPopup = $ionicPopup.show({
-				templateUrl: 'templates/nav-edit-cake-status.html',
-				title: 'Whats the staus of the cake?',
-				scope: $scope,
-				buttons: [{
-					text: 'Cancel'
-				}]
-			})
-			$timeout(function() {
-				statusPopup.close();
-			}, 80000);
-		};
-
 		$scope.showOrder = function(order_number) {
 			$state.go('nav.single', {
 				order_number: order_number,

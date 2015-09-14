@@ -1,5 +1,16 @@
 angular.module('starter')
 
+.directive('orderSwipe',function($ionicGesture){
+	return{
+		restrict:'A',
+		link:function(scope,element,attrs){
+			$ionicGesture.on('on-swipe-right',function(event){
+				console.log('swipped');
+				console.log('event');
+			})
+		}
+	}
+})
 .controller('DashController', function($scope, $ionicPlatform, $ionicHistory, $state, $localStorage, $ionicPopup, $timeout, OrderService, FlavorService, CakeService, StatusService) {
 	// With the new view caching in Ionic, Controllers are only called
 	// when they are recreated or on app start, instead of every page change.

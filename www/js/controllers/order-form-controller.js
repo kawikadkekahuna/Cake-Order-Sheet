@@ -11,7 +11,8 @@ angular.module('starter')
       },
       link: function(scope, element, attrs, ngModel) {
 
-        scope.headerText = attrs.headertext;
+        scope.headerText = attrs.headertext;  
+        console.log(attrs);
         $ionicModal.fromTemplateUrl('templates/order-form-select-modal.html', {
           scope: scope,
           animation: 'slide-in-up'

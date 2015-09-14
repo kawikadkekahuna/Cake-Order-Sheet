@@ -4,36 +4,31 @@
     <div class="order-form-container">
         <div class="row">
           <div class="icecream-flavors">
-              <fancy-select
-              header-text="Flavors"
-              allow-empty="false"
-              text="formFieldData.flavorText"\
+              <modal-select
+              headerText="Icecream Flavors"
+              ng-model="order.icecream_flavor"
               items="formFieldData.flavors"
-              multi-select="true"
+              multiSelect="true"
               >
-              </fancy-select>
+              </modal-select>
           </div>
           <div class="cake-flavors">
-              <fancy-select
-              header-text="Cake"
-              allow-empty="false"
-              text="formFieldData.cakeFlavorText"
-              flavors="formFieldData.cakeFlavors"
-              multi-select="false"
+              <modal-select
+              headerText="Cake Flavors"
+              ng-model="order.cake_flavor"
+              items="formFieldData.cakeFlavors"
               >
-              </fancy-select>
+              </modal-select>
           </div>
         </div>
         <div class="row">
           <div class="cake-size">
-              <fancy-select
-              header-text="Cake Size"
-              allow-empty="false"
-              text="formFieldData.cakeSizeText"
+              <modal-select
+              headerText="Cake Sizes"
+              ng-model="order.cake_size"
               items="formFieldData.cakeSizes"
-              multi-select="false"
               >
-              </fancy-select>
+              </modal-select>
           </div>
           <div class="item item-input cake-quantity">
             <div class="input-label">Qty</div>
@@ -45,19 +40,17 @@
             <input type="text" ng-model="order.frosting_color" placeholder="Frosting Color">
           </label>
           <label class="item item-input">
-            <input type="text" ng-model="order.design_message" placeholder="Design Message">
+            <input type="text" ng-model="order.design_message" placeholder="Design">
           </label>
         </div>
         <div class="row">
           <div class="icecream-flavors">
-              <fancy-select
-              header-text="Message Colors"
-              allow-empty="false"
-              text="formFieldData.messageColorText"
-              colors="formFieldData.messageColor"
-              multi-select="false"
+              <modal-select
+              headerText="Message Colors"
+              ng-model="order.message_color"
+              items="formFieldData.messageColors"
               >
-              </fancy-select>
+              </modal-select>
           </div>
           <label class="item item-input">
             <input type="text" ng-model="order.other_message" placeholder="Notes to Decorator">
@@ -65,14 +58,12 @@
         </div>
         <div class="row">
           <div class="cake-flavors">
-              <fancy-select
-              header-text="Preset Messages"
-              allow-empty="false"
-              text="formFieldData.presetMessageText"
-              messages="formFieldData.presetMessage"
-              multi-select="false"
+              <modal-select
+              ng-model="order.message"
+              headerText="Preset Messages"
+              items="formFieldData.presetMessages"
               >
-              </fancy-select>
+              </modal-select>
           </div>
           <label class="item item-input">
             <input type="text" ng-model="order.cake_message" placeholder="Cake-Writing Message">
@@ -81,13 +72,13 @@
         <div class="row">
           <div class="datepicker-wrapper">
             <ionic-datepicker input-obj="datepickerObject">
-              <button class="button button-block button-positive"> {{datepickerObject.inputDate | date:'dd - MMMM - yyyy'}}</button>
+              <button class="button button-block button-positive"> {{order.pickup_date | date:'dd - MMMM - yyyy'}}</button>
             </ionic-datepicker>
           </div>
           <div class="timepicker-wrapper">
             <ionic-timepicker input-obj="timePickerObject">
               <button class="button button-block button-positive overflowShow">
-                <standard-time-meridian etime='timePickerObject.inputEpochTime'></standard-time-meridian>
+                <standard-time-meridian ng-model="order.pickup_time" etime='timePickerObject.inputEpochTime'></standard-time-meridian>
               </button>
             </ionic-timepicker>
           </div>

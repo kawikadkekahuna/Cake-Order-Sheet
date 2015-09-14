@@ -1,0 +1,18 @@
+To fix:
+
+Change cakeorder form quantity to dropdown
+
+Fix rendering of flavors
+
+Change default status to not built
+
+add in icon legend in open model popup
+
+
+
+
+Orders page
+	-Remove completed.
+	Order number as header
+	Change date to MMDDYYYY
+	Add glow color on swipe

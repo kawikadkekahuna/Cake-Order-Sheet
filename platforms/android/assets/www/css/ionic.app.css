@@ -7709,24 +7709,18 @@ a.button {
   .header .header-wrapper {
     height: 100%;
     width: 100%; }
-    .header .header-wrapper .back-button {
+    .header .header-wrapper .back-button-wrapper {
       width: 15%;
       height: 100%;
       display: inline-block;
-      background-image: url('../img/back-arrow.svg');
-      background-size: cover;
-      float: left;
-      -webkit-transition: all 0.5s ease-out;
-      -moz-transition: all 0.5s ease-out;
-      -ms-transition: all 0.5s ease-out;
-      -o-transition: all 0.5s ease-out;
-      transition: all 0.5s ease-out; }
-      .header .header-wrapper .back-button:active {
-        -webkit-transform: scale(.7);
-        -moz-transform: scale(.7);
-        -ms-transform: scale(.7);
-        -o-transform: scale(.7);
-        transform: scale(.7); }
+      float: left; }
+      .header .header-wrapper .back-button-wrapper .back-button {
+        height: 50%;
+        width: 50%;
+        background-image: url('../img/back-arrow.svg');
+        background-size: cover;
+        margin: auto;
+        margin-top: 25%; }
     .header .header-wrapper .logo-wrapper {
       width: 68%;
       height: 100%;
@@ -7740,24 +7734,18 @@ a.button {
         height: 100%;
         width: 100%;
         display: inline-block; }
-    .header .header-wrapper .add-order {
+    .header .header-wrapper .add-order-wrapper {
       width: 15%;
       height: 100%;
       display: inline-block;
-      float: right;
-      background-image: url('../img/order-add.svg');
-      background-size: cover;
-      -webkit-transition: all 0.5s ease-out;
-      -moz-transition: all 0.5s ease-out;
-      -ms-transition: all 0.5s ease-out;
-      -o-transition: all 0.5s ease-out;
-      transition: all 0.5s ease-out; }
-      .header .header-wrapper .add-order:active {
-        -webkit-transform: scale(.7);
-        -moz-transform: scale(.7);
-        -ms-transform: scale(.7);
-        -o-transform: scale(.7);
-        transform: scale(.7); }
+      float: right; }
+      .header .header-wrapper .add-order-wrapper .add-order {
+        height: 50%;
+        width: 50%;
+        background-image: url('../img/order-add.svg');
+        background-size: cover;
+        margin: auto;
+        margin-top: 25%; }
 
 /* List */
 .scroll-content {
@@ -7783,12 +7771,7 @@ a.button {
       -moz-box-shadow: 6px 10px 27px 0px rgba(0, 0, 0, 0.75);
       box-shadow: 6px 10px 27px 0px rgba(0, 0, 0, 0.75);
       border-radius: 25px;
-      margin-top: 0;
-      -webkit-transition: all 0.3s ease-out;
-      -moz-transition: all 0.3s ease-out;
-      -ms-transition: all 0.3s ease-out;
-      -o-transition: all 0.3s ease-out;
-      transition: all 0.3s ease-out; }
+      margin-top: 0; }
       .scroll-content .scroll .list .order-list-wrapper .wrapper .card .icon-wrapper {
         width: 100%;
         height: 1.5em;
@@ -7837,18 +7820,12 @@ a.button {
           -moz-box-shadow: 1px 0px 3px 5px #00ff00;
           box-shadow: 0px 0px 3px 5px #00ff00;
           background-color: transparent; }
-      .scroll-content .scroll .list .order-list-wrapper .wrapper .card:active {
-        -webkit-transform: scale(1.3);
-        -moz-transform: scale(1.3);
-        -ms-transform: scale(1.3);
-        -o-transform: scale(1.3);
-        transform: scale(1.3);
-        text-shadow: 1px 1px 1px #000;
-        font-weight: 500; }
 
 /* Button Popups */
 .popup {
   background-color: rgba(0, 0, 0, 0.9); }
+  .popup .popup-body {
+    text-align: center; }
   .popup .status-not-built {
     background-image: url('../img/order-not-started.svg');
     background-size: contain;

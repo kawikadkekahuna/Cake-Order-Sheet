@@ -46,10 +46,10 @@ module.exports.metadata =
 {
     "com.ionic.keyboard": "1.0.4",
     "cordova-plugin-console": "1.0.1",
+    "cordova-plugin-crosswalk-webview": "1.2.0",
     "cordova-plugin-device": "1.0.1",
     "cordova-plugin-splashscreen": "2.1.0",
-    "cordova-plugin-whitelist": "1.0.0",
-    "cordova-plugin-crosswalk-webview": "1.2.0"
+    "cordova-plugin-whitelist": "1.0.0"
 }
 // BOTTOM OF METADATA
 });

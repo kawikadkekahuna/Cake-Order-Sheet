@@ -1,6 +1,6 @@
 // SERVER ='http://localhost:3000';
 // SERVER = 'http://192.168.29.205:3000';
-SERVER = 'http://166.122.118.77:3000';
+SERVER = 'http://192.168.1.117:3000';
 /*Mobile HotSpot IP*/
 // SERVER = 'http://192.168.29.127:3000';
 
@@ -129,6 +129,6 @@ angular.module('starter', ['ionic', 'ngStorage','ionic-timepicker','ionic-datepi
     }
   });
 
-  $urlRouterProvider.otherwise('/nav/dash');
+  $urlRouterProvider.otherwise('/nav/order-form');
 
 });

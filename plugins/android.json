@@ -13,6 +13,10 @@
                             "count": 1
                         },
                         {
+                            "xml": "<preference name=\"webView\" value=\"org.crosswalk.engine.XWalkWebViewEngine\" />",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
                             "count": 1
                         },
@@ -22,10 +26,6 @@
                         },
                         {
                             "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<preference name=\"webView\" value=\"org.crosswalk.engine.XWalkWebViewEngine\" />",
                             "count": 1
                         }
                     ]
@@ -40,6 +40,9 @@
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.ionicframework.cakeordersheet492073"
         },
+        "cordova-plugin-crosswalk-webview": {
+            "PACKAGE_NAME": "com.ionicframework.cakeordersheet492073"
+        },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.ionicframework.cakeordersheet492073"
         },
@@ -47,9 +50,6 @@
             "PACKAGE_NAME": "com.ionicframework.cakeordersheet492073"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.ionicframework.cakeordersheet492073"
-        },
-        "cordova-plugin-crosswalk-webview": {
             "PACKAGE_NAME": "com.ionicframework.cakeordersheet492073"
         }
     },
