@@ -201,9 +201,12 @@ angular.module('starter')
     orderData.first_name = $stateParams.first_name;
     orderData.last_name = $stateParams.last_name;
     orderData.phone_number = $stateParams.phone_number;
-    console.log('orderData',orderData);
+    orderData = JSON.stringify(orderData);
+    console.log(orderData);
     OrderService.placeOrder(orderData).then(function(res) {
+      console.log(res.data.cake_status);
       OrderService.getAllOrders().then(function(orders) {
+        console.log(orders);
         $localStorage.allOrders = orders.data;
         $localStorage.createOrder = {};
         $state.go('nav.orders')

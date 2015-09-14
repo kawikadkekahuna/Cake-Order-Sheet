@@ -20,6 +20,16 @@ router.get('/', function(req,res) {
 });
 
 router.post('/place_order', function(req,res) {
+	console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+	console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+	console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+	console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
+	req.body.orderData = JSON.parse(req.body.orderData);
+	console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+	console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+	console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+	console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+
     // quantity: DataTypes.INTEGER,
     // size: DataTypes.STRING,
     // icecream_flavors: DataTypes.STRING,
@@ -37,7 +47,6 @@ router.post('/place_order', function(req,res) {
     // other_message:DataTypes.STRING,
     // completed:DataTypes.BOOLEAN
 
-    console.log(req.body.orderData);
 	db.create({
 		quantity:req.body.orderData.quantity,
 		size:req.body.orderData.cake_size,
@@ -56,7 +65,7 @@ router.post('/place_order', function(req,res) {
 		frosting_color:req.body.orderData.frosting_color,
 		other_message:req.body.orderData.other_message,
 		completed:false,
-		cake_status:'Not Built'
+		cake_status:'Not-Built'
 	}).then(function(result){
 		console.log('ORDER CREATED');
 		res.json(result);
