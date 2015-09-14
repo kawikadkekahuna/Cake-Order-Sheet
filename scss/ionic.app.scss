@@ -259,24 +259,24 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .order-form-container{
 	width:100%;
 	height:50px;
-	.item{
-		border-radius:10px;
-	}
 	.button{
 		border-radius: 10px;
+		height:55px;
+		
 	}
 	.row{
-		margin-top:0px;
-	}
-	.order-form-field{
-		display:inline-block;
-		width:50%;
-		height:55px;
-		.item{
-			height:100%;
-		}
-		.item-text-wrap{
-			white-space: nowrap;
+		margin:auto;
+		.order-form-field{
+			display:inline-block;
+			width:50%;
+			height:55px;
+			.item{
+				height:100%;
+				border-radius:10px;
+			}
+			.item-text-wrap{
+				white-space: nowrap;
+			}
 		}
 	}
 }

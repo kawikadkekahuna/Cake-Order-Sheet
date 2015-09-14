@@ -39,12 +39,16 @@
           </div>
         </div>
         <div class="row">
-          <label class="item item-input">
-            <input type="text" ng-model="order.frosting_color" placeholder="Frosting Color">
-          </label>
-          <label class="item item-input">
-            <input type="text" ng-model="order.design_message" placeholder="Design">
-          </label>
+          <div class="order-form-field">
+            <label class="item item-input">
+              <input type="text" ng-model="order.frosting_color" placeholder="Frosting Color">
+            </label>
+          </div>
+          <div class="order-form-field">
+            <label class="item item-input">
+              <input type="text" ng-model="order.design_message" placeholder="Design">
+            </label>
+          </div>
         </div>
         <div class="row">
           <div class="order-form-field">
@@ -78,6 +82,14 @@
         </div>
         <div class="row">
           <div class="order-form-field">
+            <ion-toggle ng-model="order.paid_status" ng-change="renamePaidStatus()" toggle-class="toggle-positive">{{order.paid_status_text}}</ion-toggle>
+          </div>
+          <div class="order-form-field">
+            <ion-toggle ng-model="order.order_processed" ng-change="renameOrderProcessed()" toggle-class="toggle-positive">{{order.order_processed_text}}</ion-toggle>
+          </div>
+        </div>
+        <div class="row">
+          <div class="order-form-field">
             <ionic-datepicker input-obj="datepickerObject">
               <button class="button button-block button-positive"> {{order.pickup_date | date:' MMMM  dd'}}</button>
             </ionic-datepicker>
@@ -88,14 +100,6 @@
                 <standard-time-meridian ng-model="order.pickup_time" etime='timePickerObject.inputEpochTime'></standard-time-meridian>
               </button>
             </ionic-timepicker>
-          </div>
-        </div>
-        <div class="row">
-          <div class="order-form-field">
-            <ion-toggle ng-model="order.paid_status" ng-change="renamePaidStatus()" toggle-class="toggle-positive">{{order.paid_status_text}}</ion-toggle>
-          </div>
-          <div class="order-form-field">
-            <ion-toggle ng-model="order.order_processed" ng-change="renameOrderProcessed()" toggle-class="toggle-positive">{{order.order_processed_text}}</ion-toggle>
           </div>
         </div>
         <div class="row">

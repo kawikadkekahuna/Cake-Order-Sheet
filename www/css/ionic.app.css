@@ -7881,17 +7881,17 @@ a.button {
 .order-form-container {
   width: 100%;
   height: 50px; }
-  .order-form-container .item {
-    border-radius: 10px; }
   .order-form-container .button {
-    border-radius: 10px; }
-  .order-form-container .row {
-    margin-top: 0px; }
-  .order-form-container .order-form-field {
-    display: inline-block;
-    width: 50%;
+    border-radius: 10px;
     height: 55px; }
-    .order-form-container .order-form-field .item {
-      height: 100%; }
-    .order-form-container .order-form-field .item-text-wrap {
-      white-space: nowrap; }
+  .order-form-container .row {
+    margin: auto; }
+    .order-form-container .row .order-form-field {
+      display: inline-block;
+      width: 50%;
+      height: 55px; }
+      .order-form-container .row .order-form-field .item {
+        height: 100%;
+        border-radius: 10px; }
+      .order-form-container .row .order-form-field .item-text-wrap {
+        white-space: nowrap; }
