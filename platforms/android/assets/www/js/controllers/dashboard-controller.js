@@ -114,7 +114,11 @@ angular.module('starter')
 			scope:$scope,
 			buttons:[{
 				text:'Cancel'
-			}]
+			}],
+		    onTap: function(e) {
+		    	console.log('tapped');
+		    	console.log(e);
+		    }
 		});	
 	}
 

@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('DashController', function($scope, $ionicPlatform, $ionicHistory, $state, $localStorage, $ionicPopup, $timeout, OrderService, FlavorService, CakeService, StatusService) {
+.controller('DashController', function($scope, $ionicPlatform,$ionicBackdrop, $ionicHistory, $state, $localStorage, $ionicPopup, $timeout, OrderService, FlavorService, CakeService, StatusService) {
 	// With the new view caching in Ionic, Controllers are only called
 	// when they are recreated or on app start, instead of every page change.
 	// To listen for when this page is active (for example, to refresh data),
@@ -10,8 +10,6 @@ angular.module('starter')
 	//});
 	//
 	ionic.Platform.ready(function() {
-		var statusPopup;
-		var legendPopup;
 
 		// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
 		// for form inputs)
@@ -109,12 +107,21 @@ angular.module('starter')
 
 	$scope.showLegend = function(){
 		statusPopup.close();
-		legendPopup = $ionicPopup.show({
+		var legendPopup = $ionicPopup.show({
 			templateUrl:'templates/nav-legend.html',
 			title:'Legend',
 			scope:$scope,
 			buttons:[{
-				text:'Canceldasad'
+				text:'Cancel',
+				onTap:function(e){
+					/*Hacky way to nest $ionicPopups.  Without removing popupcontainer, 
+					ionicbackdrop does not nicely remove the preexisting popup */
+					e.stopPropagation();
+					e.preventDefault();
+					$ionicBackdrop.release();
+					legendPopup.close();
+					jQuery('.popup-container').remove();
+				}
 			}]
 		});	
 	}

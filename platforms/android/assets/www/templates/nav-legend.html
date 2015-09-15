@@ -1,2 +1,7 @@
-<div ng-repeat="option in editOptions" class="button button-positive {{option.status}}" ng-click="updateStatus(editId,option.name)">
+<div class="legend-wrapper" ng-repeat="option in editOptions">
+	<div class="button {{option.status}}" ng-click="updateStatus(editId,option.name)"></div>
+	<div class="legend-description" ng-if="option.status==='status-not-built'">The cake order has not yet been started!</div>
+	<div class="legend-description" ng-if="option.status==='status-built'">The cake order is built and ready to be frosted!</div>
+	<div class="legend-description" ng-if="option.status==='status-frosted'">The cake order is frosted and ready to be decorated!</div>
+	<div class="legend-description" ng-if="option.status==='status-completed'">The cake order is completed and ready to be picked up!</div>
 </div>
