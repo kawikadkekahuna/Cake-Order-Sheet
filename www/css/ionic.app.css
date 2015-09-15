@@ -7760,6 +7760,12 @@ a.button {
       border-radius: 25px; }
       .scroll-content .scroll .list .order-list-wrapper .order-list .item-content {
         background-color: transparent; }
+    .scroll-content .scroll .list .order-list-wrapper .wrapper .order-number {
+      font-family: 'Ubuntu Condensed', sans-serif;
+      font-weight: 800;
+      color: white;
+      text-shadow: 2px 2px 2px #000;
+      margin-top: 0; }
     .scroll-content .scroll .list .order-list-wrapper .wrapper .card {
       font-family: 'Ubuntu Condensed', sans-serif;
       font-weight: 800;
