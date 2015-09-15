@@ -10,6 +10,9 @@ angular.module('starter')
 	//});
 	//
 	ionic.Platform.ready(function() {
+		var statusPopup;
+		var legendPopup;
+
 		// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
 		// for form inputs)
 		OrderService.getAllOrders().then(function(orders) {
@@ -35,18 +38,18 @@ angular.module('starter')
 		})
 
 		$localStorage.quantityAmount = [{
-			text:'1',
-			checked:false,
-			icon:false
-		},{
-			text:'2',
-			checked:false,
-			icon:false
-		},{
-			text:'3',
-			checked:false,
-			icon:false
-		},];
+			text: '1',
+			checked: false,
+			icon: false
+		}, {
+			text: '2',
+			checked: false,
+			icon: false
+		}, {
+			text: '3',
+			checked: false,
+			icon: false
+		}, ];
 		$localStorage.createOrder = {};
 		if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
 			cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -77,11 +80,10 @@ angular.module('starter')
 			});
 		}
 	}
-
 	$scope.showEditStatus = function(event, id) {
 		$scope.gate = false;
 		$scope.editId = id;
-		var statusPopup = $ionicPopup.show({
+		statusPopup = $ionicPopup.show({
 			templateUrl: 'templates/nav-edit-cake-status.html',
 			title: 'Cake Status?',
 			scope: $scope,
@@ -89,7 +91,6 @@ angular.module('starter')
 				text: 'Cancel'
 			}]
 		})
-
 
 		$scope.updateStatus = function(id, name) {
 
@@ -102,7 +103,20 @@ angular.module('starter')
 				$scope.gate = true;
 			});
 		}
+
 	};
+
+	$scope.showLegend = function(){
+		statusPopup.close();
+		legendPopup = $ionicPopup.show({
+			templateUrl:'templates/nav-legend.html',
+			title:'Legend',
+			scope:$scope,
+			buttons:[{
+				text:'Cancel'
+			}]
+		});	
+	}
 
 
 });

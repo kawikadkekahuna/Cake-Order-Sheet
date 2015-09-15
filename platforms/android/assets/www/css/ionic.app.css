@@ -7826,10 +7826,13 @@ a.button {
   background-color: rgba(0, 0, 0, 0.9); }
   .popup .icon-container {
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 5px;
+    right: 5px;
     height: 32px;
     width: 32px; }
+    .popup .icon-container .ion-ios-information-outline {
+      font-size: 25px;
+      background-image: cover; }
   .popup .popup-body {
     text-align: center; }
   .popup .status-not-built {

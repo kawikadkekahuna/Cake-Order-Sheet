@@ -1,4 +1,4 @@
-<div class="icon-container">
-	<i class="ion-information-circled"></i>
+<div class="icon-container" ng-click="showLegend()">
+	<div class="ion-ios-information-outline"></div>
 </div>
 <button ng-repeat="option in editOptions" class="button button-positive {{option.status}}" ng-click="updateStatus(editId,option.name)"></button>

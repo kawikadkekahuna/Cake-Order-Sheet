@@ -62,6 +62,7 @@ angular.module('starter')
 			f
 		}
 		$scope.editOptions = StatusService.getOptions();
+		console.log($scope.editOptions);
 
 	});
 
@@ -113,7 +114,7 @@ angular.module('starter')
 			title:'Legend',
 			scope:$scope,
 			buttons:[{
-				text:'Cancel'
+				text:'Canceldasad'
 			}]
 		});	
 	}
