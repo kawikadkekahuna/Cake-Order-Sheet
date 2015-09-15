@@ -57,10 +57,8 @@ angular.module('starter')
 		if (window.StatusBar) {
 			// org.apache.cordova.statusbar required
 			StatusBar.styleLightContent();
-			f
 		}
 		$scope.editOptions = StatusService.getOptions();
-		console.log($scope.editOptions);
 
 	});
 

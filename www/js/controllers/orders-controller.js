@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('OrdersController', function($scope, OrderService, $state, $ionicHistory, $localStorage, OrderService, $ionicPopup, $timeout) {
+.controller('OrdersController', function($scope, $state, $ionicHistory, $localStorage,  $ionicPopup, $timeout,$ionicBackdrop, OrderService,StatusService,OrderService) {
 	var CURRENT_STATE = 'nav.orders';
 
 	// With the new view caching in Ionic, Controllers are only called
@@ -11,6 +11,8 @@ angular.module('starter')
 	ionic.Platform.ready(function() {
 		$scope.$on('$ionicView.enter', function(e) {
 			$ionicHistory.clearHistory();
+			$scope.editOptions = StatusService.getOptions();
+		
 		});
 
 		$scope.upcomingOrders = $localStorage.allOrders;
@@ -45,6 +47,53 @@ angular.module('starter')
 				$scope.upcomingOrders = $localStorage.allOrders
 				$scope.$broadcast('scroll.refreshComplete');
 			})
+		}
+
+		$scope.showEditStatus = function(event, id) {
+			$scope.gate = false;
+			$scope.editId = id;
+			statusPopup = $ionicPopup.show({
+				templateUrl: 'templates/nav-edit-cake-status.html',
+				title: 'Cake Status?',
+				scope: $scope,
+				buttons: [{
+					text: 'Cancel'
+				}]
+			})
+
+			$scope.updateStatus = function(id, name) {
+
+				StatusService.updateStatus(id, name).then(function(res) {
+					var order = $scope.upcomingOrders.filter(function(element) {
+						return element.id === id
+					})[0];
+					order.cake_status = name;
+					statusPopup.close();
+					$scope.gate = true;
+				});
+			}
+
+		};
+
+		$scope.showLegend = function() {
+			statusPopup.close();
+			var legendPopup = $ionicPopup.show({
+				templateUrl: 'templates/nav-legend.html',
+				title: 'Legend',
+				scope: $scope,
+				buttons: [{
+					text: 'Cancel',
+					onTap: function(e) {
+						/*Hacky way to nest $ionicPopups.  Without removing popupcontainer, 
+						ionicbackdrop does not nicely remove the preexisting popup */
+						e.stopPropagation();
+						e.preventDefault();
+						$ionicBackdrop.release();
+						legendPopup.close();
+						jQuery('.popup-container').remove();
+					}
+				}]
+			});
 		}
 
 	});
