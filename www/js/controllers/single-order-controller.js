@@ -16,7 +16,7 @@ angular.module('starter')
 		}else{
 			$scope.paid_status_text = "Not Paid"
 		}
-		console.log($scope.orderData.pickup_time);
+		console.log($scope.orderData);
 	});
 
 	$scope.return = function() {

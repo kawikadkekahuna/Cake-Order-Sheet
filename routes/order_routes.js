@@ -8,10 +8,7 @@ var db = require('../models').Order;
 var bodyParser = require('body-parser');
 
 router.get('/', function(req,res) {
-	console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
-	console.log('preset_messages',preset_messages);
-	console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
-	
+
 	db.findAll().then(function(orders){
 	console.log('ORDERS RECEIVED');
   	res.json(orders);
@@ -20,16 +17,8 @@ router.get('/', function(req,res) {
 });
 
 router.post('/place_order', function(req,res) {
-	console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
-	console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
-	console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
-	console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
 	req.body.orderData = JSON.parse(req.body.orderData);
-	console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
-	console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
-	console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
-	console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
-
+	console.log(req.body.orderData);
     // quantity: DataTypes.INTEGER,
     // size: DataTypes.STRING,
     // icecream_flavors: DataTypes.STRING,
@@ -63,7 +52,7 @@ router.post('/place_order', function(req,res) {
 		design:req.body.orderData.design_message,
 		message_color:req.body.orderData.message_color,
 		frosting_color:req.body.orderData.frosting_color,
-		other_message:req.body.orderData.other_message,
+		other_message:req.body.orderData.message,
 		completed:false,
 		cake_status:'Not-Built'
 	}).then(function(result){
