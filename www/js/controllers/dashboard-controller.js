@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('DashController', function($scope, $ionicPlatform,$ionicBackdrop, $ionicHistory, $state, $localStorage, $ionicPopup, $timeout, OrderService, FlavorService, CakeService, StatusService) {
+.controller('DashController', function($scope, $ionicPlatform, $ionicBackdrop, $ionicHistory, $state, $localStorage, $ionicPopup, $timeout, OrderService, FlavorService, CakeService, StatusService) {
 	// With the new view caching in Ionic, Controllers are only called
 	// when they are recreated or on app start, instead of every page change.
 	// To listen for when this page is active (for example, to refresh data),
@@ -77,6 +77,16 @@ angular.module('starter')
 			});
 		}
 	}
+
+	$scope.completeOrder = function(id) {
+		OrderService.completeOrder(id).then(function(order) {
+			var order = $localStorage.allOrders.filter(function(element) {
+				return element.id == id
+			})[0];
+			order.completed = true;
+		});
+	}
+
 	$scope.showEditStatus = function(event, id) {
 		$scope.gate = false;
 		$scope.editId = id;
@@ -103,15 +113,15 @@ angular.module('starter')
 
 	};
 
-	$scope.showLegend = function(){
+	$scope.showLegend = function() {
 		statusPopup.close();
 		var legendPopup = $ionicPopup.show({
-			templateUrl:'templates/nav-legend.html',
-			title:'Legend',
-			scope:$scope,
-			buttons:[{
-				text:'Cancel',
-				onTap:function(e){
+			templateUrl: 'templates/nav-legend.html',
+			title: 'Legend',
+			scope: $scope,
+			buttons: [{
+				text: 'Cancel',
+				onTap: function(e) {
 					/*Hacky way to nest $ionicPopups.  Without removing popupcontainer, 
 					ionicbackdrop does not nicely remove the preexisting popup */
 					e.stopPropagation();
@@ -121,7 +131,7 @@ angular.module('starter')
 					jQuery('.popup-container').remove();
 				}
 			}]
-		});	
+		});
 	}
 
 

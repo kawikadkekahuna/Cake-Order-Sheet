@@ -7753,6 +7753,22 @@ a.button {
   top: 65px; }
   .scroll-content .scroll .list .order-list-wrapper {
     width: 80%; }
+    .scroll-content .scroll .list .order-list-wrapper .animate-enter, .scroll-content .scroll .list .order-list-wrapper .ng-leave {
+      -webkit-transition: 400ms cubic-bezier(0, 0, 0.58, 1) all;
+      -moz-transition: 400ms cubic-bezier(0, 0, 0.58, 1) all;
+      -ms-transition: 400ms cubic-bezier(0, 0, 0.58, 1) all;
+      -o-transition: 400ms cubic-bezier(0, 0, 0.58, 1) all;
+      transition: 400ms cubic-bezier(0, 0, 0.58, 1) all;
+      position: relative;
+      display: block; }
+    .scroll-content .scroll .list .order-list-wrapper .ng-leave {
+      opacity: 1;
+      right: 0;
+      height: 150px; }
+    .scroll-content .scroll .list .order-list-wrapper .ng-leave.ng-leave-active, .scroll-content .scroll .list .order-list-wrapper .animate-enter {
+      opacity: 0;
+      right: -50px;
+      height: 0px; }
     .scroll-content .scroll .list .order-list-wrapper .order-list {
       width: 100%;
       text-overflow: ellipsis;

@@ -5,9 +5,9 @@
 	on-refresh="doRefresh()">
 	</ion-refresher>
 	<ion-list>
-		<div class="order-list-wrapper" ng-repeat="orders in upcomingOrders | orderBy:'+id'">
-			<ion-item class="order-list" ng-if="orders.completed == false" on-swipe-right="completeOrder(orders.id)" ng-disable="true" ng-click="showOrder($event,orders.id)">
-				<div class="wrapper">
+		<div class="order-list-wrapper">
+			<ion-item class="order-list" ng-repeat="orders in upcomingOrders | orderBy:'+id'" ng-if="orders.completed == false" on-swipe-right="completeOrder(orders.id)" ng-disable="true">
+				<div class="wrapper" ng-click="showOrder($event,orders.id)">
 					<div class="order-info card" on-hold="showEditStatus($event,orders.id)">
 						<div class="icon-wrapper">
 							<div class="{{orders.cake_status}}"></div>
