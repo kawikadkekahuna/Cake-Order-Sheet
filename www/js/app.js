@@ -127,6 +127,16 @@ angular.module('starter', ['ionic', 'ngStorage', 'ngAnimate','ionic-timepicker',
         controller: 'CalendarController'
       }
     }
+  })
+  
+  .state('nav.order-by-day', {
+    url: '/order-by-day',
+    views: {
+      'nav-calendar': {
+        templateUrl: 'templates/nav-order-by-day.html',
+        controller: 'OrderByDayController'
+      }
+    }
   });
 
   $urlRouterProvider.otherwise('/nav/dash');

@@ -136,6 +136,9 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 						margin-top:0;						
 					}
 					.card{
+						.icecream-flavors{
+							white-space: normal;
+						}
 						font-family: 'Ubuntu Condensed', sans-serif;
 						font-weight: 800;
 						text-align: center;

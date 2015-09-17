@@ -10,19 +10,7 @@ add in icon legend in open model popup
 
 
 
-Dashboard Page
-	add icon to the hover
-	change color of the status to match
-	Swipe to finish order ( picked up ) .  
 
-Orders page
-	Order number to header.  top left
-	Add status of cake.
-	Format date to MM DD
-	-Remove completed.
-	Order number as header
-	Change date to MMDDYYYY
-	Add glow color on swipe
 
 Single Page Order
 	add commas between flavors

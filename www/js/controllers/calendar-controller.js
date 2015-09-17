@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('CalendarController', function($scope, $ionicHistory, uiCalendarConfig, CalendarService) {
+.controller('CalendarController', function($scope, $ionicHistory, $state, uiCalendarConfig, CalendarService) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -8,6 +8,11 @@ angular.module('starter')
   //
   //$scope.$on('$ionicView.enter', function(e) {
   //});
+
+  $scope.$on('$ionicView.enter', function(e) {
+    $ionicHistory.clearHistory();
+
+  });
   var date = new Date();
   var year = date.getFullYear();
   var day = date.getDate();
@@ -24,7 +29,11 @@ angular.module('starter')
           center: 'title',
           right: 'next'
         },
-        eventClick: $scope.alertOnEventClick,
+        eventClick: function() {
+          console.log('bai')
+          $state.go('nav.order-by-day');
+
+        },
         eventDrop: $scope.alertOnDrop,
         eventResize: $scope.alertOnResize,
         eventRender: $scope.eventRender
@@ -39,10 +48,15 @@ angular.module('starter')
 
   }];
 
-  console.log('$scope.eventSources',$scope.eventSources);
+  $scope.todaysOrder = function(order){
+    console.log(order);
+  }
 
-  $scope.$on('$ionicView.enter', function(e) {
-    $ionicHistory.clearHistory();
+  $scope.switch = function(){
+    $state.go('nav.order-by-day');
+  }
 
-  });
+  console.log('$scope.eventSources', $scope.eventSources);
+
+
 });

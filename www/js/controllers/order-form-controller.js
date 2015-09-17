@@ -44,7 +44,7 @@ angular.module('starter')
           var icecreamFlavors = '';
           jQuery.each(scope.items, function(index, item) {
             if (item.checked) {
-              icecreamFlavors += (item.text + ' ');
+              icecreamFlavors += (item.text + ' ,');
               scope.closeModal();
             };
             scope.attachToModel({text:icecreamFlavors});
@@ -209,7 +209,7 @@ angular.module('starter')
         console.log(orders);
         $localStorage.allOrders = orders.data;
         $localStorage.createOrder = {};
-        $state.go('nav.orders')
+        $state.go('nav.order-by-day')
       });
     })
   }
