@@ -99,7 +99,7 @@ angular.module('starter')
     };
   })
 
-.controller('OrderFormController', function($scope, $ionicPlatform, $state, OrderService, $stateParams, FlavorService, TimeService, $localStorage, CakeService) {
+.controller('OrderFormController', function($scope, $ionicPlatform, $state, $stateParams, TimeService, $localStorage, OrderService, StatusService) {
 
   $scope.timePickerObject = {
     inputEpochTime: ((new Date()).getHours() * 60 * 60), //Optional

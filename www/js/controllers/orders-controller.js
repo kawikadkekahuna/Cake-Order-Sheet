@@ -1,22 +1,20 @@
 angular.module('starter')
 
-.controller('OrdersController', function($scope, $state, $ionicHistory, $localStorage,  $ionicPopup, $timeout,$ionicBackdrop, OrderService,StatusService,OrderService) {
-	var CURRENT_STATE = 'nav.orders';
+.controller('OrdersController', function($scope, $state, $ionicHistory, $localStorage, $ionicPopup, $timeout,$ionicBackdrop,OrderService, StatusService) {
+	var gate = true;
 
-	// With the new view caching in Ionic, Controllers are only called
-	// when they are recreated or on app start, instead of every page change.
-	// To listen for when this page is active (for example, to refresh data),
-	// listen for the $ionicView.enter event:
-
+	if(gate){
+		delete($localStorage.allOrders);
+	}
+	
+	console.log($localStorage.allOrders);
+	
 	ionic.Platform.ready(function() {
 		$scope.$on('$ionicView.enter', function(e) {
 			$ionicHistory.clearHistory();
 			$scope.editOptions = StatusService.getOptions();
-		
 		});
 
-		$scope.upcomingOrders = $localStorage.allOrders;
-		console.log($scope.upcomingOrders);		
 		$scope.showOrder = function(order_number) {
 			$state.go('nav.single', {
 				order_number: order_number,

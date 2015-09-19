@@ -10,7 +10,9 @@ add in icon legend in open model popup
 
 
 
-
+Update DB routes on FrontEnd
+  Single order controller 
+    -Render proper information
 
 Single Page Order
 	add commas between flavors
