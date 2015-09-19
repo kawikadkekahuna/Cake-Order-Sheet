@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
 
-  var PresetMessage = sequelize.define("PresetMessage", {
+  var MessageColors = sequelize.define("MessageColors", {
 
     id: {
 
@@ -13,11 +13,10 @@ module.exports = function(sequelize, DataTypes) {
     checked: DataTypes.BOOLEAN,
     icon: DataTypes.BOOLEAN
 
-
   }, {
     timestamps:false,
     underscored: true,
-    tableName: "preset_messages",
+    tableName: "message_colors",
     classMethods: {
 /*
       associate: function(models) {
@@ -27,5 +26,5 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  return PresetMessage;
+  return MessageColors;
 }; 

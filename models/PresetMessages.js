@@ -1,19 +1,23 @@
 module.exports = function(sequelize, DataTypes) {
 
-  var Flavor = sequelize.define("Flavor", {
+  var PresetMessages = sequelize.define("PresetMessages", {
+
     id: {
+
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
+
     text: DataTypes.STRING,
     checked: DataTypes.BOOLEAN,
     icon: DataTypes.BOOLEAN
+
+
   }, {
-    
-    underscored: true,
     timestamps:false,
-    tableName: "flavors",
+    underscored: true,
+    tableName: "preset_messages",
     classMethods: {
 /*
       associate: function(models) {
@@ -23,5 +27,5 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  return Flavor;
+  return PresetMessages;
 }; 

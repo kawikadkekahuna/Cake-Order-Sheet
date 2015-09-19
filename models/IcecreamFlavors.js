@@ -1,22 +1,19 @@
 module.exports = function(sequelize, DataTypes) {
 
-  var MessageColor = sequelize.define("MessageColor", {
-
+  var IcecreamFlavors = sequelize.define("IcecreamFlavors", {
     id: {
-
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
-
     text: DataTypes.STRING,
     checked: DataTypes.BOOLEAN,
     icon: DataTypes.BOOLEAN
-
   }, {
-    timestamps:false,
+    
     underscored: true,
-    tableName: "message_colors",
+    timestamps:false,
+    tableName: "icecream_flavors",
     classMethods: {
 /*
       associate: function(models) {
@@ -26,5 +23,5 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  return MessageColor;
+  return IcecreamFlavors;
 }; 

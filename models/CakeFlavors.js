@@ -1,25 +1,27 @@
 module.exports = function(sequelize, DataTypes) {
 
-  var CakeSize = sequelize.define("CakeSize", {
+  var CakeFlavors = sequelize.define("CakeFlavors", {
     id: {
 
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
-    text: DataTypes.STRING,
-    checked: DataTypes.BOOLEAN,
-    icon: DataTypes.BOOLEAN
+    text:DataTypes.STRING,
+    checked:DataTypes.BOOLEAN,
+    icon:DataTypes.BOOLEAN
+
   }, {
     timestamps:false,
     underscored: true,
-    tableName: "cake_size",
+    tableName: "cake_flavors",
     classMethods: {
 
       // associate: function(models) {
+
       // }
     }
   });
 
-  return CakeSize;
-}; 
+  return CakeFlavors;
+};
