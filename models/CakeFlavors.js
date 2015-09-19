@@ -7,9 +7,7 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
-    text:DataTypes.STRING,
-    checked:DataTypes.BOOLEAN,
-    icon:DataTypes.BOOLEAN
+    flavor:DataTypes.STRING
 
   }, {
     timestamps:false,

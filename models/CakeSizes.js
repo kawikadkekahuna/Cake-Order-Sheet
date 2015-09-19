@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
 
   var CakeSizes = sequelize.define("CakeSizes", {
     id: {
@@ -7,11 +7,9 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
-    text: DataTypes.STRING,
-    checked: DataTypes.BOOLEAN,
-    icon: DataTypes.BOOLEAN
+    size: DataTypes.STRING
   }, {
-    timestamps:false,
+    timestamps: false,
     underscored: true,
     tableName: "cake_sizes",
     classMethods: {
@@ -22,4 +20,4 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   return CakeSizes;
-}; 
+};
