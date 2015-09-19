@@ -14,8 +14,10 @@ angular.module('starter')
 		// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
 		// for form inputs)
 		OrderService.getAllOrders().then(function(orders) {
+			delete($localStorage.allOrders);
 			$localStorage.allOrders = orders.data;
 			$scope.upcomingOrders = orders.data;
+			console.log('orders.data',orders.data);	
 		});
 
 		OrderService.getMessageColors().then(function(colors) {

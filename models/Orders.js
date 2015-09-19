@@ -3,7 +3,6 @@ module.exports = function (sequelize, DataTypes) {
   var Order = sequelize.define("Order", {
 
     id: {
-
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
@@ -27,6 +26,7 @@ module.exports = function (sequelize, DataTypes) {
     last_name: DataTypes.STRING,
     phone_number: DataTypes.STRING
   }, {
+    timestamps:false,
     underscored: true,
     tableName: "orders",
     classMethods: {

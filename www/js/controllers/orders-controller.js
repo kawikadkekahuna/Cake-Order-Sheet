@@ -16,7 +16,7 @@ angular.module('starter')
 		});
 
 		$scope.upcomingOrders = $localStorage.allOrders;
-
+		console.log($scope.upcomingOrders);		
 		$scope.showOrder = function(order_number) {
 			$state.go('nav.single', {
 				order_number: order_number,
