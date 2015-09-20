@@ -1,13 +1,6 @@
 angular.module('starter')
 
 .controller('OrdersController', function($scope, $state, $ionicHistory, $localStorage, $ionicPopup, $timeout,$ionicBackdrop,OrderService, StatusService) {
-	var gate = true;
-
-	if(gate){
-		delete($localStorage.allOrders);
-	}
-	
-	console.log($localStorage.allOrders);
 	
 	ionic.Platform.ready(function() {
 		$scope.$on('$ionicView.enter', function(e) {

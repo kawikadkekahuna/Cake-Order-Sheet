@@ -1,12 +1,11 @@
-angular.module('starter')
+	angular.module('starter')
 
 .controller('DashController', function($scope, $ionicPlatform, $ionicBackdrop, $ionicHistory, $state, $localStorage, $ionicPopup, $timeout, $cacheFactory, OrderService, OrderDetailService, StatusService) {
 	ionic.Platform.ready(function() {
-		var allOrders = OrderService.getAllOrders().then(function(orders){
-			$localStorage.allOrders = orders.data;
-			console.log($localStorage.allOrders);
-		});
-
+		OrderService.getAllOrders().then(function(orders){
+			$localStorage.allOrders = orders;
+		})
+		console.log($localStorage.allOrders);
 		$localStorage.quantityAmount = [{
 			text: '1',
 		}, {
