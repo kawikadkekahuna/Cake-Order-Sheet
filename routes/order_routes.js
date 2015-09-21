@@ -7,13 +7,13 @@ var message_colors = require('../models').MessageColor;
 var orders = require('../models').Order;
 var bodyParser = require('body-parser');
 
-router.get('/all_orders', function (req, res) {
-  orders.findAll().then(function (orders) {
+router.get('/all_orders', function(req, res) {
+  orders.findAll().then(function(orders) {
     res.json(orders);
   });
 });
 
-router.post('/place_order', function (req, res) {
+router.post('/place_order', function(req, res) {
   orders.create({
     icecream_flavor: req.body.icecream_flavor,
     cake_flavor: req.body.cake_flavor,
@@ -36,7 +36,53 @@ router.post('/place_order', function (req, res) {
   });
 });
 
-router.put('/edit_order', function (req, res) {
+router.post('/update_status', function(req, res) {
+  orders.findOne({
+    where: {
+      id: req.body.id
+    }
+  }).then(function(order) {
+    order.updateAttributes({
+      'cake_status': req.body.name
+    }).then(function(orderData) {
+      res.json(orderData)
+    });
+  });
+
+});
+
+router.post('/complete', function(req, res) {
+
+  orders.findOne({
+    where: {
+      id: req.body.id
+    }
+  }).then(function(order) {
+    order.updateAttributes({
+      'completed': true
+    }).then(function(orderData) {
+      res.json(orderData)
+    });
+  });
+
+});
+
+router.post('/incomplete', function(req, res) {
+
+  orders.findOne({
+    where: {
+      id: req.body.id
+    }
+  }).then(function(order) {
+    order.updateAttributes({
+      'completed': false
+    }).then(function(orderData) {
+      res.json(orderData)
+    });
+  });
+
+});
+router.put('/edit_order', function(req, res) {
 
 });
 
