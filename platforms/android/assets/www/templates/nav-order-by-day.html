@@ -1,0 +1,23 @@
+<ion-view view-title="OrderByDay">
+	<ion-content>
+		<ion-list>
+			<div class="order-list-wrapper" ng-repeat="orders in todaysOrders | orderBy:'+id'">	
+				<ion-item class="order-list" on-swipe-right="completeOrder(orders.id)" ng-click="showOrder(orders.id)" ng-if="orders.completed == false ">
+					<div class="wrapper">
+						<div class="order-number">{{orders.id}}</div>
+						<div class="order-info card" on-hold="showEditStatus($event,orders.id)">
+							<div class="icon-wrapper">
+								<div class="{{orders.cake_status}}"></div>
+							</div>
+							<div>Name: {{orders.first_name}} {{orders.last_name}}</div>
+							<div>Quantity: {{orders.quantity}}</div>
+							<div>Size: {{orders.size}}</div>
+							<div>Pickup Date: {{orders.pickup_date | date:'MMMM dd'}}</div>
+							<div>Completed: {{orders.completed}}</div>
+						</div>
+					</div>
+				</ion-item>
+			</div>
+		</ion-list>
+	</ion-content>
+</ion-view>

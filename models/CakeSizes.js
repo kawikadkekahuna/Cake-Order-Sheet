@@ -7,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
-    size: DataTypes.STRING
+    text: DataTypes.STRING
   }, {
     timestamps: false,
     underscored: true,

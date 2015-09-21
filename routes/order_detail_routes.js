@@ -5,6 +5,7 @@ var router = express.Router();
 var icecreamFlavors = require('../models').IcecreamFlavors;
 var cakeFlavors = require('../models').CakeFlavors;
 var cakeSizes = require('../models').CakeSizes;
+var quantityAmt = require('../models').Quantity;
 var presetMessages = require('../models').PresetMessages;
 var frostingColors = require('../models').MessageColors;
 var bodyParser = require('body-parser');
@@ -13,17 +14,20 @@ var bodyParser = require('body-parser');
 /*Ahh so gross.  Need to find a way to clean this up.*/
 function createDataSheet(callback) {
   var details = [];
-  frostingColors.findAll().then(function (colors) {
+  frostingColors.findAll().then(function(colors) {
     details.push(colors);
-    presetMessages.findAll().then(function (messages) {
+    presetMessages.findAll().then(function(messages) {
       details.push(messages);
-      icecreamFlavors.findAll().then(function (sizes) {
+      icecreamFlavors.findAll().then(function(sizes) {
         details.push(sizes);
-        cakeFlavors.findAll().then(function (flavors) {
+        cakeFlavors.findAll().then(function(flavors) {
           details.push(flavors);
-          cakeSizes.findAll().then(function (sizes) {
+          cakeSizes.findAll().then(function(sizes) {
             details.push(sizes);
-            callback(details);
+            quantityAmt.findAll().then(function(quantity) {
+              details.push(quantity);
+              callback(details);
+            });
           });
         });
       });
@@ -31,44 +35,44 @@ function createDataSheet(callback) {
   });
 }
 
-router.get('/all', function (req, res) {
-  var details = createDataSheet(function (result) {
+router.get('/all', function(req, res) {
+  var details = createDataSheet(function(result) {
     res.json(result);
   });
 
 });
 
-router.get('/icecream_flavors', function (req, res) {
-  icecreamFlavors.findAll().then(function (flavors) {
+router.get('/icecream_flavors', function(req, res) {
+  icecreamFlavors.findAll().then(function(flavors) {
     res.json(flavors);
   });
 });
 
-router.get('/cake_flavors', function (req, res) {
-  cakeFlavors.findAll().then(function (flavors) {
+router.get('/cake_flavors', function(req, res) {
+  cakeFlavors.findAll().then(function(flavors) {
     res.json(flavors);
   });
 });
 
-router.get('/cake_sizes', function (req, res) {
-  icecreamFlavors.findAll().then(function (sizes) {
+router.get('/cake_sizes', function(req, res) {
+  icecreamFlavors.findAll().then(function(sizes) {
     res.json(sizes);
   });
 });
 
-router.get('/preset_messages', function (req, res) {
-  presetMessages.findAll().then(function (messages) {
+router.get('/preset_messages', function(req, res) {
+  presetMessages.findAll().then(function(messages) {
     res.json(messages);
   });
 });
 
-router.get('/frosting_colors', function (req, res) {
-  frostingColors.findAll().then(function (colors) {
+router.get('/frosting_colors', function(req, res) {
+  frostingColors.findAll().then(function(colors) {
     res.json(colors);
   });
 });
 
-router.post('/icecream_flavors', function (req, res) {
+router.post('/icecream_flavors', function(req, res) {
   if (!req.body.flavor) {
     res.json({
       success: false
@@ -77,14 +81,14 @@ router.post('/icecream_flavors', function (req, res) {
   }
   icecreamFlavors.create({
     flavor: req.body.flavor
-  }).then(function () {
+  }).then(function() {
     res.json({
       success: true
     });
   });
 });
 
-router.post('/cake_flavors', function (req, res) {
+router.post('/cake_flavors', function(req, res) {
   if (!req.body.flavor) {
     res.json({
       success: false
@@ -93,14 +97,14 @@ router.post('/cake_flavors', function (req, res) {
   }
   cakeFlavors.create({
     flavor: req.body.flavor
-  }).then(function () {
+  }).then(function() {
     res.json({
       success: true
     });
   });
 });
 
-router.post('/cake_sizes', function (req, res) {
+router.post('/cake_sizes', function(req, res) {
   if (!req.body.size) {
     res.json({
       success: false
@@ -109,7 +113,7 @@ router.post('/cake_sizes', function (req, res) {
   }
   cakeSizes.create({
     size: req.body.size
-  }).then(function () {
+  }).then(function() {
     res.json({
       success: true
     });
@@ -117,7 +121,7 @@ router.post('/cake_sizes', function (req, res) {
 
 });
 
-router.post('/preset_messages', function (req, res) {
+router.post('/preset_messages', function(req, res) {
   if (!req.body.message) {
     res.json({
       success: false
@@ -126,14 +130,14 @@ router.post('/preset_messages', function (req, res) {
   }
   presetMessages.create({
     message: req.body.message
-  }).then(function () {
+  }).then(function() {
     res.json({
       success: true
     });
   });
 });
 
-router.post('/frosting_colors', function (req, res) {
+router.post('/frosting_colors', function(req, res) {
   if (!req.body.color) {
     res.json({
       success: false
@@ -142,13 +146,12 @@ router.post('/frosting_colors', function (req, res) {
   }
   frostingColors.create({
     color: req.body.color
-  }).then(function () {
+  }).then(function() {
     res.json({
       success: true
     });
   });
 });
-
 
 
 

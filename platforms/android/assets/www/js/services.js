@@ -2,8 +2,7 @@
 
 angular.module('starter')
   .service('OrderService', ['$http', OrderService])
-  .service('FlavorService', ['$http', FlavorService])
-  .service('CakeService', ['$http', CakeService])
+  .service('OrderDetailService',['$http',OrderDetailService])
   .service('TimeService', ['$http', TimeService])
   .service('StatusService', ['$http', StatusService])
   .service('CalendarService', ['$http', '$localStorage', CalendarService])
@@ -18,7 +17,7 @@ Date.prototype.yyyymmdd = function() {
 function OrderService($http) {
 
   this.getAllOrders = function() {
-    return $http.get(SERVER + '/api/order_routes/');
+    return $http.get(SERVER + '/api/order_routes/all_orders',{cache:true});
   }
 
   this.updateOrders = function() {
@@ -44,35 +43,14 @@ function OrderService($http) {
     });
   }
 
-  this.getMessageColors = function() {
-    return $http.get(SERVER + '/api/order_routes/message_colors');
-  }
-
-  this.getPresetMessages = function() {
-    return $http.get(SERVER + '/api/order_routes/preset_messages');
-  }
-}
-
-function FlavorService($http) {
-
-  this.getAllFlavors = function() {
-    return $http.get(SERVER + '/api/icecream_routes/get_flavors')
-  }
-
 }
 
 
-function CakeService($http) {
+function OrderDetailService($http){
 
-  this.getAllFlavors = function() {
-    return $http.get(SERVER + '/api/cake_routes/get_flavors');
+  this.getAllDetails = function (){
+    return $http.get(SERVER + '/api/order_detail/all');
   }
-
-  this.getAllSizes = function() {
-    return $http.get(SERVER + '/api/cake_routes/get_sizes');
-
-  }
-
 }
 
 function TimeService($http) {
@@ -114,16 +92,17 @@ function CalendarService($http, $localStorage) {
 
   this.getMonthlyEvents = function() {
     var events = [];
-    $localStorage.allOrders.forEach(function(order) {
-      if (order.pickup_date) {
-        var date = new Date(parseInt(order.pickup_date));
-        events.push({
-          title: order.pickup_time,
-          start: date.yyyymmdd()
-        })
+    
+    // $localStorage.allOrders.forEach(function(order) {
+    //   if (order.pickup_date) {
+    //     var date = new Date(parseInt(order.pickup_date));
+    //     events.push({
+    //       title: order.pickup_time,
+    //       start: date.yyyymmdd()
+    //     })
 
-      }
-    })
+    //   }
+    // })
     return events;
   }
 

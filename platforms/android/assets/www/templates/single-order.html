@@ -5,12 +5,11 @@
 			<ion-item class="order-item" ng-click="return()">
 				<div class="wrapper">
 					<div class="order-info card">
-					hello
-						<div>Flavors: {{orderData.icecream_flavor}}</div>
+						<div class="icecream-flavors">Flavors: {{orderData.icecream_flavor}}</div>
 						<div>Cake: {{orderData.cake_flavor}}</div>
 						<div>Quantity: {{orderData.quantity}}</div>
 						<div>Size: {{orderData.cake_size}}</div>
-						<div>Pickup Date: {{orderData.pickup_date | date:'yyyy-MM-dd'}}</div>
+						<div>Pickup Date: {{orderData.pickup_date | date:'MMMM dd'}}</div>
 						<div>Pickup Time: {{orderData.pickup_time}}</div>
 						<div>Payment Status: {{paid_status_text}}</div>
 						<div>Order Processed: {{orderData.order_processed}}</div>
@@ -18,7 +17,7 @@
 						<div>Design: {{orderData.order_design}}</div>
 						<div>Message Color: {{orderData.message_color}}</div>
 						<div>Frosting Color: {{orderData.frosting_color}}</div>
-						<div>Other Message: {{orderData.additional_notes}}</div>
+						<div>Additional Notes: {{orderData.additional_notes}}</div>
 					</div>
 				</div>
 			</ion-item>

@@ -51,7 +51,6 @@ function OrderDetailService($http){
   this.getAllDetails = function (){
     return $http.get(SERVER + '/api/order_detail/all');
   }
-
 }
 
 function TimeService($http) {

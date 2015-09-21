@@ -1,105 +1,5 @@
 angular.module('starter')
-  .directive('modalSelect', function($ionicModal) {
-    return {
-      restrict: 'E',
-      templateUrl: 'templates/order-form-select-template.html',
-      controller: 'OrderFormController as modalSelect',
-      require:'ngModel',
-      scope: {
-        'items': '=',
-        'multiSelect': '=',
-      },
-      link: function(scope, element, attrs, ngModel) {
-
-        scope.headerText = attrs.headertext;  
-        $ionicModal.fromTemplateUrl('templates/order-form-select-modal.html', {
-          scope: scope,
-          animation: 'slide-in-up'
-        }).then(function(modal) {
-          scope.modal = modal; 
-        });
-
-        scope.openModal = function() {
-          scope.modal.show();
-        };
-        scope.closeModal = function() {
-          scope.modal.hide();
-        };
-        scope.select = function() {
-          if (attrs.multiselect) {
-            scope.multiSelect();
-          }else{
-            scope.closeModal();
-          }
-        }
-
-        scope.attachToModel = function(item){
-          console.log('item',item);
-          ngModel.$setViewValue(item.text);
-          scope.headerText = item.text;
-          scope.closeModal();          
-        }
-
-        scope.multiSelect = function() {
-          var icecreamFlavors = '';
-          jQuery.each(scope.items, function(index, item) {
-            if (item.checked) {
-              icecreamFlavors += (item.text + ' ');
-              scope.closeModal();
-            };
-            scope.attachToModel({text:icecreamFlavors});
-          })
-
-        }
-      }
-    }
-  })
-  .directive('standardTimeMeridian', function($localStorage) {
-    return {
-      restrict: 'AE',
-      replace: true,
-      require: 'ngModel',
-      scope: {
-        etime: '=etime'
-      },
-      template: "<strong>{{stime}}</strong>",
-      link: function(scope, elem, attrs,ngModel) {
-
-        scope.stime = epochParser(scope.etime, 'time');
-
-        function prependZero(param) {
-          if (String(param).length < 2) {
-            return "0" + String(param);
-          }
-          return param;
-        }
-
-        function epochParser(val, opType) {
-          if (val === null) {
-            return "00:00";
-          } else {
-            var meridian = ['AM', 'PM'];
-
-            if (opType === 'time') {
-              var hours = parseInt(val / 3600);
-              var minutes = (val / 60) % 60;
-              var hoursRes = hours > 12 ? (hours - 12) : hours;
-              var currentMeridian = meridian[parseInt(hours / 12)];
-              ngModel.$setViewValue(prependZero(hoursRes) + ":" + prependZero(minutes) + " " + currentMeridian)
-              return (prependZero(hoursRes) + ":" + prependZero(minutes) + " " + currentMeridian);
-            }
-          }
-        }
-
-        scope.$watch('etime', function(newValue, oldValue) {
-          scope.stime = epochParser(scope.etime, 'time');
-        });
-
-      }
-    };
-  })
-
-.controller('OrderFormController', function($scope, $ionicPlatform, $state, OrderService, $stateParams, FlavorService, TimeService, $localStorage, CakeService) {
+.controller('OrderFormController', function($scope, $ionicPlatform, $state, $stateParams, TimeService, $localStorage, OrderService, StatusService) {
 
   $scope.timePickerObject = {
     inputEpochTime: ((new Date()).getHours() * 60 * 60), //Optional
@@ -153,17 +53,17 @@ angular.module('starter')
 
   $scope.formFieldData = {
     cakeFlavorText: 'Cake Flavors',
-    cakeFlavors: $localStorage.cakeFlavors,
+    cakeFlavors: $localStorage.orderDetails[3],
     cakeSizeText: 'Cake Size',
-    cakeSizes: $localStorage.cakeSizes,
+    cakeSizes: $localStorage.orderDetails[4],
     quantityText: '1',
-    quantity: $localStorage.quantityAmount,
-    flavorText: 'Icecream Flavors',
-    flavors: $localStorage.iceCreamFlavors,
+    quantity: $localStorage.orderDetails[5],
+    icecreamFlavorText: 'Icecream Flavors',
+    icecreamFlavors: $localStorage.orderDetails[2],
     presetMessageText: 'Preset Messages',
-    presetMessages: $localStorage.presetMessages,
+    presetMessages: $localStorage.orderDetails[1],
     messageColorText: 'Message Color',
-    messageColors: $localStorage.messageColors
+    messageColors: $localStorage.orderDetails[0]
   };
 
 
@@ -171,6 +71,7 @@ angular.module('starter')
   $scope.order = {
     quantity: 1,
     pickup_date: 'Select Date',
+    pickup_time_text: 'Select Time',
     order_processed_text: 'Online',
     paid_status_text: 'Not-Paid'
   };
@@ -202,16 +103,13 @@ angular.module('starter')
     orderData.last_name = $stateParams.last_name;
     orderData.phone_number = $stateParams.phone_number;
     orderData = JSON.stringify(orderData);
-    console.log(orderData);
     OrderService.placeOrder(orderData).then(function(res) {
-      console.log(res.data.cake_status);
       OrderService.getAllOrders().then(function(orders) {
-        console.log(orders);
         $localStorage.allOrders = orders.data;
-        $localStorage.createOrder = {};
-        $state.go('nav.orders')
+        console.log('bai');
+        $state.go('nav.orders');
       });
-    })
+    });
   }
 
 

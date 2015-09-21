@@ -6,7 +6,7 @@
               <modal-select
               headerText="Icecream Flavors"
               ng-model="order.icecream_flavor"
-              items="formFieldData.flavors"
+              items="formFieldData.icecreamFlavors"
               multiSelect="true"
               >
               </modal-select>
@@ -46,7 +46,7 @@
           </div>
           <div class="order-form-field">
             <label class="item item-input">
-              <input type="text" ng-model="order.design_message" placeholder="Design">
+              <input type="text" ng-model="order.order_design" placeholder="Design">
             </label>
           </div>
         </div>
@@ -61,7 +61,7 @@
           </div>
           <div class="order-form-field">
             <label class="item item-input">
-              <input type="text" ng-model="order.other_message" placeholder="Notes to Decorator">
+              <input type="text" ng-model="order.additional_notes" placeholder="Notes to Decorator">
             </label>
           </div>
         </div>
@@ -82,7 +82,7 @@
         </div>
         <div class="row">
           <div class="order-form-field">
-            <ion-toggle ng-model="order.paid_status" ng-change="renamePaidStatus()" toggle-class="toggle-positive">{{order.paid_status_text}}</ion-toggle>
+            <ion-toggle ng-model="order.order_paid" ng-change="renamePaidStatus()" toggle-class="toggle-positive">{{order.order_paid_text}}</ion-toggle>
           </div>
           <div class="order-form-field">
             <ion-toggle ng-model="order.order_processed" ng-change="renameOrderProcessed()" toggle-class="toggle-positive">{{order.order_processed_text}}</ion-toggle>

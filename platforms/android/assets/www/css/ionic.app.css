@@ -7794,6 +7794,8 @@ a.button {
       box-shadow: 6px 10px 27px 0px rgba(0, 0, 0, 0.75);
       border-radius: 25px;
       margin-top: 0; }
+      .scroll-content .scroll .list .order-list-wrapper .wrapper .card .icecream-flavors {
+        white-space: normal; }
       .scroll-content .scroll .list .order-list-wrapper .wrapper .card .icon-wrapper {
         width: 100%;
         height: 1.5em;

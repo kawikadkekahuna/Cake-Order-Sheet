@@ -14,26 +14,34 @@ router.get('/all_orders', function(req, res) {
 });
 
 router.post('/place_order', function(req, res) {
+  req.body.orderData = JSON.parse(req.body.orderData);
+  console.log(req.body.orderData);
   orders.create({
-    icecream_flavor: req.body.icecream_flavor,
-    cake_flavor: req.body.cake_flavor,
-    cake_size: req.body.cake_size,
-    quantity: req.body.quantity,
-    frosting_color: req.body.frosting_color,
-    order_design: req.body.order_design,
-    message_color: req.body.message_color,
-    additional_notes: req.body.additional_notes,
-    order_message: req.body.order_message,
-    order_paid: req.body.order_paid,
-    order_processed: req.body.order_processed,
-    pickup_date: req.body.pickup_date,
-    pickup_time: req.body.pickup_time,
-    completed: req.body.completed,
-    cake_status: req.body.cake_status,
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
-    phone_number: req.body.phone_number
-  });
+    icecream_flavor: req.body.orderData.icecream_flavor,
+    cake_flavor: req.body.orderData.cake_flavor,
+    cake_size: req.body.orderData.cake_size,
+    quantity: req.body.orderData.quantity,
+    frosting_color: req.body.orderData.frosting_color,
+    order_design: req.body.orderData.order_design,
+    message_color: req.body.orderData.message_color,
+    additional_notes: req.body.orderData.additional_notes,
+    order_message: req.body.orderData.order_message,
+    order_paid: req.body.orderData.order_paid,
+    order_processed: req.body.orderData.order_processed_text,
+    pickup_date: req.body.orderData.pickup_date,
+    pickup_time: req.body.orderData.pickup_time,
+    completed: false,
+    cake_status: 'Not-Built',
+    cake_message: req.body.orderData.cake_message,
+    design_message: req.body.orderData.design_message,
+    first_name: req.body.orderData.first_name,
+    last_name: req.body.orderData.last_name,
+
+    phone_number: req.body.orderData.phone_number,
+
+  }).then(function(data){
+    res.json(data);
+  })
 });
 
 router.post('/update_status', function(req, res) {

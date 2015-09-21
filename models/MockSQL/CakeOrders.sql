@@ -58,3 +58,6 @@ INSERT INTO preset_messages VALUES (DEFAULT,'I love you');
 INSERT INTO preset_messages VALUES (DEFAULT,'Happy Mothers Day');
 INSERT INTO preset_messages VALUES (DEFAULT,'Happy Fathers Day');
 INSERT INTO preset_messages VALUES (DEFAULT,'Just Because!');
+INSERT INTO quantity VALUES (DEFAULT,'1');
+INSERT INTO quantity VALUES (DEFAULT,'2');
+INSERT INTO quantity VALUES (DEFAULT,'3');

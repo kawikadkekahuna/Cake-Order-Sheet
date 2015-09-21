@@ -1,4 +1,4 @@
-angular.module('starter').controller('DashController', function ($scope, $ionicPlatform, $ionicBackdrop, $ionicHistory, $state, $localStorage, $ionicPopup, $timeout, $cacheFactory, OrderService, OrderDetailService, StatusService) {
+angular.module('starter').controller('DashController', function ($scope, $ionicPlatform, $ionicBackdrop, $ionicHistory, $state, $localStorage, $ionicPopup, $timeout, OrderService, OrderDetailService, StatusService) {
   ionic.Platform.ready(function () {
     /*Deletes current local storage and grabs fresh data*/
     delete ($localStorage.allOrders);
@@ -8,6 +8,11 @@ angular.module('starter').controller('DashController', function ($scope, $ionicP
       $localStorage.allOrders = orders.data;
       $scope.allOrders = orders.data;
     });
+
+    OrderDetailService.getAllDetails().then(function(orderDetails){
+      $localStorage.orderDetails = orderDetails.data;
+      console.log($localStorage.orderDetails);
+    })
 
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -19,7 +24,6 @@ angular.module('starter').controller('DashController', function ($scope, $ionicP
       StatusBar.styleLightContent();
     }
 
-    $scope.editOptions = StatusService.getOptions();
   });
 
   $scope.$on('$ionicView.enter', function (e) {
@@ -28,6 +32,7 @@ angular.module('starter').controller('DashController', function ($scope, $ionicP
     $scope.gate = true;
   });
 
+  $scope.editOptions = StatusService.getOptions();
 
 
   $scope.showOrder = function(event, order_number) {
@@ -65,7 +70,6 @@ angular.module('starter').controller('DashController', function ($scope, $ionicP
         var order = $scope.allOrders.filter(function (element) {
           return element.id === id
         })[0];
-        console.log('order',order);
         order.cake_status = name;
         statusPopup.close();
         $scope.gate = true;

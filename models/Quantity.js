@@ -1,17 +1,20 @@
 module.exports = function(sequelize, DataTypes) {
 
-  var IcecreamFlavors = sequelize.define("IcecreamFlavors", {
+  var Quantity = sequelize.define("Quantity", {
+
     id: {
+
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
+
     text: DataTypes.STRING
+
   }, {
-    
-    underscored: true,
     timestamps:false,
-    tableName: "icecream_flavors",
+    underscored: true,
+    tableName: "quantity",
     classMethods: {
 /*
       associate: function(models) {
@@ -21,5 +24,5 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  return IcecreamFlavors;
+  return Quantity;
 }; 

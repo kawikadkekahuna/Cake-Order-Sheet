@@ -9,9 +9,7 @@ module.exports = function(sequelize, DataTypes) {
       autoIncrement: true
     },
 
-    text: DataTypes.STRING,
-    checked: DataTypes.BOOLEAN,
-    icon: DataTypes.BOOLEAN
+    text: DataTypes.STRING
 
 
   }, {

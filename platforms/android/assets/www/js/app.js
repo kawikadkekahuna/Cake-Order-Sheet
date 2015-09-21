@@ -1,12 +1,11 @@
 // SERVER ='http://localhost:3000';
-// SERVER = 'http://192.168.29.205:3000';
 SERVER = 'http://192.168.1.117:3000';
 /*Mobile HotSpot IP*/
-// SERVER = 'http://192.168.29.127:3000';
+// SERVER = 'http://192.168.43.172:3000';
 
 angular.module('starter', ['ionic', 'ngStorage', 'ngAnimate','ionic-timepicker','ionic-datepicker','ui.calendar','ui.bootstrap'])
 
-.run(function($ionicPlatform, $ionicHistory, $localStorage, FlavorService, OrderService, CakeService) {
+.run(function($ionicPlatform, $ionicHistory, $localStorage, OrderService) {
   $ionicPlatform.registerBackButtonAction(function(event) {
     event.stopPropagation();
     $ionicHistory.goBack();
@@ -125,6 +124,16 @@ angular.module('starter', ['ionic', 'ngStorage', 'ngAnimate','ionic-timepicker',
       'nav-calendar': {
         templateUrl: 'templates/nav-calendar.html',
         controller: 'CalendarController'
+      }
+    }
+  })
+  
+  .state('nav.order-by-day', {
+    url: '/order-by-day',
+    views: {
+      'nav-calendar': {
+        templateUrl: 'templates/nav-order-by-day.html',
+        controller: 'OrderByDayController'
       }
     }
   });

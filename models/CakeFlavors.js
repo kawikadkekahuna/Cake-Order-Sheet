@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
-    flavor:DataTypes.STRING
+    text:DataTypes.STRING
 
   }, {
     timestamps:false,
